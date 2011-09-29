@@ -7,11 +7,3 @@ the Doc folder contains all of the uncompiled .tex documentation files
 ==============================
 Using git
 
-to push:
-    git push -u origin master
-
-pushing a change:
-    1. make sure you "git add <file1> <file2>....<file n>"
-    2. then "git commit", this will commit it on your machine, not on the server
-    3. it might ask you for the ssh password, type it in and all will be good
-    4. then "git push" to commit it to the master
