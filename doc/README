@@ -1,0 +1,4 @@
+This contains all of the documentation
+
+to compile:
+	(Linux) pdflatex <file>.tex
