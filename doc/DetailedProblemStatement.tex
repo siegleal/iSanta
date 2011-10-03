@@ -1,0 +1,44 @@
+\section{Detailed Problem Statement}
+\subsection{Function}
+\paragraph{} Here we will describe the key functionality of the system. Critical implies that the feature needs to be implemented if the project is to succeed. Features classified as important will improve the app greatly, but are not necessary to solve the problem given to us by the clients and explained above. Features marked helpful are nice to have but will not impact the success of the project.
+\subsection{Key Features}
+\begin{tabular}{| l | p{10cm} | l |}\hline
+Feature No. & Feature Name & Importance \\\hline\hline
+1 & Take a photograph on an iOS device as input. & Critical\\\hline
+2 & Zoom in and out of an input image. & Critical\\\hline
+3 & Add and remove bullet holes on the photograph. & Critical\\\hline
+4 & Analyze the photograph to find extreme spread, mean radius, and circular error probable. & Critical\\\hline
+5 & Save the data with the image. & Critical\\\hline
+6 & Input shooter name, caliber, and gun type prior to testing. & Critical\\\hline
+7 & Export report in an acceptable format. & Critical\\\hline
+8 & Correctly find the bullet holes. & Important\\\hline
+9 & Normalize Image to appear straight. & Helpful\\\hline
+10 & Make the report excel readable. & Helpful\\\hline
+11 & Compare two spreads to determine differences. & Helpful\\\hline
+\end{tabular}
+\subsection{Form}
+\paragraph{} The necessary specifications for analyzing the an image are detailed in the Supplementary Specifications section. These include analyzing an inputed image for bullet holes, being able to correct for image pitch, performing the statistical calculations on the locations of the holes, and allowing for extra test variables to be inputed.
+\subsection{Economy}
+\paragraph{}Currently, the navy collects data on bullets fired from their weapons with an acoustic tracking system. This system can very accurately collect data in real time as the bullets are fired past its microphone sensors. Due to the high cost of these systems, the limited number of these available to the Navy, and the ability of the systems to only record bullets traveling over Mach 1.15, this project will expand these abilities to allow for automated analysis of any test that cannot be currently performed with the acoustic system but can be recorded on a paper target and photographed.
+\subsubsection{Customer Organizational Constraints}
+\paragraph{}Any user that has an iOS device with a suitable camera and an operating system number that is compatible should be able to download the app from the App Store and use it to analyze target. The app should conform to Apple's Human Interface Guidelines and be easy for any user to pick up and use. It should follow standard user interface paradigms for an iOS app. 
+\subsubsection{Development Organizational Constraints}
+\paragraph{} Students from Rose-Hulman Institute of Technology will develop the app. Because we were given an acceptable image recognition algorithm we will first work to make sure it will run effectively on an iOS device. We will make any necessary changes to allow the algorithm to run properly. We will also have to re-imagine the user interface to make it work well on an iOS device. We will focus on iPhones and iPod touches working with an iPad only if we have time.
+\subsection{Context}
+\subsubsection{Historical Context}
+\paragraph{}Before any weapon can be used by the Navy, it must undergo a strict set of tests to test its RAM, because “the loudest sound in the world is a ‘click’ when you expect a bang.” One of the key tests that the Navy performs is analyzing where bullets travel once they have left the barrel of the gun. There are two main ways that these tests are performed: shooting paper targets, and using acoustic targeting systems.\paragraph{}Measuring by hand has posed many problems for the Navy. It is expensive to pay someone an hourly wage to record the target data when it can be automated. It is also difficult for people to manage the size of numerous large cardboard targets. Accuracy may be called into question when the only data points are those measured by hand; mistakes have been known to happen due to the sheer number of points being recorded as quickly as possible.
+\subsubsection{Current Context}
+\paragraph{}Currently, the Navy has a system in place that can record super-sonic munitions traveling past microphones, pinpointing those rounds to within a millimeter in a three dimensional space. This system can only be used on special ranges where this half million dollar equipment is set up, and it can only be used on super-sonic munitions (munitions with speeds above Mach 1.15). This makes this system viable on only a small number of the tests performed by the Navy. In the majority of instances where this is not a viable solution, paper targets are used. People must then measure each hole on a target by hand, plotting the x- and y-coordinate of each point. When these tests are being completed, there are hundreds of targets to record, some as small as a sheet of paper, some as large as a six foot square of cardboard. Each target takes between 5 and 15 minutes to record and causes a backlog in the data recorded, allowing targets to build up until it is nearly unmanageable.
+\paragraph{}Only the acoustic system and recording targets by hand will directly compete with this system. Because of the limited number of acoustic systems and the significant overhead with hand recording targets, this system will have a high potential for use upon completion. The system will allows for all of this data to be captured in a photograph, allowing for faster processing time and making it easier to preserve a digital record of the actual target for future reference.
+\paragraph{}Two years ago another Rose-Hulman team developed a system called SANTA for NSWC Crane that runs on a desktop computer. However, due to increased computer regulations USB devices can no longer be used in Navy issued computers. As a result of this that solution is no longer viable.
+\subsubsection{Future Context}
+\paragraph{}Our solution will build upon the other Rose-Hulman solution. We will utilize as much of their algorithm and conventions as we can. This is to avoid duplicating work and to provide NSWC Crane with a solution that is somewhat familiar to them.
+
+
+
+
+
+
+
+
+

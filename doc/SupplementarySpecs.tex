@@ -1,0 +1,128 @@
+\section{Supplementary Specifications}
+\subsection{Introduction}
+\paragraph{This section collects and organizes those requirements not able to be captured in the use cases developed for the system. These requirements fall into several distinct categories including functions, usability, reliability, performance, and others.}
+\subsection{Functionality}
+\paragraph{}The system must be able to:
+\begin{enumerate}
+	\item Take an image as input.
+	\item Allow the user to zoom in and out.
+	\item Allow the user to add or remove bullet holes.
+	\item Allow the user to select a target paster (a small sticker approximately 1''x1'') on the photograph.
+	\item Record the following data about a target.
+	\begin{enumerate}
+		\item Filename of original image.
+		\item Date target was fired upon in DD-MM-YYYY format.
+		\item Time target was fired upon using a 24-hour clock.
+		\item Last name of shooter.
+		\item First name of shooter.
+		\item Firing range location.
+		\item Distance to target in yards.
+		\item Firing range temperature from the following choices:
+		\begin{enumerate}
+			\item Cold (temperature $<$ 50 degrees)
+			\item Ambient (50 degrees $\le$ temperature $\le$ 95 degrees)(default option)
+			\item Hot (95 degrees $<$ temperature)
+		\end{enumerate}
+		\item Weapon Data
+		\begin{enumerate}
+			\item Weapon nomenclature
+			\item Serial number
+			\item Weapon notes - general area for additional weapon information such as:
+			\begin{enumerate}
+				\item Ancillary equipment used.
+				\item Hot weapon
+				\item Rate of fire
+			\end{enumerate}
+			\item Ammunition Data
+			\begin{enumerate}
+				\item Caliber
+				\item Lot number
+				\item Projectile mass
+				\item Ammunition notes -general area for additional ammunition information such as:
+				\begin{itemize}
+					\item Temperature
+					\item Conditioning
+				\end{itemize}
+			\end{enumerate}
+			\item Total number of shots fired.
+		\end{enumerate}
+		\item Reports generated will include all calculated and input data, as well as a thumbnail of the 				image.
+	\end{enumerate}
+\end{enumerate}
+\subsection{Usability}
+\begin{itemize}
+\item Users should be able to take an image within 3 seconds of inputing the basic test data.
+\item Users familiar with the system should be able input the data listed above in 2 minutes.
+\item New users should be able to use the system after looking at the in app help dialog.
+\item Returning users should be able to use the system without referencing the help dialog.
+\end{itemize}
+\subsection{Reliability}
+\begin{itemize}
+\item Normal operations of the system should not cause errors.
+\end{itemize}
+\subsection{Performance}
+\begin{itemize}
+\item The system must accurately record the locations of the bullet holes with in one millimeter, even when the target color and background color are similar.
+\item The system should compute the statistics for a target within 1\% error of the existing acoustic system for targets which can be analyzed by the acoustic system.
+\item The system should compute statistics for a target within 1\% error of the statistics determined by hand.
+\item The app should inform the user of the maximum angle from the perpendicular to the target plane where an accurate image may be taken.
+\item The processing time should be no longer than 1 minute.
+\end{itemize}
+\subsection{Testability}
+\begin{itemize}
+\item The app will be developed in a development environment separate from the testing and production environments to allow for regression testing to be performed.
+\item Test cases will be built from the use cases and supplementary specifications.
+\item The program must pass all use cases to make the program as bug free as possible.
+\end{itemize}
+\subsection{Supportability}
+\begin{itemize}
+\item There are no specific support requirements, although common coding and commenting practices must be followed.
+\end{itemize}
+\subsection{Design Constraints}
+\begin{itemize}
+\item The app will only run on iOS devices with a operating system version equal to or greater than that of the current version at the time of development (iOS 5)
+\end{itemize}
+\subsection{User Documentation and Help System Requirements}
+\begin{itemize}
+\item A user's manual will be given to the client. It will contain instructions on:
+\begin{itemize}
+	\item How to use the app.
+	\item Performance capabilities of the app
+	\item Any restrictions.
+\end{itemize}
+\item A in app help dialog will also be included to instruct users on the use of the app while in the field.
+\end{itemize}
+\subsection{Interfaces}
+\subsubsection{User Interfaces}
+\begin{itemize}
+\item The user interface will be prototyped at a later date to determine how the user interface should function.
+\item The system should provide options like form-filled drop scroll menus and calendar scroll menus.
+\item The system should require minimal typing.
+\item The system should be built to take advantage of the touch interface.
+\end{itemize}
+\subsubsection{Hardware Interfaces}
+\begin{itemize}
+\item The system must interface with supported iOS devices.
+\end{itemize}
+\subsubsection{Software Interfaces}
+\begin{itemize}
+\item The system must run on iOS 5 and greater.
+\end{itemize}
+\subsubsection{Communication Interfaces}
+\begin{itemize}
+\item The app should be able to email the reports to a selected address.
+\end{itemize}
+\subsection{Localization}
+\begin{itemize}
+\item Only English is required.
+\end{itemize}
+\subsection{Physical Deliverables}
+\paragraph{}The following will be given to the clients at the completion of the project:
+\begin{itemize}
+\item The complete program code on a compact disc with installation instructions.
+\item The user's manual as defined above.
+\end{itemize}
+\subsection{Installation and Deployment}
+\begin{itemize}
+\item The client must be able to download and install the app from Apple's App Store.
+\end{itemize}
