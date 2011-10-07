@@ -17,9 +17,10 @@
 %        \end{enumerate}
 %\end{description}
 
+\newcommand{\myspace}{\vspace{.5cm}}
+
+\subsection{Main Menu / Usage Selection}
 \begin{description}
-    \item[Use Case] \hfill \\
-        Main menu / usage selection
     \item[Description] \hfill \\
         The user will be prompted to select an action, whether to take a new photo or analyze an existing photo.
     \item[Actors] \hfill \\
@@ -43,10 +44,10 @@
     \item[Postconditions]
         N/A
 \end{description}
+\myspace
 
+\subsection{Capture Picture}
 \begin{description}
-    \item[Use Case] \hfill \\
-        Capture picture
     \item[Description] \hfill \\
         The user captures the picture of the target and iSanta will normalize it for bullet hole detection.
     \item[Actors] \hfill \\
@@ -66,14 +67,14 @@
         N/A
     \item[Postconditions]
         \begin{enumerate}
-            \item Bullethole locations are approximated on the target.
+            \item Bullet hole locations are approximated on the target.
             \item User has opportunity to adjust iSanta's estimates.
-        \end{enumerate}
+        \end{enumerate} 
 \end{description}
+\myspace
 
+\subsection{Adjust Bullet Holes}
 \begin{description}
-    \item[Use Case] \hfill \\
-        Adjust bullet hole locations
     \item[Description] \hfill \\
         The user will be able to see where iSanta has predicted bullet holes on the target and will move, add, or subtract bullet holes from the spread.
     \item[Actors] \hfill \\
@@ -118,11 +119,10 @@
             \item All bullet holes are accounted for and are accurately placed.
         \end{enumerate}
 \end{description}
+\myspace
 
-
+\subsection{Display Statistics}
 \begin{description}
-    \item[Use Case] \hfill \\
-        Display statistical results
     \item[Description] \hfill \\
         The system will analyze the spread and display the statistics to the user on screen.  The screen will contain an option to export the results (e-mail, csv file)
     \item[Actors] \hfill \\
