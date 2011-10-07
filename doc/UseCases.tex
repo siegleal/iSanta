@@ -1,3 +1,4 @@
+\section{Use Cases}
 %Template
 
 %\begin{description}
@@ -18,21 +19,48 @@
 
 \begin{description}
     \item[Use Case] \hfill \\
-        Capture picture
+        Main menu / usage selection
     \item[Description] \hfill \\
-        The user captures the picture of the target and iSanta will normalize it for bullethole detection.
+        The user will be prompted to select an action, whether to take a new photo or analyze an existing photo.
     \item[Actors] \hfill \\
         User
     \item[Preconditions] \hfill \\
+            N/A
+    \item[Main Flow] \hfill 
+        \begin{enumerate}
+            \item Main menu is displayed.
+            \item User selects to take a new picture.
+                [Alt Flow 1: User selects to analyze an existing picture]
+            \item User is taken to picture capture screen.
+        \end{enumerate}
+    \item[Alternate Flow] \hfill 
+        \begin{enumerate}
+            \item User selects to analyze an existing picture
+                \begin{enumerate}
+                    \item User is taken to the upload page.
+                \end{enumerate}
+        \end{enumerate}
+    \item[Postconditions]
+        N/A
+\end{description}
+
+\begin{description}
+    \item[Use Case] \hfill \\
+        Capture picture
+    \item[Description] \hfill \\
+        The user captures the picture of the target and iSanta will normalize it for bullet hole detection.
+    \item[Actors] \hfill \\
+        User
+    \item[Preconditions] \hfill 
         \begin{enumerate}
             \item User has a target for analyzing.
         \end{enumerate}
-    \item[Main Flow] \hfill \\
+    \item[Main Flow] \hfill 
         \begin{enumerate}
             \item User takes a picture of the target.
             \item System normalizes the target.
-            \item System approximates bullethole location.
-            \item System displays bullethole adjustment screen to user.
+            \item System approximates bullet hole location.
+            \item System displays bullet hole adjustment screen to user.
         \end{enumerate}
     \item[Alternate Flow] \hfill \\
         N/A
@@ -45,16 +73,79 @@
 
 \begin{description}
     \item[Use Case] \hfill \\
+        Adjust bullet hole locations
     \item[Description] \hfill \\
+        The user will be able to see where iSanta has predicted bullet holes on the target and will move, add, or subtract bullet holes from the spread.
     \item[Actors] \hfill \\
-    \item[Preconditions] \hfill \\
+        User
+    \item[Preconditions] \hfill 
         \begin{enumerate}
+            \item Target has been uploaded.
+            \item Target has been normalized and bullet hole locations have been detected.
+            \item Adjustment screen is currently visible.
         \end{enumerate}
-    \item[Main Flow] \hfill \\
+    \item[Main Flow] \hfill 
         \begin{enumerate}
+            \item Target with bullet hole approximations are presented to the user.
+                [Alt Flow 1: User cancels operation]
+            \item User adjusts bullet hole locations using touch screen 
+                [Alt Flow 2: User adds a bullet hole; 
+                Alt flow 3: User subtracts a bullet hole]
+            \item User submits adjusted target to system for analyzing. 
         \end{enumerate}
-    \item[Alternate Flow] \hfill \\
+    \item[Alternate Flow] \hfill 
+        \begin{enumerate}
+            \item User cancels operation 
+                \begin{enumerate}
+                    \item Return user to main menu. 
+                \end{enumerate}
+            \item User adds a bullet hole
+                \begin{enumerate}
+                    \item Get bullet hole location from user.
+                    \item Add bullet hole to list of locations and display on target.
+                    \item Return to main flow 1.
+                \end{enumerate}
+            \item User subtracts a bullet hole
+                \begin{enumerate}
+                    \item Obtain which hole to remove.
+                    \item Remove hole from target.
+                    \item Return to main flow 1.
+                \end{enumerate}
+        \end{enumerate}
     \item[Postconditions]
         \begin{enumerate}
+            \item List of bullet hole locations are saved for analyzing.
+            \item All bullet holes are accounted for and are accurately placed.
+        \end{enumerate}
+\end{description}
+
+
+\begin{description}
+    \item[Use Case] \hfill \\
+        Display statistical results
+    \item[Description] \hfill \\
+        The system will analyze the spread and display the statistics to the user on screen.  The screen will contain an option to export the results (e-mail, csv file)
+    \item[Actors] \hfill \\
+        User, iOS E-mail
+    \item[Preconditions] \hfill 
+        \begin{enumerate}
+            \item Statistics have been calculated.
+        \end{enumerate}
+    \item[Main Flow] \hfill 
+        \begin{enumerate}
+            \item Display statistics screen to user.
+            \item User selects to export the statistics via e-mail.
+                [Alt Flow 1: User exits program]
+            \item System compiles a readable format to send the files in.
+            \item User is taken to iOS e-mail with the report as the text.
+        \end{enumerate}
+    \item[Alternate Flow] \hfill 
+        \begin{enumerate}
+            \item User exits program.
+            \item Save no information but the picture.
+        \end{enumerate}
+    \item[Postconditions] \hfill
+        \begin{enumerate}
+            \item No report is saved internally.
         \end{enumerate}
 \end{description}
