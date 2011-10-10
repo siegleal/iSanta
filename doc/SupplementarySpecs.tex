@@ -16,7 +16,7 @@
 		\item Last name of shooter.
 		\item First name of shooter.
 		\item Firing range location.
-		\item Distance to target in yards.
+		\item Distance to target in yards (may be adapted to metric as well).
 		\item Firing range temperature from the following choices:
 		\begin{enumerate}
 			\item Cold (temperature $<$ 50 degrees)
@@ -66,7 +66,8 @@
 \item The system should compute the statistics for a target within 1\% error of the existing acoustic system for targets which can be analyzed by the acoustic system.
 \item The system should compute statistics for a target within 1\% error of the statistics determined by hand.
 \item The app should inform the user of the maximum angle from the perpendicular to the target plane where an accurate image may be taken.
-\item The processing time should be no longer than 1 minute.
+    %changing per Chucks request, I assume 30 seconds is a reasonable estimate
+\item The processing time should be no longer than 30 seconds.
 \end{itemize}
 \subsection{Testability}
 \begin{itemize}
@@ -110,7 +111,8 @@
 \end{itemize}
 \subsubsection{Communication Interfaces}
 \begin{itemize}
-\item The app should be able to email the reports to a selected address.
+        %NOTE: this will need to update as we figure out what kind of reports iOS can generate
+\item The app should be able to email the reports in plain text to a selected address.
 \end{itemize}
 \subsection{Localization}
 \begin{itemize}
