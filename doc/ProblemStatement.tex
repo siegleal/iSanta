@@ -1,0 +1,127 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+%\usepackage{t4phonet}
+%\usepackage{yfonts}
+\usepackage{rotating}
+\usepackage{lscape}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\setlength\topmargin{0in}
+\setlength\headheight{0in}
+\setlength\headsep{0in}
+\setlength\parindent{0.25in}
+
+
+
+\usepackage{hyperref}		%Activate for Clickable ToC
+\hypersetup{				%.
+    colorlinks,				%.
+    citecolor=black,			%.
+    filecolor=black,			%.
+    linkcolor=black,			%.
+    urlcolor=black			%.
+}						% End Clickable Toc
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\textsc{\Large Problem Statement}\\[0.5cm]
+% Title
+{ \Huge \bfseries iSANTA}\\[0.4cm]
+
+% Author and supervisor
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Team:}\\
+Jack \textsc{Hall}\\
+Josh \textsc{Dash}\\
+Alex \textsc{Audretsch}\\
+Andrew \textsc{Siegle}\\
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Clients:} \\
+Charles \textsc{Zeller}\\
+David \textsc{Long}\\
+\emph{Project Advisor:}\\
+Shaun \textsc{Bohner}
+\end{flushright}
+\end{minipage}
+\\[1cm]
+% Bottom of the page
+{\large \today}
+
+\begin{center}
+\includegraphics[scale = 4, angle = 0]{Rose-HulmanLogo.png}
+\end{center}
+\textcolor{white}{.}%Lets me insert the vertical space
+\\[3cm]
+%\begin{tabular}{| l | @{\hspace{4cm}}c @{\hspace{4cm}} |}\hline
+%Name & Signature\\\hline
+% 		     & \\[0.005cm]
+%Jack Hall       & \\[0.25cm]\hline
+% 		     & \\[0.005cm]
+%Josh Dash  & \\[0.25cm]\hline
+% 		     & \\[0.005cm]
+%Alex Audretsch   & \\[0.25cm]\hline
+% 		     & \\[0.005cm]
+%Andrew Siegle & \\[0.25cm]\hline
+%\end{tabular}
+
+\end{center}
+
+\end{titlepage}
+
+
+\pagenumbering{Roman}	
+\tableofcontents			%Activate to Add ToC with Correct Page Count
+						%.
+\setcounter{tocdepth}{1}		%.
+%\listoffigures				%.
+%\listoftables				%.
+
+\newpage
+\paragraph{Version Information\\\\} 
+\begin{tabular}{|p{1.5cm}|p{1.5cm}|p{10cm}|} \hline
+Version & Date & Comment \\ \hline
+1.0 & 10-26-11 & Creation of document \\
+
+\hline
+\end{tabular}
+
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+						%Start Text Here...
+						
+\input{ExecutiveSummary.tex}
+\newpage
+\input{Introduction.tex}
+\input{TeamOrganization.tex}
+%\input{Communication.tex}
+%\input{ProcessModel.tex}
+\input{ClientOverview.tex}
+%\input{Risks.tex}
+%\input{ConfigurationManagement.tex}
+\input{Scope.tex}
+\input{DetailedProblemStatement.tex}
+%Add Use Case Section Here
+%\input{UseCases.tex}
+%\input{SupplementarySpecs.tex}
+
+
+\newpage
+\input{References.tex}
+						
+\end{document}
