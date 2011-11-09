@@ -11,6 +11,7 @@
 %\usepackage{yfonts}
 \usepackage{rotating}
 \usepackage{lscape}
+\usepackage{pdfpages}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 \pdfpagewidth 8.5in
 \pdfpageheight 11in
@@ -109,7 +110,12 @@ Version & Date & Comment \\ \hline
 \section{Estimates}
 \section{Risk Management}
 \input{Risks.tex}
+\newpage
 \section{Project Schedule}
+\includegraphics[scale=.8,angle=270,page=1]{ganttchart}
+\newpage
+\noindent
+\includegraphics[scale=.8,angle=270,page=2]{ganttchart}
 \section{Tracking and Control Mechanisms}
 \input{ConfigurationManagement.tex}
 \end{document}
