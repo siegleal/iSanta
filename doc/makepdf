@@ -1,2 +1,0 @@
-latexmk -pdf DesignDocument.tex
-latexmk -c
