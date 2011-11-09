@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		698609E114534406005C0527 /* NewTestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698609E014534406005C0527 /* NewTestTableViewController.m */; };
+		69DCC6191452052700F4F5B2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DCC6181452052700F4F5B2 /* UIKit.framework */; };
+		69DCC61B1452052700F4F5B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DCC61A1452052700F4F5B2 /* Foundation.framework */; };
+		69DCC61D1452052700F4F5B2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DCC61C1452052700F4F5B2 /* CoreGraphics.framework */; };
+		69DCC6231452052700F4F5B2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69DCC6211452052700F4F5B2 /* InfoPlist.strings */; };
+		69DCC6251452052700F4F5B2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCC6241452052700F4F5B2 /* main.m */; };
+		69DCC6291452052700F4F5B2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCC6281452052700F4F5B2 /* AppDelegate.m */; };
+		69DCC62C1452052700F4F5B2 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69DCC62A1452052700F4F5B2 /* MainStoryboard_iPhone.storyboard */; };
+		69DCC62F1452052700F4F5B2 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69DCC62D1452052700F4F5B2 /* MainStoryboard_iPad.storyboard */; };
+		69DCC6321452052700F4F5B2 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCC6311452052700F4F5B2 /* MasterViewController.m */; };
+		69DCC6351452052700F4F5B2 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCC6341452052700F4F5B2 /* DetailViewController.m */; };
+		69DCC63D1452052700F4F5B2 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DCC63C1452052700F4F5B2 /* SenTestingKit.framework */; };
+		69DCC63E1452052700F4F5B2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DCC6181452052700F4F5B2 /* UIKit.framework */; };
+		69DCC63F1452052700F4F5B2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69DCC61A1452052700F4F5B2 /* Foundation.framework */; };
+		69DCC6471452052700F4F5B2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69DCC6451452052700F4F5B2 /* InfoPlist.strings */; };
+		69DCC64A1452052700F4F5B2 /* iSANTATests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DCC6491452052700F4F5B2 /* iSANTATests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		69DCC6401452052700F4F5B2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69DCC60B1452052700F4F5B2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69DCC6131452052700F4F5B2;
+			remoteInfo = iSANTA;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		698609DF14534406005C0527 /* NewTestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTestTableViewController.h; sourceTree = "<group>"; };
+		698609E014534406005C0527 /* NewTestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTestTableViewController.m; sourceTree = "<group>"; };
+		69DCC6141452052700F4F5B2 /* iSANTA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSANTA.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		69DCC6181452052700F4F5B2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		69DCC61A1452052700F4F5B2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		69DCC61C1452052700F4F5B2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		69DCC6201452052700F4F5B2 /* iSANTA-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iSANTA-Info.plist"; sourceTree = "<group>"; };
+		69DCC6221452052700F4F5B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		69DCC6241452052700F4F5B2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		69DCC6261452052700F4F5B2 /* iSANTA-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iSANTA-Prefix.pch"; sourceTree = "<group>"; };
+		69DCC6271452052700F4F5B2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		69DCC6281452052700F4F5B2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		69DCC62B1452052700F4F5B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		69DCC62E1452052700F4F5B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		69DCC6301452052700F4F5B2 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		69DCC6311452052700F4F5B2 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		69DCC6331452052700F4F5B2 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		69DCC6341452052700F4F5B2 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		69DCC63B1452052700F4F5B2 /* iSANTATests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iSANTATests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		69DCC63C1452052700F4F5B2 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		69DCC6441452052700F4F5B2 /* iSANTATests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iSANTATests-Info.plist"; sourceTree = "<group>"; };
+		69DCC6461452052700F4F5B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		69DCC6481452052700F4F5B2 /* iSANTATests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iSANTATests.h; sourceTree = "<group>"; };
+		69DCC6491452052700F4F5B2 /* iSANTATests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iSANTATests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		69DCC6111452052700F4F5B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69DCC6191452052700F4F5B2 /* UIKit.framework in Frameworks */,
+				69DCC61B1452052700F4F5B2 /* Foundation.framework in Frameworks */,
+				69DCC61D1452052700F4F5B2 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69DCC6371452052700F4F5B2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69DCC63D1452052700F4F5B2 /* SenTestingKit.framework in Frameworks */,
+				69DCC63E1452052700F4F5B2 /* UIKit.framework in Frameworks */,
+				69DCC63F1452052700F4F5B2 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		69DCC6091452052700F4F5B2 = {
+			isa = PBXGroup;
+			children = (
+				69DCC61E1452052700F4F5B2 /* iSANTA */,
+				69DCC6421452052700F4F5B2 /* iSANTATests */,
+				69DCC6171452052700F4F5B2 /* Frameworks */,
+				69DCC6151452052700F4F5B2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		69DCC6151452052700F4F5B2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				69DCC6141452052700F4F5B2 /* iSANTA.app */,
+				69DCC63B1452052700F4F5B2 /* iSANTATests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		69DCC6171452052700F4F5B2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				69DCC6181452052700F4F5B2 /* UIKit.framework */,
+				69DCC61A1452052700F4F5B2 /* Foundation.framework */,
+				69DCC61C1452052700F4F5B2 /* CoreGraphics.framework */,
+				69DCC63C1452052700F4F5B2 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		69DCC61E1452052700F4F5B2 /* iSANTA */ = {
+			isa = PBXGroup;
+			children = (
+				69DCC6271452052700F4F5B2 /* AppDelegate.h */,
+				69DCC6281452052700F4F5B2 /* AppDelegate.m */,
+				69DCC62A1452052700F4F5B2 /* MainStoryboard_iPhone.storyboard */,
+				69DCC62D1452052700F4F5B2 /* MainStoryboard_iPad.storyboard */,
+				69DCC6301452052700F4F5B2 /* MasterViewController.h */,
+				69DCC6311452052700F4F5B2 /* MasterViewController.m */,
+				69DCC6331452052700F4F5B2 /* DetailViewController.h */,
+				69DCC6341452052700F4F5B2 /* DetailViewController.m */,
+				698609DF14534406005C0527 /* NewTestTableViewController.h */,
+				698609E014534406005C0527 /* NewTestTableViewController.m */,
+				69DCC61F1452052700F4F5B2 /* Supporting Files */,
+			);
+			path = iSANTA;
+			sourceTree = "<group>";
+		};
+		69DCC61F1452052700F4F5B2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				69DCC6201452052700F4F5B2 /* iSANTA-Info.plist */,
+				69DCC6211452052700F4F5B2 /* InfoPlist.strings */,
+				69DCC6241452052700F4F5B2 /* main.m */,
+				69DCC6261452052700F4F5B2 /* iSANTA-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		69DCC6421452052700F4F5B2 /* iSANTATests */ = {
+			isa = PBXGroup;
+			children = (
+				69DCC6481452052700F4F5B2 /* iSANTATests.h */,
+				69DCC6491452052700F4F5B2 /* iSANTATests.m */,
+				69DCC6431452052700F4F5B2 /* Supporting Files */,
+			);
+			path = iSANTATests;
+			sourceTree = "<group>";
+		};
+		69DCC6431452052700F4F5B2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				69DCC6441452052700F4F5B2 /* iSANTATests-Info.plist */,
+				69DCC6451452052700F4F5B2 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		69DCC6131452052700F4F5B2 /* iSANTA */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69DCC64D1452052700F4F5B2 /* Build configuration list for PBXNativeTarget "iSANTA" */;
+			buildPhases = (
+				69DCC6101452052700F4F5B2 /* Sources */,
+				69DCC6111452052700F4F5B2 /* Frameworks */,
+				69DCC6121452052700F4F5B2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iSANTA;
+			productName = iSANTA;
+			productReference = 69DCC6141452052700F4F5B2 /* iSANTA.app */;
+			productType = "com.apple.product-type.application";
+		};
+		69DCC63A1452052700F4F5B2 /* iSANTATests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69DCC6501452052700F4F5B2 /* Build configuration list for PBXNativeTarget "iSANTATests" */;
+			buildPhases = (
+				69DCC6361452052700F4F5B2 /* Sources */,
+				69DCC6371452052700F4F5B2 /* Frameworks */,
+				69DCC6381452052700F4F5B2 /* Resources */,
+				69DCC6391452052700F4F5B2 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69DCC6411452052700F4F5B2 /* PBXTargetDependency */,
+			);
+			name = iSANTATests;
+			productName = iSANTATests;
+			productReference = 69DCC63B1452052700F4F5B2 /* iSANTATests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		69DCC60B1452052700F4F5B2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 69DCC60E1452052700F4F5B2 /* Build configuration list for PBXProject "iSANTA" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 69DCC6091452052700F4F5B2;
+			productRefGroup = 69DCC6151452052700F4F5B2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				69DCC6131452052700F4F5B2 /* iSANTA */,
+				69DCC63A1452052700F4F5B2 /* iSANTATests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		69DCC6121452052700F4F5B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69DCC6231452052700F4F5B2 /* InfoPlist.strings in Resources */,
+				69DCC62C1452052700F4F5B2 /* MainStoryboard_iPhone.storyboard in Resources */,
+				69DCC62F1452052700F4F5B2 /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69DCC6381452052700F4F5B2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69DCC6471452052700F4F5B2 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		69DCC6391452052700F4F5B2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		69DCC6101452052700F4F5B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69DCC6251452052700F4F5B2 /* main.m in Sources */,
+				69DCC6291452052700F4F5B2 /* AppDelegate.m in Sources */,
+				69DCC6321452052700F4F5B2 /* MasterViewController.m in Sources */,
+				69DCC6351452052700F4F5B2 /* DetailViewController.m in Sources */,
+				698609E114534406005C0527 /* NewTestTableViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69DCC6361452052700F4F5B2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69DCC64A1452052700F4F5B2 /* iSANTATests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		69DCC6411452052700F4F5B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69DCC6131452052700F4F5B2 /* iSANTA */;
+			targetProxy = 69DCC6401452052700F4F5B2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		69DCC6211452052700F4F5B2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69DCC6221452052700F4F5B2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		69DCC62A1452052700F4F5B2 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69DCC62B1452052700F4F5B2 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		69DCC62D1452052700F4F5B2 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69DCC62E1452052700F4F5B2 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		69DCC6451452052700F4F5B2 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69DCC6461452052700F4F5B2 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		69DCC64B1452052700F4F5B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		69DCC64C1452052700F4F5B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		69DCC64E1452052700F4F5B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iSANTA/iSANTA-Prefix.pch";
+				INFOPLIST_FILE = "iSANTA/iSANTA-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		69DCC64F1452052700F4F5B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iSANTA/iSANTA-Prefix.pch";
+				INFOPLIST_FILE = "iSANTA/iSANTA-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		69DCC6511452052700F4F5B2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iSANTA.app/iSANTA";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iSANTA/iSANTA-Prefix.pch";
+				INFOPLIST_FILE = "iSANTATests/iSANTATests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		69DCC6521452052700F4F5B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iSANTA.app/iSANTA";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iSANTA/iSANTA-Prefix.pch";
+				INFOPLIST_FILE = "iSANTATests/iSANTATests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		69DCC60E1452052700F4F5B2 /* Build configuration list for PBXProject "iSANTA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69DCC64B1452052700F4F5B2 /* Debug */,
+				69DCC64C1452052700F4F5B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69DCC64D1452052700F4F5B2 /* Build configuration list for PBXNativeTarget "iSANTA" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69DCC64E1452052700F4F5B2 /* Debug */,
+				69DCC64F1452052700F4F5B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69DCC6501452052700F4F5B2 /* Build configuration list for PBXNativeTarget "iSANTATests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69DCC6511452052700F4F5B2 /* Debug */,
+				69DCC6521452052700F4F5B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 69DCC60B1452052700F4F5B2 /* Project object */;
+}
