@@ -1,0 +1,82 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{geometry}                % See geometry.pdf to learn the layout options. There are lots.
+\geometry{letterpaper}                   % ... or a4paper or a5paper or ... 
+%\geometry{landscape}                % Activate for for rotated page geometry
+%\usepackage[parfill]{parskip}    % Activate to begin paragraphs with an empty line rather than an indent
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{epstopdf}
+%\usepackage{t4phonet}
+%\usepackage{yfonts}
+%\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\setlength\topmargin{0in}
+\setlength\headheight{0in}
+\setlength\headsep{0in}
+\setlength\parindent{0.25in}
+
+\usepackage{hyperref}		%Activate for Clickable ToC
+\hypersetup{				%.
+    colorlinks,				%.
+    citecolor=black,			%.
+    filecolor=black,			%.
+    linkcolor=black,			%.
+    urlcolor=black			%.
+}						% End Clickable Toc
+
+%\title{}
+%\author{}
+%\date{}                                           % Activate to display a given date or no date
+
+\begin{document}
+%\maketitle
+
+%\tableofcontents			%Activate to Add ToC with Correct Page Count
+%\thispagestyle{empty}		%.
+%\pagenumbering{arabic}	%.
+%\setcounter{tocdepth}{4}	%.
+%\listoffigures				%.
+%\listoftables				%.
+%\newpage					%.
+%\setcounter{page}{1}			%. End ToC with Correct Page Count
+
+						%Start Text Here...
+\section*{\huge{Feature Confidence Rating Chart}}
+\paragraph{}In this document we will list all of the key features of the application, give a brief description and a rating based on how confident we are that we will be able to complete the feature. The confidence ratings will be from 0 to 10 where 10 is extremely confident and 0 is no confidence.
+\begin{center}
+\begin{tabular}{| p{4cm} | p{9cm} | p{2cm} |}\hline
+\textbf{Feature Name} & \textbf{Feature Description} & \textbf{Confidence Rating}\\\hline\hline
+Display a List of Stored Reports & Displays a scrollable list of reports that have been created on the device. & 9\\\hline
+Display the details of a Stored Report & Give a detail view showing all of the details about a report and allow for editing. & 8\\\hline
+Perform Statistical Calculations on Spread Data & Take the points corresponding to the bullet holes in a target and perform the required calculations to use in the report. & 9\\\hline
+Email a report from the device & Send the generated report to an email address. & 9\\\hline
+Generate a Report that Excel can open & The report sent from the device is accepted by Excel directly & 6\\\hline
+Generate a Report that has a nice format & The report generated on and sent from the device is well formatted & 6\\\hline
+Display Statistical Results & There will be a way to view the statistical results on the device before sending it through email. & 7\\\hline
+Take a Photo within 3 seconds & Allow the user to take or select a photo within 3 seconds of opening the app. & 9\\\hline
+Normalize the image on device & Process the image to normalize it and correct for any angle in how the photograph was taken. & 6\\\hline
+Use image recognition on target & Process the image to find as many holes in the target as possible in a reasonable time. These will be a guess and can be corrected by the user. & 5\\\hline
+Allow the user to Edit points & The user can edit the points that are placed over the holes in an image. & 7\\\hline
+Allow the user to Add points & The user can add points over the holes in an image. & 7\\\hline
+Allow the user to Remove points & The user can remove points that are placed over the holes in an image. & 7\\\hline
+User can input text data & The user can input text data for appropriate fields on the new test screen. & 9\\\hline
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{| p{4cm} | p{9cm} | p{2cm} |}\hline
+\textbf{Feature Name} & \textbf{Feature Description} & \textbf{Confidence Rating}\\\hline\hline
+User can select fixed data & The user can select data from a scroll wheel for fields that have fixed values. & 9\\\hline
+Compare multiple spreads & Allow the user to select and compare at least 2 spreads against one another. & 8\\\hline
+Display statistical results on device & The statistical results of a test can be viewed on the device before being sent in an email. & 7 \\\hline
+\hline
+\end{tabular}
+\end{center}
+
+
+
+
+\end{document}  

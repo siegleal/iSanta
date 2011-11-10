@@ -11,6 +11,7 @@
 %\usepackage{yfonts}
 \usepackage{rotating}
 \usepackage{lscape}
+\usepackage{pdfpages}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
 \pdfpagewidth 8.5in
 \pdfpageheight 11in
@@ -34,7 +35,7 @@
 
 \begin{titlepage}
 \begin{center}
-\textsc{\Large Problem Statement}\\[0.5cm]
+\textsc{\Large Project Plan}\\[0.5cm]
 % Title
 { \Huge \bfseries iSANTA}\\[0.4cm]
 
@@ -94,7 +95,7 @@ Shaun \textsc{Bohner}
 \paragraph{Version Information\\\\} 
 \begin{tabular}{|p{1.5cm}|p{1.5cm}|p{10cm}|} \hline
 Version & Date & Comment \\ \hline
-1.0 & 10-26-11 & Creation of document \\
+1.0 & 11-08-11 & Initial Draft. \\
 
 \hline
 \end{tabular}
@@ -104,29 +105,17 @@ Version & Date & Comment \\ \hline
 \setcounter{page}{1}
 
 						%Start Text Here...
-\section{Executive Summary}						
-\input{ExecutiveSummary.tex}
-\newpage
 \section{Introduction}
-\input{Introduction.tex}
-\section{Team Organization Structure}
-\input{TeamOrganization.tex}
-%\input{Communication.tex}
-%\input{ProcessModel.tex}
-\section{Client Overview}
-\input{ClientOverview.tex}
-%\input{Risks.tex}
-%\input{ConfigurationManagement.tex}
-\section{Scope}
-\input{Scope.tex}
-\section{Detailed Problem Statement}
-\input{DetailedProblemStatement.tex}
-%Add Use Case Section Here
-%\input{UseCases.tex}
-%\input{SupplementarySpecs.tex}
-
-
+\input{PlanIntro.tex}
+\section{Estimates}
+\section{Risk Management}
+\input{Risks.tex}
 \newpage
-\input{References.tex}
-						
+\section{Project Schedule}
+\includegraphics[scale=.8,angle=270,page=1]{ganttchart}
+\newpage
+\noindent
+\includegraphics[scale=.8,angle=270,page=2]{ganttchart}
+\section{Tracking and Control Mechanisms}
+\input{ConfigurationManagement.tex}
 \end{document}
