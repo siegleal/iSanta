@@ -7,8 +7,6 @@
 \usepackage{graphicx}
 \usepackage{amssymb}
 \usepackage{epstopdf}
-%\usepackage{t4phonet}
-%\usepackage{yfonts}
 \usepackage{rotating}
 \usepackage{lscape}
 \DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
@@ -19,8 +17,8 @@
 \setlength\headsep{0in}
 \setlength\parindent{0.25in}
 
-
-
+\usepackage{movie15}
+%\usepackage{multimedia}
 \usepackage{hyperref}		%Activate for Clickable ToC
 \hypersetup{				%.
     colorlinks,				%.
@@ -87,7 +85,7 @@ Shaun \textsc{Bohner}
 \tableofcontents			%Activate to Add ToC with Correct Page Count
 						%.
 \setcounter{tocdepth}{1}		%.
-%\listoffigures				%.
+\listoffigures				%.
 %\listoftables				%.
 
 \newpage
@@ -97,6 +95,7 @@ Shaun \textsc{Bohner}
 						%Start Text Here...
 
 \section{Introduction}
+\input{ArchIntro.tex}
 \section{Background}
 \input{Introduction.tex}
 \section{Functional Requirements}
@@ -104,9 +103,12 @@ Shaun \textsc{Bohner}
 \subsection{Use Cases}
 \input{UseCases.tex}
 \section{Quality Attributes}
+\input{QualityAttributes.tex}
 \section{Patterns and Tactics}
+\input{PatternsAndTactics.tex}
 \section{Views}
-\section{Framework}
+\input{Views.tex}
 
 
 
+\end{document}
