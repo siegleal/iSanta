@@ -14,7 +14,7 @@
 @synthesize targetImage;
 @synthesize selectedIndexPath;
 @synthesize arrayTemps;
-@synthesize tempPickerViewController;
+@synthesize tempPicker;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -117,10 +117,10 @@
         {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         }
-        /*else if(indexPath.section == 1 && indexPath.row >= 2 && indexPath.row <= 3)
+        else if(indexPath.section == 1 && indexPath.row >= 2 && indexPath.row <= 3)
         {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        }*/
+        }
         else
         {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
@@ -185,10 +185,56 @@
     return cell;
 }
 
+/*
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+*/
+
+/*
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }   
+    else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
+}
+*/
+
+/*
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
+{
+}
+*/
+
+/*
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     */
     selectedIndexPath = indexPath;
     
     if(indexPath.section == 0)
@@ -200,12 +246,8 @@
     }
     else if(indexPath.section == 1 && indexPath.row == 3)
     {
-        tempPickerViewController = [[PickerViewController alloc] initWithItemArray:arrayTemps tableView:self.tableView indexPath:indexPath];
-        [UIView animateWithDuration:0.3 animations:^{
-            tempPickerViewController.view.center = CGPointMake(160, tempPickerViewController.view.bounds.size.height);
-            [self.view addSubview:tempPickerViewController.view];
-            tempPickerViewController.view.center = CGPointMake(160, (tempPickerViewController.view.bounds.size.height/4)+72);
-        }];
+        tempPicker = [[UIPickerView alloc] init];
+//        [self presentModalViewController:tempPicker animated:YES];
     }
     else if(indexPath.section == 2 && indexPath.row >= 2 && indexPath.row <= 3)
     {
@@ -246,6 +288,29 @@
         [[self.tableView cellForRowAtIndexPath:selectedIndexPath].detailTextLabel setText:[alertView textFieldAtIndex:0].text];
         [self.tableView reloadData];
     }
+}
+         
+#pragma mark - Picker View Delegate call backs
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)thePickerView 
+{             
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)thePickerView numberOfRowsInComponent:(NSInteger)component 
+{             
+             return [arrayTemps count];
+}
+         
+- (NSString *)pickerView:(UIPickerView *)thePickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component 
+{
+    return [arrayTemps objectAtIndex:row];
+}
+         
+- (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component 
+{    
+    [[self.tableView cellForRowAtIndexPath:selectedIndexPath].detailTextLabel setText:[arrayTemps objectAtIndex:row]];
+    [self.tableView reloadData];
 }
 
 @end
