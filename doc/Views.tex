@@ -27,8 +27,12 @@
 \begin{figure}[H!htb]
 \includegraphics[width=3in]{ScreenShots111011/MainPage.png}
 \includegraphics[width=3in]{ScreenShots111011/MainPageEdit.png}
+\begin{minipage}{0.5\linewidth}
 \caption{This is the view controlled by the Master View Controller in its normal mode.}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
 \caption{This is the view controlled by the Master View Controller when it is in editing mode.}
+\end{minipage}
 \end{figure}
 
 \newpage
@@ -36,8 +40,12 @@
 \begin{figure}[H!htb]
 \includegraphics[width=3in]{ScreenShots111011/NewTest.png}
 \includegraphics[width=3in]{ScreenShots111011/NewTestPhoto.png}
+\begin{minipage}{0.5\linewidth}
 \caption{This is the view controlled by the New Test View Controller without a picture associated with the test.}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
 \caption{This is the view controlled by the New Test View Controller with a picture associated with the test.}
+\end{minipage}
 \end{figure}
 
 \newpage
@@ -45,8 +53,12 @@
 \begin{figure}[H!htb]
 \includegraphics[width=3in]{ScreenShots111011/TakePhoto.png}
 \includegraphics[width=3in]{ScreenShots111011/RetakePhoto.png}
+\begin{minipage}{0.5\linewidth}
 \caption{This is the camera screen, which is native to the device, before an initial image it taken.}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
 \caption{This is the camera screen, which is native to the device, when the retake/use image option is presented}
+\end{minipage}
 \end{figure}
 
 \newpage
@@ -55,7 +67,7 @@
 \begin{figure}[H!htb]
 \centering
 \includemovie[text=(Click to Load Video...),mouse=true,controls,url]{1.0\textwidth}{0.6\textwidth}{http://www.halldjack.com/storage/iSANTAFirstUserInterfacePrototype.mp4}
-\caption{The video will only play if you are viewing this document in Acrobat Reader or another pdf viewer that supports multimedia playback. You can also view this video \href{http://youtu.be/dN2K_zHrJ9M}{Here}}
+\caption{The video will only play if you are viewing this document in Acrobat Reader or another pdf viewer that supports multimedia playback. You can also view this video \href{http://youtu.be/dN2K_zHrJ9M}{\color{blue}Here}}
 \end{figure}
 
 %\newpage
@@ -63,4 +75,9 @@
 \paragraph{} This will include a brief description on how the different pieces of the architecture will be tied together.
 \paragraph{} First because we are using the Model, View, Controller paradigm every view will have a view controller. These view controllers will handle all of the functional logic for the view. These views will pass control along with any necessary information between each other as the user changes views. This is helpful because each view becomes very modular and can be moved around and reused very easily.
 \paragraph{} The view controllers will be backed up by a few engines where they are needed. The engines are designed to hide some of the complex algorithms from the view controllers. Anywhere that we do complex tasks, such as normalizing an image, we will move the logic in to an engine. This helps to simplify the view controller code along with giving us an easier way to be able to test these algorithms.
-\paragraph{} By using these tactics we are going to have a very modular system that will be easy to expand and easy to track bugs down in. This should help speed up development.  
+\paragraph{} By using these tactics we are going to have a very modular system that will be easy to expand and easy to track bugs down in. This should help speed up development.
+\paragraph{} Because storing Tests is a key feature we have put a lot of research in to determining which of the methods available in iOS development is the most advantageous for our application. We have decided to use Core Data which is a built in SQLlite-esque database. It does not have many of the features of a Database Management system. However it does allow us to use relations and multiple entities as well as export a test as an xml object which will aide our conversion to a report that is printable from a computer.
+\begin{figure}[H!htb]
+\includegraphics[width=5in]{CoreDataModel.png}
+\caption{This is a depiction of our Core Data Model. It shows the entities, their relations, and the attributes of each entity.}
+\end{figure}
