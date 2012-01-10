@@ -289,6 +289,12 @@
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
     [newManagedObject setValue:[NSDate date] forKey:@"date_Time"];
     
+    NSManagedObject *shooterObject = [NSEntityDescription insertNewObjectForEntityForName:@"Shooter_Information" inManagedObjectContext:context];
+    [shooterObject setValue:[NSString stringWithString:@"John"] forKey:@"first_Name"];
+    [shooterObject setValue:[NSString stringWithString:@"Doe"] forKey:@"last_Name"];
+    
+    [newManagedObject setValue:shooterObject forKey:@"test_Shooter"];
+    
     // Save the context.
     NSError *error = nil;
     if (![context save:&error]) {

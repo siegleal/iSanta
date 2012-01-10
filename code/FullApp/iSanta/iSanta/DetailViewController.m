@@ -18,6 +18,7 @@
 @synthesize detailItem = _detailItem;
 @synthesize detailDescriptionLabel = _detailDescriptionLabel;
 @synthesize masterPopoverController = _masterPopoverController;
+@synthesize detailDescriptionTable = _detailDescriptionTable;
 
 #pragma mark - Managing the detail item
 
@@ -41,6 +42,7 @@
 
     if (self.detailItem) {
         self.detailDescriptionLabel.text = [self.detailItem description];
+        [self.detailDescriptionTable reloadData];
     }
 }
 
@@ -94,6 +96,198 @@
     } else {
         return YES;
     }
+}
+
+#pragma mark - Table View Data Source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    NSInteger count = 5;
+    return count;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return NO;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+    }
+    
+    switch (indexPath.section) {
+        case 0:
+            [cell.imageView setImage:[[UIImage alloc] initWithData:
+                                    [self.detailItem valueForKeyPath:@"test_Photo.image"]]];
+            [cell.textLabel setText:@"Photo"];
+            [cell.detailTextLabel setText:@""];
+            break;
+        case 1:
+            switch (indexPath.row) {
+                case 0:
+                    [cell.textLabel setText:@"First Name"];
+                    [cell.detailTextLabel setText:[[self.detailItem 
+                                                   valueForKeyPath:@"test_Shooter.first_Name"]
+                                                   description]];
+                    break;
+                case 1:
+                    [cell.textLabel setText:@"Last Name"];
+                    [cell.detailTextLabel setText:[[self.detailItem 
+                                                   valueForKeyPath:@"test_Shooter.last_Name"]
+                                                   description]];
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 2:
+            switch (indexPath.row) {
+                case 0:
+                    [cell.textLabel setText:@"Firing Range"];
+                    [cell.detailTextLabel setText:[[self.detailItem 
+                                                   valueForKeyPath:@"test_Range.firing_Range"]
+                                                   description]];
+                    break;
+                case 1:
+                    [cell.textLabel setText:@"Distance to Target"];
+                    [cell.detailTextLabel setText:[[self.detailItem 
+                                                   valueForKeyPath:@"test_Range.distance_To_Target"]
+                                                   description]];
+                    break;
+                case 2:
+                    [cell.textLabel setText:@"Range Temperature"];
+                    [cell.detailTextLabel setText:[[self.detailItem valueForKeyPath:
+                                                   @"test_Range.test_Range.range_Temperature"]
+                                                   description]];
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 3:
+            switch (indexPath.row) {
+                case 0:
+                    [cell.textLabel setText:@"Serial Number"];
+                    [cell.detailTextLabel setText:[[self.detailItem 
+                                                   valueForKeyPath:@"test_Weapon.serial_Number"]
+                                                   description]];
+                    break;
+                case 1:
+                    [cell.textLabel setText:@"Weapon Nomenclature"];
+                    [cell.detailTextLabel setText:[[self.detailItem valueForKeyPath:
+                                                   @"test_Weapon.weapon_Nomenclature"]
+                                                   description]];
+                    break;
+                case 2:
+                    [cell.textLabel setText:@"Notes"];
+                    [cell.detailTextLabel setText:[[self.detailItem 
+                                                   valueForKeyPath:@"test_Weapon.weapon_Notes"]
+                                                   description]];
+                    break;
+                default:
+                    break;
+            }
+            break;
+        case 4:
+            switch (indexPath.row) {
+                case 0:
+                    [cell.textLabel setText:@"Caliber"];
+                    [cell.detailTextLabel setText:[[self.detailItem 
+                                                   valueForKeyPath:@"test_Ammunition.caliber"]
+                                                   description]];
+                    break;
+                case 1:
+                    [cell.textLabel setText:@"Lot Number"];
+                    [cell.detailTextLabel setText:[[self.detailItem 
+                                                   valueForKeyPath:@"test_Ammunition.lot_Number"]
+                                                   description]];
+                    break;
+                case 2:
+                    [cell.textLabel setText:@"Number of Shots Fired"];
+                    [cell.detailTextLabel setText:[[self.detailItem valueForKeyPath:
+                                                   @"test_Ammunition.number_Of_Shots"]
+                                                   description]];
+                    break;
+                case 3:
+                    [cell.textLabel setText:@"Projectile Mass"];
+                    [cell.detailTextLabel setText:[[self.detailItem valueForKeyPath:
+                                                   @"test_Ammunition.projectile_Mass"]
+                                                   description]];
+                    break;
+                case 4:
+                    [cell.textLabel setText:@"Notes"];
+                    [cell.detailTextLabel setText:[[self.detailItem valueForKeyPath:
+                                                   @"test_Ammunition.ammunition_Notes"]
+                                                   description]];
+                    break;
+                default:
+                    break;
+            }
+            break;
+        default:
+            break;
+    }
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:
+            return 1;
+            break;
+        case 1:
+            return 2;
+            break;
+        case 2:
+            return 3;
+            break;
+        case 3:
+            return 3;
+            break;
+        case 4:
+            return 5;
+            break;
+        default:
+            return 0;
+            break;
+    }
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:
+            return @"Target Photo";
+            break;
+        case 1:
+            return @"Shooter Information";
+            break;
+        case 2:
+            return @"Range Information";
+            break;
+        case 3:
+            return @"Weapon Information";
+            break;
+        case 4:
+            return @"Ammunition Information";
+            break;
+        default:
+            return nil;
+            break;
+    }
+
 }
 
 #pragma mark - Split view

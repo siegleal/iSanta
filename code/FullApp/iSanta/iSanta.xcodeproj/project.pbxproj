@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		696D0E6614BB8732003EFE82 /* Ammunition_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E6514BB8732003EFE82 /* Ammunition_Information.m */; };
+		696D0E6A14BB8753003EFE82 /* Test_Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E6914BB8753003EFE82 /* Test_Report.m */; };
+		696D0E6D14BB876F003EFE82 /* Photo_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E6C14BB876F003EFE82 /* Photo_Information.m */; };
+		696D0E7014BB8770003EFE82 /* Shooter_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E6F14BB8770003EFE82 /* Shooter_Information.m */; };
+		696D0E7314BB8770003EFE82 /* Weapon_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E7214BB8770003EFE82 /* Weapon_Information.m */; };
+		696D0E7614BB8770003EFE82 /* iSanta_Point.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E7514BB8770003EFE82 /* iSanta_Point.m */; };
+		696D0E7914BB8770003EFE82 /* Range_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E7814BB8770003EFE82 /* Range_Information.m */; };
 		69B94D7A1499403400F0C847 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B94D791499403400F0C847 /* UIKit.framework */; };
 		69B94D7C1499403400F0C847 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B94D7B1499403400F0C847 /* Foundation.framework */; };
 		69B94D7E1499403400F0C847 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B94D7D1499403400F0C847 /* CoreGraphics.framework */; };
@@ -38,6 +45,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		696D0E6414BB8732003EFE82 /* Ammunition_Information.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ammunition_Information.h; sourceTree = "<group>"; };
+		696D0E6514BB8732003EFE82 /* Ammunition_Information.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ammunition_Information.m; sourceTree = "<group>"; };
+		696D0E6814BB8753003EFE82 /* Test_Report.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_Report.h; sourceTree = "<group>"; };
+		696D0E6914BB8753003EFE82 /* Test_Report.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_Report.m; sourceTree = "<group>"; };
+		696D0E6B14BB876F003EFE82 /* Photo_Information.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo_Information.h; sourceTree = "<group>"; };
+		696D0E6C14BB876F003EFE82 /* Photo_Information.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo_Information.m; sourceTree = "<group>"; };
+		696D0E6E14BB8770003EFE82 /* Shooter_Information.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shooter_Information.h; sourceTree = "<group>"; };
+		696D0E6F14BB8770003EFE82 /* Shooter_Information.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shooter_Information.m; sourceTree = "<group>"; };
+		696D0E7114BB8770003EFE82 /* Weapon_Information.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weapon_Information.h; sourceTree = "<group>"; };
+		696D0E7214BB8770003EFE82 /* Weapon_Information.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weapon_Information.m; sourceTree = "<group>"; };
+		696D0E7414BB8770003EFE82 /* iSanta_Point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iSanta_Point.h; sourceTree = "<group>"; };
+		696D0E7514BB8770003EFE82 /* iSanta_Point.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iSanta_Point.m; sourceTree = "<group>"; };
+		696D0E7714BB8770003EFE82 /* Range_Information.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Range_Information.h; sourceTree = "<group>"; };
+		696D0E7814BB8770003EFE82 /* Range_Information.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Range_Information.m; sourceTree = "<group>"; };
 		69B94D751499403400F0C847 /* iSanta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSanta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B94D791499403400F0C847 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		69B94D7B1499403400F0C847 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -90,6 +111,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		696D0E7A14BB8789003EFE82 /* CoreData Classes */ = {
+			isa = PBXGroup;
+			children = (
+				696D0E7714BB8770003EFE82 /* Range_Information.h */,
+				696D0E7814BB8770003EFE82 /* Range_Information.m */,
+				696D0E7414BB8770003EFE82 /* iSanta_Point.h */,
+				696D0E7514BB8770003EFE82 /* iSanta_Point.m */,
+				696D0E7114BB8770003EFE82 /* Weapon_Information.h */,
+				696D0E7214BB8770003EFE82 /* Weapon_Information.m */,
+				696D0E6E14BB8770003EFE82 /* Shooter_Information.h */,
+				696D0E6F14BB8770003EFE82 /* Shooter_Information.m */,
+				696D0E6B14BB876F003EFE82 /* Photo_Information.h */,
+				696D0E6C14BB876F003EFE82 /* Photo_Information.m */,
+				696D0E6814BB8753003EFE82 /* Test_Report.h */,
+				696D0E6914BB8753003EFE82 /* Test_Report.m */,
+				696D0E6414BB8732003EFE82 /* Ammunition_Information.h */,
+				696D0E6514BB8732003EFE82 /* Ammunition_Information.m */,
+			);
+			name = "CoreData Classes";
+			sourceTree = "<group>";
+		};
 		69B94D6A1499403400F0C847 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +175,7 @@
 				69B94D991499403500F0C847 /* DetailViewController.h */,
 				69B94D9A1499403500F0C847 /* DetailViewController.m */,
 				69B94D931499403500F0C847 /* iSanta.xcdatamodeld */,
+				696D0E7A14BB8789003EFE82 /* CoreData Classes */,
 				69B94D821499403400F0C847 /* Supporting Files */,
 			);
 			path = iSanta;
@@ -280,6 +323,13 @@
 				69B94D951499403500F0C847 /* iSanta.xcdatamodeld in Sources */,
 				69B94D981499403500F0C847 /* MasterViewController.m in Sources */,
 				69B94D9B1499403500F0C847 /* DetailViewController.m in Sources */,
+				696D0E6614BB8732003EFE82 /* Ammunition_Information.m in Sources */,
+				696D0E6A14BB8753003EFE82 /* Test_Report.m in Sources */,
+				696D0E6D14BB876F003EFE82 /* Photo_Information.m in Sources */,
+				696D0E7014BB8770003EFE82 /* Shooter_Information.m in Sources */,
+				696D0E7314BB8770003EFE82 /* Weapon_Information.m in Sources */,
+				696D0E7614BB8770003EFE82 /* iSanta_Point.m in Sources */,
+				696D0E7914BB8770003EFE82 /* Range_Information.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +509,7 @@
 				69B94DB61499403500F0C847 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		69B94DB71499403500F0C847 /* Build configuration list for PBXNativeTarget "iSantaTests" */ = {
 			isa = XCConfigurationList;
@@ -467,6 +518,7 @@
 				69B94DB91499403500F0C847 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
