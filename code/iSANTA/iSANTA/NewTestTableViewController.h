@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "MasterViewController.h"
+#import "PickerViewController.h"
 
-@interface NewTestTableViewController :  UITableViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate, UIAlertViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
+@interface NewTestTableViewController :  UITableViewController <UINavigationControllerDelegate,UIImagePickerControllerDelegate, UIAlertViewDelegate>
 
 @property (retain, nonatomic) UIImage *targetImage;
 @property (retain, nonatomic) NSIndexPath *selectedIndexPath;
 @property (retain, nonatomic) NSMutableArray *arrayTemps;
-@property (retain, nonatomic) UIPickerView *tempPicker;
+@property (retain, nonatomic) PickerViewController *tempPickerViewController;
 
 -(IBAction)dismissNewTestModalView:(id)sender;
 

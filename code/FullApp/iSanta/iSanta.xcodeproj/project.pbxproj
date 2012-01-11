@@ -1,0 +1,553 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6928A1ED14BC91FD000E639E /* NewTestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6928A1EB14BC91FD000E639E /* NewTestViewController.m */; };
+		6928A1EE14BC91FD000E639E /* NewTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6928A1EC14BC91FD000E639E /* NewTestViewController.xib */; };
+		6928A1FD14BD161C000E639E /* Logo.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 6928A1FC14BD161C000E639E /* Logo.JPG */; };
+		696D0E6614BB8732003EFE82 /* Ammunition_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E6514BB8732003EFE82 /* Ammunition_Information.m */; };
+		696D0E6A14BB8753003EFE82 /* Test_Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E6914BB8753003EFE82 /* Test_Report.m */; };
+		696D0E6D14BB876F003EFE82 /* Photo_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E6C14BB876F003EFE82 /* Photo_Information.m */; };
+		696D0E7014BB8770003EFE82 /* Shooter_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E6F14BB8770003EFE82 /* Shooter_Information.m */; };
+		696D0E7314BB8770003EFE82 /* Weapon_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E7214BB8770003EFE82 /* Weapon_Information.m */; };
+		696D0E7614BB8770003EFE82 /* iSanta_Point.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E7514BB8770003EFE82 /* iSanta_Point.m */; };
+		696D0E7914BB8770003EFE82 /* Range_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E7814BB8770003EFE82 /* Range_Information.m */; };
+		69B94D7A1499403400F0C847 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B94D791499403400F0C847 /* UIKit.framework */; };
+		69B94D7C1499403400F0C847 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B94D7B1499403400F0C847 /* Foundation.framework */; };
+		69B94D7E1499403400F0C847 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B94D7D1499403400F0C847 /* CoreGraphics.framework */; };
+		69B94D801499403400F0C847 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B94D7F1499403400F0C847 /* CoreData.framework */; };
+		69B94D861499403400F0C847 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69B94D841499403400F0C847 /* InfoPlist.strings */; };
+		69B94D881499403400F0C847 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B94D871499403400F0C847 /* main.m */; };
+		69B94D8C1499403400F0C847 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B94D8B1499403400F0C847 /* AppDelegate.m */; };
+		69B94D8F1499403500F0C847 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B94D8D1499403500F0C847 /* MainStoryboard_iPhone.storyboard */; };
+		69B94D921499403500F0C847 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B94D901499403500F0C847 /* MainStoryboard_iPad.storyboard */; };
+		69B94D951499403500F0C847 /* iSanta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 69B94D931499403500F0C847 /* iSanta.xcdatamodeld */; };
+		69B94D981499403500F0C847 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B94D971499403500F0C847 /* MasterViewController.m */; };
+		69B94D9B1499403500F0C847 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B94D9A1499403500F0C847 /* DetailViewController.m */; };
+		69B94DA31499403500F0C847 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B94DA21499403500F0C847 /* SenTestingKit.framework */; };
+		69B94DA41499403500F0C847 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B94D791499403400F0C847 /* UIKit.framework */; };
+		69B94DA51499403500F0C847 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B94D7B1499403400F0C847 /* Foundation.framework */; };
+		69B94DA61499403500F0C847 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B94D7F1499403400F0C847 /* CoreData.framework */; };
+		69B94DAE1499403500F0C847 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69B94DAC1499403500F0C847 /* InfoPlist.strings */; };
+		69B94DB11499403500F0C847 /* iSantaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B94DB01499403500F0C847 /* iSantaTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		69B94DA71499403500F0C847 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 69B94D6C1499403400F0C847 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 69B94D741499403400F0C847;
+			remoteInfo = iSanta;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6928A1EA14BC91FD000E639E /* NewTestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewTestViewController.h; sourceTree = "<group>"; };
+		6928A1EB14BC91FD000E639E /* NewTestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewTestViewController.m; sourceTree = "<group>"; };
+		6928A1EC14BC91FD000E639E /* NewTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewTestViewController.xib; sourceTree = "<group>"; };
+		6928A1FC14BD161C000E639E /* Logo.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo.JPG; sourceTree = "<group>"; };
+		696D0E6414BB8732003EFE82 /* Ammunition_Information.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ammunition_Information.h; sourceTree = "<group>"; };
+		696D0E6514BB8732003EFE82 /* Ammunition_Information.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ammunition_Information.m; sourceTree = "<group>"; };
+		696D0E6814BB8753003EFE82 /* Test_Report.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_Report.h; sourceTree = "<group>"; };
+		696D0E6914BB8753003EFE82 /* Test_Report.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test_Report.m; sourceTree = "<group>"; };
+		696D0E6B14BB876F003EFE82 /* Photo_Information.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo_Information.h; sourceTree = "<group>"; };
+		696D0E6C14BB876F003EFE82 /* Photo_Information.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo_Information.m; sourceTree = "<group>"; };
+		696D0E6E14BB8770003EFE82 /* Shooter_Information.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shooter_Information.h; sourceTree = "<group>"; };
+		696D0E6F14BB8770003EFE82 /* Shooter_Information.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shooter_Information.m; sourceTree = "<group>"; };
+		696D0E7114BB8770003EFE82 /* Weapon_Information.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weapon_Information.h; sourceTree = "<group>"; };
+		696D0E7214BB8770003EFE82 /* Weapon_Information.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weapon_Information.m; sourceTree = "<group>"; };
+		696D0E7414BB8770003EFE82 /* iSanta_Point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iSanta_Point.h; sourceTree = "<group>"; };
+		696D0E7514BB8770003EFE82 /* iSanta_Point.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iSanta_Point.m; sourceTree = "<group>"; };
+		696D0E7714BB8770003EFE82 /* Range_Information.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Range_Information.h; sourceTree = "<group>"; };
+		696D0E7814BB8770003EFE82 /* Range_Information.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Range_Information.m; sourceTree = "<group>"; };
+		69B94D751499403400F0C847 /* iSanta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSanta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		69B94D791499403400F0C847 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		69B94D7B1499403400F0C847 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		69B94D7D1499403400F0C847 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		69B94D7F1499403400F0C847 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		69B94D831499403400F0C847 /* iSanta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iSanta-Info.plist"; sourceTree = "<group>"; };
+		69B94D851499403400F0C847 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		69B94D871499403400F0C847 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		69B94D891499403400F0C847 /* iSanta-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iSanta-Prefix.pch"; sourceTree = "<group>"; };
+		69B94D8A1499403400F0C847 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		69B94D8B1499403400F0C847 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		69B94D8E1499403500F0C847 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		69B94D911499403500F0C847 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		69B94D941499403500F0C847 /* iSanta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iSanta.xcdatamodel; sourceTree = "<group>"; };
+		69B94D961499403500F0C847 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		69B94D971499403500F0C847 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		69B94D991499403500F0C847 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		69B94D9A1499403500F0C847 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		69B94DA11499403500F0C847 /* iSantaTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iSantaTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		69B94DA21499403500F0C847 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		69B94DAB1499403500F0C847 /* iSantaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iSantaTests-Info.plist"; sourceTree = "<group>"; };
+		69B94DAD1499403500F0C847 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		69B94DAF1499403500F0C847 /* iSantaTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iSantaTests.h; sourceTree = "<group>"; };
+		69B94DB01499403500F0C847 /* iSantaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iSantaTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		69B94D721499403400F0C847 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69B94D7A1499403400F0C847 /* UIKit.framework in Frameworks */,
+				69B94D7C1499403400F0C847 /* Foundation.framework in Frameworks */,
+				69B94D7E1499403400F0C847 /* CoreGraphics.framework in Frameworks */,
+				69B94D801499403400F0C847 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69B94D9D1499403500F0C847 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69B94DA31499403500F0C847 /* SenTestingKit.framework in Frameworks */,
+				69B94DA41499403500F0C847 /* UIKit.framework in Frameworks */,
+				69B94DA51499403500F0C847 /* Foundation.framework in Frameworks */,
+				69B94DA61499403500F0C847 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		696D0E7A14BB8789003EFE82 /* CoreData Classes */ = {
+			isa = PBXGroup;
+			children = (
+				696D0E7714BB8770003EFE82 /* Range_Information.h */,
+				696D0E7814BB8770003EFE82 /* Range_Information.m */,
+				696D0E7414BB8770003EFE82 /* iSanta_Point.h */,
+				696D0E7514BB8770003EFE82 /* iSanta_Point.m */,
+				696D0E7114BB8770003EFE82 /* Weapon_Information.h */,
+				696D0E7214BB8770003EFE82 /* Weapon_Information.m */,
+				696D0E6E14BB8770003EFE82 /* Shooter_Information.h */,
+				696D0E6F14BB8770003EFE82 /* Shooter_Information.m */,
+				696D0E6B14BB876F003EFE82 /* Photo_Information.h */,
+				696D0E6C14BB876F003EFE82 /* Photo_Information.m */,
+				696D0E6814BB8753003EFE82 /* Test_Report.h */,
+				696D0E6914BB8753003EFE82 /* Test_Report.m */,
+				696D0E6414BB8732003EFE82 /* Ammunition_Information.h */,
+				696D0E6514BB8732003EFE82 /* Ammunition_Information.m */,
+			);
+			name = "CoreData Classes";
+			sourceTree = "<group>";
+		};
+		69B94D6A1499403400F0C847 = {
+			isa = PBXGroup;
+			children = (
+				69B94D811499403400F0C847 /* iSanta */,
+				69B94DA91499403500F0C847 /* iSantaTests */,
+				69B94D781499403400F0C847 /* Frameworks */,
+				69B94D761499403400F0C847 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		69B94D761499403400F0C847 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				69B94D751499403400F0C847 /* iSanta.app */,
+				69B94DA11499403500F0C847 /* iSantaTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		69B94D781499403400F0C847 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				69B94D791499403400F0C847 /* UIKit.framework */,
+				69B94D7B1499403400F0C847 /* Foundation.framework */,
+				69B94D7D1499403400F0C847 /* CoreGraphics.framework */,
+				69B94D7F1499403400F0C847 /* CoreData.framework */,
+				69B94DA21499403500F0C847 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		69B94D811499403400F0C847 /* iSanta */ = {
+			isa = PBXGroup;
+			children = (
+				69B94D8A1499403400F0C847 /* AppDelegate.h */,
+				69B94D8B1499403400F0C847 /* AppDelegate.m */,
+				69B94D8D1499403500F0C847 /* MainStoryboard_iPhone.storyboard */,
+				69B94D901499403500F0C847 /* MainStoryboard_iPad.storyboard */,
+				69B94D961499403500F0C847 /* MasterViewController.h */,
+				69B94D971499403500F0C847 /* MasterViewController.m */,
+				69B94D991499403500F0C847 /* DetailViewController.h */,
+				69B94D9A1499403500F0C847 /* DetailViewController.m */,
+				69B94D931499403500F0C847 /* iSanta.xcdatamodeld */,
+				6928A1EA14BC91FD000E639E /* NewTestViewController.h */,
+				6928A1EB14BC91FD000E639E /* NewTestViewController.m */,
+				6928A1EC14BC91FD000E639E /* NewTestViewController.xib */,
+				696D0E7A14BB8789003EFE82 /* CoreData Classes */,
+				69B94D821499403400F0C847 /* Supporting Files */,
+			);
+			path = iSanta;
+			sourceTree = "<group>";
+		};
+		69B94D821499403400F0C847 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6928A1FC14BD161C000E639E /* Logo.JPG */,
+				69B94D831499403400F0C847 /* iSanta-Info.plist */,
+				69B94D841499403400F0C847 /* InfoPlist.strings */,
+				69B94D871499403400F0C847 /* main.m */,
+				69B94D891499403400F0C847 /* iSanta-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		69B94DA91499403500F0C847 /* iSantaTests */ = {
+			isa = PBXGroup;
+			children = (
+				69B94DAF1499403500F0C847 /* iSantaTests.h */,
+				69B94DB01499403500F0C847 /* iSantaTests.m */,
+				69B94DAA1499403500F0C847 /* Supporting Files */,
+			);
+			path = iSantaTests;
+			sourceTree = "<group>";
+		};
+		69B94DAA1499403500F0C847 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				69B94DAB1499403500F0C847 /* iSantaTests-Info.plist */,
+				69B94DAC1499403500F0C847 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		69B94D741499403400F0C847 /* iSanta */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69B94DB41499403500F0C847 /* Build configuration list for PBXNativeTarget "iSanta" */;
+			buildPhases = (
+				69B94D711499403400F0C847 /* Sources */,
+				69B94D721499403400F0C847 /* Frameworks */,
+				69B94D731499403400F0C847 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iSanta;
+			productName = iSanta;
+			productReference = 69B94D751499403400F0C847 /* iSanta.app */;
+			productType = "com.apple.product-type.application";
+		};
+		69B94DA01499403500F0C847 /* iSantaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69B94DB71499403500F0C847 /* Build configuration list for PBXNativeTarget "iSantaTests" */;
+			buildPhases = (
+				69B94D9C1499403500F0C847 /* Sources */,
+				69B94D9D1499403500F0C847 /* Frameworks */,
+				69B94D9E1499403500F0C847 /* Resources */,
+				69B94D9F1499403500F0C847 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69B94DA81499403500F0C847 /* PBXTargetDependency */,
+			);
+			name = iSantaTests;
+			productName = iSantaTests;
+			productReference = 69B94DA11499403500F0C847 /* iSantaTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		69B94D6C1499403400F0C847 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 69B94D6F1499403400F0C847 /* Build configuration list for PBXProject "iSanta" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 69B94D6A1499403400F0C847;
+			productRefGroup = 69B94D761499403400F0C847 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				69B94D741499403400F0C847 /* iSanta */,
+				69B94DA01499403500F0C847 /* iSantaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		69B94D731499403400F0C847 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69B94D861499403400F0C847 /* InfoPlist.strings in Resources */,
+				69B94D8F1499403500F0C847 /* MainStoryboard_iPhone.storyboard in Resources */,
+				69B94D921499403500F0C847 /* MainStoryboard_iPad.storyboard in Resources */,
+				6928A1EE14BC91FD000E639E /* NewTestViewController.xib in Resources */,
+				6928A1FD14BD161C000E639E /* Logo.JPG in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69B94D9E1499403500F0C847 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69B94DAE1499403500F0C847 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		69B94D9F1499403500F0C847 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		69B94D711499403400F0C847 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69B94D881499403400F0C847 /* main.m in Sources */,
+				69B94D8C1499403400F0C847 /* AppDelegate.m in Sources */,
+				69B94D951499403500F0C847 /* iSanta.xcdatamodeld in Sources */,
+				69B94D981499403500F0C847 /* MasterViewController.m in Sources */,
+				69B94D9B1499403500F0C847 /* DetailViewController.m in Sources */,
+				696D0E6614BB8732003EFE82 /* Ammunition_Information.m in Sources */,
+				696D0E6A14BB8753003EFE82 /* Test_Report.m in Sources */,
+				696D0E6D14BB876F003EFE82 /* Photo_Information.m in Sources */,
+				696D0E7014BB8770003EFE82 /* Shooter_Information.m in Sources */,
+				696D0E7314BB8770003EFE82 /* Weapon_Information.m in Sources */,
+				696D0E7614BB8770003EFE82 /* iSanta_Point.m in Sources */,
+				696D0E7914BB8770003EFE82 /* Range_Information.m in Sources */,
+				6928A1ED14BC91FD000E639E /* NewTestViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		69B94D9C1499403500F0C847 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69B94DB11499403500F0C847 /* iSantaTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		69B94DA81499403500F0C847 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 69B94D741499403400F0C847 /* iSanta */;
+			targetProxy = 69B94DA71499403500F0C847 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		69B94D841499403400F0C847 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69B94D851499403400F0C847 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		69B94D8D1499403500F0C847 /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69B94D8E1499403500F0C847 /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		69B94D901499403500F0C847 /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69B94D911499403500F0C847 /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		69B94DAC1499403500F0C847 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				69B94DAD1499403500F0C847 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		69B94DB21499403500F0C847 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		69B94DB31499403500F0C847 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		69B94DB51499403500F0C847 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iSanta/iSanta-Prefix.pch";
+				INFOPLIST_FILE = "iSanta/iSanta-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		69B94DB61499403500F0C847 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iSanta/iSanta-Prefix.pch";
+				INFOPLIST_FILE = "iSanta/iSanta-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		69B94DB81499403500F0C847 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iSanta.app/iSanta";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iSanta/iSanta-Prefix.pch";
+				INFOPLIST_FILE = "iSantaTests/iSantaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		69B94DB91499403500F0C847 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iSanta.app/iSanta";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iSanta/iSanta-Prefix.pch";
+				INFOPLIST_FILE = "iSantaTests/iSantaTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		69B94D6F1499403400F0C847 /* Build configuration list for PBXProject "iSanta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69B94DB21499403500F0C847 /* Debug */,
+				69B94DB31499403500F0C847 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69B94DB41499403500F0C847 /* Build configuration list for PBXNativeTarget "iSanta" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69B94DB51499403500F0C847 /* Debug */,
+				69B94DB61499403500F0C847 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69B94DB71499403500F0C847 /* Build configuration list for PBXNativeTarget "iSantaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69B94DB81499403500F0C847 /* Debug */,
+				69B94DB91499403500F0C847 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		69B94D931499403500F0C847 /* iSanta.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				69B94D941499403500F0C847 /* iSanta.xcdatamodel */,
+			);
+			currentVersion = 69B94D941499403500F0C847 /* iSanta.xcdatamodel */;
+			path = iSanta.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 69B94D6C1499403400F0C847 /* Project object */;
+}

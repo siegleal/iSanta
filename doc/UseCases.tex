@@ -18,7 +18,7 @@
 
 \newcommand{\myspace}{\vspace{.5cm}}
 
-\subsection{Main Menu / Usage Selection}
+\subsubsection{Main Menu / Usage Selection}
 \begin{description}
     \item[Description] \hfill \\
         The user will be prompted to select an action, whether to take a new photo or analyze an existing photo.
@@ -45,7 +45,7 @@
 \end{description}
 \myspace
 
-\subsection{Capture Picture}
+\subsubsection{Capture Picture}
 \begin{description}
     \item[Description] \hfill \\
         The user captures the picture of the target and iSanta will normalize it for bullet hole detection.
@@ -59,11 +59,16 @@
         \begin{enumerate}
             \item User takes a picture of the target.
             \item System normalizes the target.
-            \item System approximates bullet hole location.
+            \item System approximates bullet hole location(s).
             \item System displays bullet hole adjustment screen to user.
         \end{enumerate}
     \item[Alternate Flow] \hfill \\
-        N/A
+        \begin{enumerate}
+        	   \item User cancels operation
+	   	\begin{enumerate}
+			\item User is returned to the previous menu.
+		\end{enumerate}
+	\end{enumerate}
     \item[Postconditions]
         \begin{enumerate}
             \item Bullet hole locations are approximated on the target.
@@ -72,7 +77,7 @@
 \end{description}
 \myspace
 
-\subsection{Adjust Bullet Holes}
+\subsubsection{Adjust Bullet Holes}
 \begin{description}
     \item[Description] \hfill \\
         The user will be able to see where iSanta has predicted bullet holes on the target and will move, add, or subtract bullet holes from the spread.
@@ -120,7 +125,7 @@
 \end{description}
 \myspace
 
-\subsection{Display Statistics}
+\subsubsection{Display Statistics}
 \begin{description}
     \item[Description] \hfill \\
         The system will analyze the spread and display the statistics to the user on screen.  The screen will contain an option to export the results (e-mail, csv file)
@@ -128,7 +133,7 @@
         User, iOS E-mail
     \item[Preconditions] \hfill 
         \begin{enumerate}
-            \item Statistics have been calculated.
+            \item Statistics have been calculated using the statistics engine. (This is done when the user chooses to display statistics.)
         \end{enumerate}
     \item[Main Flow] \hfill 
         \begin{enumerate}
