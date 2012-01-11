@@ -18,6 +18,8 @@
 @synthesize detailItem = _detailItem;
 @synthesize masterPopoverController = _masterPopoverController;
 @synthesize detailDescriptionTable = _detailDescriptionTable;
+@synthesize targetImage;
+@synthesize selectedIndexPath;
 
 #pragma mark - Managing the detail item
 
@@ -288,6 +290,114 @@
 
 }
 
+#pragma mark Table View Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    selectedIndexPath = indexPath;
+    
+    if(indexPath.section == 0)
+    {
+        UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
+        pickerController.delegate = self;
+        pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [self presentModalViewController:pickerController animated:YES];
+    }
+    else if(indexPath.section == 2 && indexPath.row == 2)
+    {
+        UIActionSheet *temperatureSheet = [[UIActionSheet alloc] initWithTitle:@"Choose a Temperature" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:[NSString stringWithUTF8String: "Cold (<50°)"],[NSString stringWithUTF8String: "Ambient (50° to 95°)"],[NSString stringWithUTF8String: "Hot (>95°)"], nil];
+        
+        [temperatureSheet showInView:self.view];
+    }
+    else
+    {
+        NSString *message = @"Please enter the "; 
+        message = [message stringByAppendingString:[[tableView cellForRowAtIndexPath:indexPath] textLabel].text];
+        UIAlertView *inputAlert = [[UIAlertView alloc] 
+                                   initWithTitle:[[tableView cellForRowAtIndexPath:indexPath] textLabel].text 
+                                   message:message
+                                   delegate:self 
+                                   cancelButtonTitle:@"Cancel" 
+                                   otherButtonTitles:@"Submit", nil];
+        [inputAlert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+        [inputAlert show];
+    }
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+#pragma mark - Image Picker delegate call backs
+
+- (void)imagePickerController:(UIImagePickerController *)imagePicker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    targetImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    //Place the Image in CoreData.
+    [self.detailItem setValue:UIImagePNGRepresentation(targetImage) forKeyPath:@"test_Photo.image"];
+    
+    [self.detailDescriptionTable cellForRowAtIndexPath:selectedIndexPath].imageView.image = targetImage;
+    
+//    [self.detailDescriptionTable reloadData];
+    
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark - Alert View Delegate call backs
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1)
+    {
+        [[self.detailDescriptionTable cellForRowAtIndexPath:selectedIndexPath].detailTextLabel setText:[alertView textFieldAtIndex:0].text];
+        
+        [self updateCoreDataModelWithString:[alertView textFieldAtIndex:0].text atCellIndexPath:selectedIndexPath];
+        
+        [self.detailDescriptionTable reloadData];
+    }
+}
+
+- (void)updateCoreDataModelWithString:(NSString *)text atCellIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.section) {
+        case 1:
+            if (indexPath.row == 0)
+                [self.detailItem setValue:text forKeyPath:@"test_Shooter.first_Name"];
+            else
+                [self.detailItem setValue:text forKeyPath:@"test_Shooter.last_Name"];
+            break;
+        case 2:
+            if (indexPath.row == 0)
+                [self.detailItem setValue:text forKeyPath:@"test_Range.firing_Range"];
+            else if (indexPath.row == 1)
+                [self.detailItem setValue:[NSNumber numberWithInt:[text intValue]] forKeyPath:@"test_Range.distance_To_Target"];
+            else
+                [self.detailItem setValue:[NSNumber numberWithDouble:[text doubleValue]] forKeyPath:@"test_Range.range_Temperature"];
+            break;
+        case 3:
+            if (indexPath.row == 0)
+                [self.detailItem setValue:[NSNumber numberWithInt:[text intValue]] forKeyPath:@"test_Weapon.serial_Number"];
+            else if (indexPath.row == 1)
+                [self.detailItem setValue:text forKeyPath:@"test_Weapon.weapon_Nomenclature"];
+            else
+                [self.detailItem setValue:text forKeyPath:@"test_Weapon.weapon_Notes"];
+            break;
+        case 4:
+            if (indexPath.row == 0)
+                [self.detailItem setValue:[NSNumber numberWithDouble:[text doubleValue]] forKeyPath:@"test_Ammunition.caliber"];
+            else if (indexPath.row == 1)
+                [self.detailItem setValue:[NSNumber numberWithInt:[text intValue]] forKeyPath:@"test_Ammunition.lot_Number"];
+            else if (indexPath.row == 2)
+                [self.detailItem setValue:[NSNumber numberWithInt:[text intValue]] forKeyPath:@"test_Ammunition.number_Of_Shots"];
+            else if (indexPath.row == 3)
+                [self.detailItem setValue:[NSNumber numberWithDouble:[text doubleValue]] forKeyPath:@"test_Ammunition.projectile_Mass"];
+            else
+                [self.detailItem setValue:text forKeyPath:@"test_Ammunition.ammunition_Notes"];
+            break;
+        default:
+            break;
+    }
+}
+
 #pragma mark - Split view
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
@@ -302,6 +412,30 @@
     // Called when the view is shown again in the split view, invalidating the button and popover controller.
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
+}
+
+#pragma mark - Action Sheet Delegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSArray *arrayOfTemps = [NSArray arrayWithObjects:[NSString stringWithUTF8String: "Cold (<50°)"],[NSString stringWithUTF8String: "Ambient (50° to 95°)"],[NSString stringWithUTF8String: "Hot (>95°)"], nil];
+    switch (buttonIndex) {
+        case 0:
+            if(selectedIndexPath.section == 2 && selectedIndexPath.row == 2)
+                [self.detailItem setValue:[arrayOfTemps objectAtIndex:0] forKeyPath:@"test_Range.range_Temperature"];
+            break;
+        case 1:
+            if(selectedIndexPath.section == 2 && selectedIndexPath.row == 2)
+                [self.detailItem setValue:[arrayOfTemps objectAtIndex:1] forKeyPath:@"test_Range.range_Temperature"];
+            break;
+        case 2:
+            if(selectedIndexPath.section == 2 && selectedIndexPath.row == 2)
+                [self.detailItem setValue:[arrayOfTemps objectAtIndex:2] forKeyPath:@"test_Range.range_Temperature"];
+            break;
+        default:
+            break;
+    }
+    [self.detailDescriptionTable reloadData];
 }
 
 @end

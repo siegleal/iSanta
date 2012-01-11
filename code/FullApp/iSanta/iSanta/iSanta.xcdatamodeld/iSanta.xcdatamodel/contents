@@ -21,7 +21,7 @@
     <entity name="Range_Information" representedClassName="Range_Information" syncable="YES">
         <attribute name="distance_To_Target" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="firing_Range" attributeType="String" syncable="YES"/>
-        <attribute name="range_Temperature" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="range_Temperature" attributeType="String" syncable="YES"/>
         <relationship name="test" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Test_Report" inverseName="test_Range" inverseEntity="Test_Report" syncable="YES"/>
     </entity>
     <entity name="Shooter_Information" representedClassName="Shooter_Information" syncable="YES">

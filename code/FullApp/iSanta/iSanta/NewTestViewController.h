@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewTestViewController : UIViewController <UISplitViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate>
+@interface NewTestViewController : UIViewController <UISplitViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 
 @property (nonatomic, retain) IBOutlet UITableView *reportTable;
 
@@ -25,6 +25,7 @@
 @property (nonatomic, retain) NSManagedObject *rangeObject;
 @property (nonatomic, retain) NSManagedObject *weaponObject;
 @property (nonatomic, retain) NSManagedObject *ammoObject;
+@property (nonatomic, retain) NSManagedObject *photoObject;
 
 @property (nonatomic, retain) NSIndexPath *selectedIndexPath;
 

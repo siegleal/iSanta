@@ -19,6 +19,7 @@
 @synthesize rangeObject;
 @synthesize weaponObject;
 @synthesize ammoObject;
+@synthesize photoObject;
 @synthesize selectedIndexPath;
 @synthesize targetImage;
 @synthesize fetchedResultsController;
@@ -121,6 +122,9 @@
     
     ammoObject = [NSEntityDescription insertNewObjectForEntityForName:@"Ammunition_Information" inManagedObjectContext:context];
     [testReportObject setValue:ammoObject forKey:@"test_Ammunition"];
+    
+    photoObject = [NSEntityDescription insertNewObjectForEntityForName:@"Photo_Information" inManagedObjectContext:context];
+    [testReportObject setValue:photoObject forKey:@"test_Photo"];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -154,7 +158,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
     switch (indexPath.section) {
@@ -212,7 +216,7 @@
                     [cell.textLabel setText:@"Serial Number"];
                       [cell.detailTextLabel setText:[[self.testReportObject 
                                                       valueForKeyPath:@"test_Weapon.serial_Number"]
-                                                     description]];
+                                                      description]];
                     break;
                 case 1:
                     [cell.textLabel setText:@"Weapon Nomenclature"];
@@ -336,7 +340,9 @@
     }
     else if(indexPath.section == 2 && indexPath.row == 2)
     {
-        //Temperature Picker
+        UIActionSheet *temperatureSheet = [[UIActionSheet alloc] initWithTitle:@"Choose a Temperature" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:[NSString stringWithUTF8String: "Cold (<50°)"],[NSString stringWithUTF8String: "Ambient (50° to 95°)"],[NSString stringWithUTF8String:"Hot (>95°)"], nil];
+        
+        [temperatureSheet showInView:self.view];
     }
     else
     {
@@ -362,13 +368,35 @@
     targetImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     //Place the Image in CoreData.
-    NSManagedObject *photoObject = [NSEntityDescription insertNewObjectForEntityForName:@"Photo_Information" inManagedObjectContext:context];
-    [photoObject setValue:UIImagePNGRepresentation(targetImage) forKey:@"image"];
-    [testReportObject setValue:photoObject forKey:@"test_Photo"];
+    [testReportObject setValue:UIImageJPEGRepresentation(targetImage, 0.85) forKeyPath:@"test_Photo.image"];
     
-    [self.reportTable reloadData];
+    [reportTable cellForRowAtIndexPath:selectedIndexPath].imageView.image = targetImage;
     
     [self dismissModalViewControllerAnimated:YES];
+}
+
+#pragma mark - Action Sheet Delegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSArray *arrayOfTemps = [NSArray arrayWithObjects:[NSString stringWithUTF8String: "Cold (<50°)"],[NSString stringWithUTF8String: "Ambient (50° to 95°)"],[NSString stringWithUTF8String: "Hot (>95°)"], nil];
+    switch (buttonIndex) {
+        case 0:
+            if(selectedIndexPath.section == 2 && selectedIndexPath.row == 2)
+                [testReportObject setValue:[arrayOfTemps objectAtIndex:0] forKeyPath:@"test_Range.range_Temperature"];
+            break;
+        case 1:
+            if(selectedIndexPath.section == 2 && selectedIndexPath.row == 2)
+                [testReportObject setValue:[arrayOfTemps objectAtIndex:1] forKeyPath:@"test_Range.range_Temperature"];
+            break;
+        case 2:
+            if(selectedIndexPath.section == 2 && selectedIndexPath.row == 2)
+                [testReportObject setValue:[arrayOfTemps objectAtIndex:2] forKeyPath:@"test_Range.range_Temperature"];
+            break;
+        default:
+            break;
+    }
+    [self.reportTable reloadData];
 }
 
 #pragma mark - Alert View Delegate call backs
