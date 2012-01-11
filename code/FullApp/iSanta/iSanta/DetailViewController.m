@@ -16,7 +16,6 @@
 @implementation DetailViewController
 
 @synthesize detailItem = _detailItem;
-@synthesize detailDescriptionLabel = _detailDescriptionLabel;
 @synthesize masterPopoverController = _masterPopoverController;
 @synthesize detailDescriptionTable = _detailDescriptionTable;
 
@@ -41,7 +40,6 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
         [self.detailDescriptionTable reloadData];
     }
 }
@@ -168,7 +166,7 @@
                 case 2:
                     [cell.textLabel setText:@"Range Temperature"];
                     [cell.detailTextLabel setText:[[self.detailItem valueForKeyPath:
-                                                   @"test_Range.test_Range.range_Temperature"]
+                                                   @"test_Range.range_Temperature"]
                                                    description]];
                     break;
                 default:

@@ -7,7 +7,7 @@
 //
 
 #import "MasterViewController.h"
-
+#import "NewTestViewController.h"
 #import "DetailViewController.h"
 
 @interface MasterViewController ()
@@ -280,32 +280,10 @@
 
 - (void)insertNewObject
 {
-    // Create a new instance of the entity managed by the fetched results controller.
-    NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
-    NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
-    
-    // If appropriate, configure the new managed object.
-    // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"date_Time"];
-    
-    NSManagedObject *shooterObject = [NSEntityDescription insertNewObjectForEntityForName:@"Shooter_Information" inManagedObjectContext:context];
-    [shooterObject setValue:[NSString stringWithString:@"John"] forKey:@"first_Name"];
-    [shooterObject setValue:[NSString stringWithString:@"Doe"] forKey:@"last_Name"];
-    
-    [newManagedObject setValue:shooterObject forKey:@"test_Shooter"];
-    
-    // Save the context.
-    NSError *error = nil;
-    if (![context save:&error]) {
-        /*
-         Replace this implementation with code to handle the error appropriately.
-         
-         abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-         */
-        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-        //abort();
-    }
+    NewTestViewController *newTest = [[NewTestViewController alloc] init];
+    newTest.fetchedResultsController = self.fetchedResultsController;
+    newTest.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    [self presentModalViewController:newTest animated:YES];
 }
 
 //- (void)newTestWizard

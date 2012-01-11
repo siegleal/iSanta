@@ -12,8 +12,6 @@
 
 @property (strong, nonatomic) id detailItem;
 
-@property (strong, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
-
 @property (nonatomic, retain) IBOutlet UITableView *detailDescriptionTable;
 
 @end

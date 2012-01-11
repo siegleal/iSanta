@@ -6,47 +6,47 @@
         <attribute name="lot_Number" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="number_Of_Shots" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="projectile_Mass" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="test" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Test_Report" inverseName="test_Ammunition" inverseEntity="Test_Report" syncable="YES"/>
+        <relationship name="test" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Test_Report" inverseName="test_Ammunition" inverseEntity="Test_Report" syncable="YES"/>
     </entity>
     <entity name="iSanta_Point" representedClassName="iSanta_Point" syncable="YES">
         <attribute name="x" attributeType="Double" defaultValueString="0" syncable="YES"/>
         <attribute name="y" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="photo" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Photo_Information" inverseName="point" inverseEntity="Photo_Information" syncable="YES"/>
+        <relationship name="photo" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Photo_Information" inverseName="point" inverseEntity="Photo_Information" syncable="YES"/>
     </entity>
     <entity name="Photo_Information" representedClassName="Photo_Information" syncable="YES">
         <attribute name="image" attributeType="Binary" syncable="YES"/>
-        <relationship name="point" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="iSanta_Point" inverseName="photo" inverseEntity="iSanta_Point" syncable="YES"/>
-        <relationship name="test" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Test_Report" inverseName="test_Photo" inverseEntity="Test_Report" syncable="YES"/>
+        <relationship name="point" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="iSanta_Point" inverseName="photo" inverseEntity="iSanta_Point" syncable="YES"/>
+        <relationship name="test" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Test_Report" inverseName="test_Photo" inverseEntity="Test_Report" syncable="YES"/>
     </entity>
     <entity name="Range_Information" representedClassName="Range_Information" syncable="YES">
-        <attribute name="distance_To_Target" attributeType="String" syncable="YES"/>
+        <attribute name="distance_To_Target" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="firing_Range" attributeType="String" syncable="YES"/>
         <attribute name="range_Temperature" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="test" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Test_Report" inverseName="test_Range" inverseEntity="Test_Report" syncable="YES"/>
+        <relationship name="test" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Test_Report" inverseName="test_Range" inverseEntity="Test_Report" syncable="YES"/>
     </entity>
     <entity name="Shooter_Information" representedClassName="Shooter_Information" syncable="YES">
         <attribute name="first_Name" attributeType="String" syncable="YES"/>
         <attribute name="last_Name" attributeType="String" syncable="YES"/>
-        <relationship name="test" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Test_Report" inverseName="test_Shooter" inverseEntity="Test_Report" syncable="YES"/>
+        <relationship name="test" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Test_Report" inverseName="test_Shooter" inverseEntity="Test_Report" syncable="YES"/>
     </entity>
     <entity name="Test_Report" representedClassName="Test_Report" syncable="YES">
         <attribute name="date_Time" attributeType="Date" syncable="YES"/>
-        <relationship name="test_Ammunition" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Ammunition_Information" inverseName="test" inverseEntity="Ammunition_Information" syncable="YES"/>
-        <relationship name="test_Photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo_Information" inverseName="test" inverseEntity="Photo_Information" syncable="YES"/>
-        <relationship name="test_Range" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Range_Information" inverseName="test" inverseEntity="Range_Information" syncable="YES"/>
-        <relationship name="test_Shooter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Shooter_Information" inverseName="test" inverseEntity="Shooter_Information" syncable="YES"/>
-        <relationship name="test_Weapon" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Weapon_Information" inverseName="test" inverseEntity="Weapon_Information" syncable="YES"/>
+        <relationship name="test_Ammunition" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Ammunition_Information" inverseName="test" inverseEntity="Ammunition_Information" syncable="YES"/>
+        <relationship name="test_Photo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Photo_Information" inverseName="test" inverseEntity="Photo_Information" syncable="YES"/>
+        <relationship name="test_Range" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Range_Information" inverseName="test" inverseEntity="Range_Information" syncable="YES"/>
+        <relationship name="test_Shooter" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Shooter_Information" inverseName="test" inverseEntity="Shooter_Information" syncable="YES"/>
+        <relationship name="test_Weapon" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Weapon_Information" inverseName="test" inverseEntity="Weapon_Information" syncable="YES"/>
     </entity>
     <entity name="Weapon_Information" representedClassName="Weapon_Information" syncable="YES">
         <attribute name="serial_Number" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="weapon_Nomenclature" attributeType="String" syncable="YES"/>
         <attribute name="weapon_Notes" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="test" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Test_Report" inverseName="test_Weapon" inverseEntity="Test_Report" syncable="YES"/>
+        <relationship name="test" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Test_Report" inverseName="test_Weapon" inverseEntity="Test_Report" syncable="YES"/>
     </entity>
     <elements>
         <element name="Ammunition_Information" positionX="-243" positionY="18" width="128" height="135"/>
-        <element name="Photo_Information" positionX="-225" positionY="180" width="128" height="90"/>
         <element name="iSanta_Point" positionX="61" positionY="198" width="128" height="90"/>
+        <element name="Photo_Information" positionX="-225" positionY="180" width="128" height="90"/>
         <element name="Range_Information" positionX="133" positionY="-81" width="128" height="105"/>
         <element name="Shooter_Information" positionX="169" positionY="69" width="128" height="90"/>
         <element name="Test_Report" positionX="-38" positionY="-9" width="128" height="135"/>
