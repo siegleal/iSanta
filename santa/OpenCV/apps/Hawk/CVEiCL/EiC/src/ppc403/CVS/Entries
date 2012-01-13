@@ -1,0 +1,26 @@
+/Makefile/1.1/Sat Oct 19 17:32:24 2002//
+/close.c/1.1/Sat Oct 19 17:32:24 2002//
+/confdefs.h/1.1/Sat Oct 19 17:32:24 2002//
+/fstat.c/1.1/Sat Oct 19 17:32:24 2002//
+/getpid.c/1.1/Sat Oct 19 17:32:24 2002//
+/gets.c/1.1/Sat Oct 19 17:32:24 2002//
+/glue.h/1.1/Sat Oct 19 17:32:24 2002//
+/io.bku/1.1/Sat Oct 19 17:32:24 2002//
+/io.c/1.1/Sat Oct 19 17:32:24 2002//
+/isatty.c/1.1/Sat Oct 19 17:32:24 2002//
+/kill.c/1.1/Sat Oct 19 17:32:24 2002//
+/lseek.c/1.1/Sat Oct 19 17:32:24 2002//
+/open.c/1.1/Sat Oct 19 17:32:24 2002//
+/ppc.ld/1.1/Sat Oct 19 17:32:24 2002//
+/ppclib.c/1.1/Sat Oct 19 17:32:24 2002//
+/print.c/1.1/Sat Oct 19 17:32:24 2002//
+/psplit/1.1/Sat Oct 19 17:32:24 2002//
+/putnum.c/1.1/Sat Oct 19 17:32:24 2002//
+/read.c/1.1/Sat Oct 19 17:32:24 2002//
+/sbrk.c/1.1/Sat Oct 19 17:32:24 2002//
+/sleep.c/1.1/Sat Oct 19 17:32:24 2002//
+/stat.c/1.1/Sat Oct 19 17:32:24 2002//
+/stat.h/1.1/Sat Oct 19 17:32:24 2002//
+/unlink.c/1.1/Sat Oct 19 17:32:24 2002//
+/write.c/1.1/Sat Oct 19 17:32:24 2002//
+D

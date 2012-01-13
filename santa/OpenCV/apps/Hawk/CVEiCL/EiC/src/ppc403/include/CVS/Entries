@@ -1,0 +1,22 @@
+/MachSet.h/1.1/Sat Oct 19 17:32:59 2002//
+/assertp.h/1.1/Sat Oct 19 17:33:00 2002//
+/cdecl.h/1.1/Sat Oct 19 17:33:00 2002//
+/datastruct.h/1.1/Sat Oct 19 17:33:00 2002//
+/eic.h/1.1/Sat Oct 19 17:33:00 2002//
+/eicval.h/1.1/Sat Oct 19 17:33:00 2002//
+/emitter.h/1.1/Sat Oct 19 17:33:00 2002//
+/error.h/1.1/Sat Oct 19 17:32:59 2002//
+/func.h/1.1/Sat Oct 19 17:32:59 2002//
+/global.h/1.1/Sat Oct 19 17:32:59 2002//
+/lexer.h/1.1/Sat Oct 19 17:32:59 2002//
+/metric.h/1.1/Sat Oct 19 17:32:59 2002//
+/modules.h/1.1/Sat Oct 19 17:32:59 2002//
+/parser.h/1.1/Sat Oct 19 17:32:59 2002//
+/preproc.h/1.1/Sat Oct 19 17:32:59 2002//
+/stab.h/1.1/Sat Oct 19 17:32:59 2002//
+/symbol.h/1.1/Sat Oct 19 17:32:59 2002//
+/symentry.h/1.1/Sat Oct 19 17:32:59 2002//
+/typemod.h/1.1/Sat Oct 19 17:32:59 2002//
+/typesets.h/1.1/Sat Oct 19 17:32:59 2002//
+/xalloc.h/1.1/Sat Oct 19 17:32:59 2002//
+D

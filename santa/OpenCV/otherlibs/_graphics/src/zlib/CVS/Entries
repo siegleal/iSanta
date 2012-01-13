@@ -1,0 +1,27 @@
+/.cvsignore/1.1/Mon May 26 10:10:51 2008//
+/README/1.2/Mon May 26 19:08:10 2008//
+/adler32.c/1.2/Mon May 26 19:08:10 2008//
+/compress.c/1.2/Mon May 26 19:08:10 2008//
+/configure/1.1/Fri Jun 17 13:54:46 2005//
+/crc32.c/1.2/Mon May 26 19:08:10 2008//
+/crc32.h/1.1/Fri Jun 17 13:54:46 2005//
+/deflate.c/1.2/Mon May 26 19:08:10 2008//
+/deflate.h/1.2/Mon May 26 19:08:10 2008//
+/example.c/1.2/Mon May 26 19:08:10 2008//
+/gzio.c/1.2/Mon May 26 19:08:10 2008//
+/infback.c/1.2/Mon May 26 19:08:10 2008//
+/inffast.c/1.2/Mon May 26 19:08:10 2008//
+/inffast.h/1.1/Fri Jun 17 13:54:47 2005//
+/inffixed.h/1.1/Fri Jun 17 13:54:47 2005//
+/inflate.c/1.2/Mon May 26 19:08:10 2008//
+/inflate.h/1.2/Mon May 26 19:08:10 2008//
+/inftrees.c/1.2/Mon May 26 19:08:10 2008//
+/inftrees.h/1.2/Mon May 26 19:08:10 2008//
+/trees.c/1.2/Mon May 26 19:08:10 2008//
+/trees.h/1.1/Fri Jun 17 13:54:47 2005//
+/uncompr.c/1.2/Mon May 26 19:08:10 2008//
+/zlib.dsp/1.4/Mon May 26 14:16:15 2008//
+/zlib.vs2005.vcproj/1.1/Mon May 26 09:50:24 2008//
+/zutil.c/1.2/Mon May 26 19:08:10 2008//
+/zutil.h/1.2/Mon May 26 19:08:10 2008//
+D

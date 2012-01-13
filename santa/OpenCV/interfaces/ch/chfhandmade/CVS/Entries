@@ -1,0 +1,27 @@
+/cvAvg.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvBoundingRect.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvCalcCovarMatrix.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvColorToScalar.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvCreateTrackbar.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvFitEllipse2.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvGet1D.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvGet2D.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvGet3D.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvGetErrInfo.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvGetImageROI.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvGetModuleInfo.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvGetND.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvGetSize.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvLoad.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvMinAreaRect2.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvSetIPLAllocators.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvSetMemoryManager.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvSetMouseCallback.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvSetPostprocessFuncWin32.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvSetPreprocessFuncWin32.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvSum.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvTrace.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvcamAVISetCallback.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvcamPlayAVI.chf/1.1/Tue Jul  5 16:41:52 2005//
+/cvcamSetProperty.chf/1.1/Tue Jul  5 16:41:52 2005//
+D
