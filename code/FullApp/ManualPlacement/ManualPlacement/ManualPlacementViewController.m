@@ -16,6 +16,7 @@
 
 @implementation ManualPlacementViewController
 @synthesize brain = _brain;
+@synthesize tapRecognizer = _tapRecognizer;
 @synthesize imageView = _imageView;
 @synthesize actionSheet = _actionSheet;
 
@@ -25,6 +26,8 @@ int currentOp = 1;
 - (void) viewDidLoad
 {
     self.imageView.image = self.brain.targetImage;
+    [self.view addGestureRecognizer:[self tapRecognizer]];
+    NSLog(@"Logged");
 }
 
 - (PlacementBrain *)brain
@@ -32,6 +35,37 @@ int currentOp = 1;
     if (!_brain) _brain = [[PlacementBrain alloc] init];
     return _brain;
 }
+- (IBAction)tapped:(id)sender {
+    
+}
+
+
+
+     -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+    {
+        //Finger Down
+        UITouch *anyTouch = [touches anyObject];
+        if (anyTouch.tapCount == 1) 
+        {
+            //Create a new Smile
+            NSLog(@"tapped at %f, %f",[self.tapRecognizer locationInView:self.view].x,[self.tapRecognizer locationInView:self.view].y);  
+            
+        }else if (anyTouch.tapCount == 2) 
+        {
+            //Create a new Smile
+            NSLog(@"twice");        
+        }else if (anyTouch.tapCount == 3) 
+        {
+            //Create a new Smile
+            NSLog(@"thrice");        
+        }
+    }
+
+- (UITapGestureRecognizer *) tapRecognizer{
+    if (!_tapRecognizer) _tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+    return _tapRecognizer;
+}
+
 
 - (UIActionSheet *)actionSheet
 {
@@ -46,20 +80,15 @@ int currentOp = 1;
 
 - (void)actionSheet: (UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSLog(@"CurrentOp was %d",currentOp);
-    currentOp = buttonIndex;
-    NSLog(@"CurrentOp = %d",currentOp);
-    if (buttonIndex == 0) //Remove points
+    //NSLog(@"CurrentOp was %d",currentOp);
+    //NSLog(@"CurrentOp = %d",currentOp);
+    if (buttonIndex == 3) //Remove points
     {
-        NSLog(@"Current operation: Remove point");
+        NSLog(@"Cancelled op");
     }
-    else if (buttonIndex == 1) //Add point
+    else 
     {
-        NSLog(@"Current operation: Add point");
-    }
-    else if (buttonIndex == 2) //modify point
-    {
-        NSLog(@"Current operation: Modify point");
+        currentOp = buttonIndex;
     }
 }
 
@@ -76,6 +105,7 @@ int currentOp = 1;
 
 - (void)viewDidUnload {
     [self setImageView:nil];
+    [self setTapRecognizer:nil];
     [super viewDidUnload];
 }
 @end

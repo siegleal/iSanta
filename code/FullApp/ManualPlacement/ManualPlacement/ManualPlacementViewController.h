@@ -12,6 +12,8 @@
 @interface ManualPlacementViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) PlacementBrain *brain;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapRecognizer;
+
 
 
 @end

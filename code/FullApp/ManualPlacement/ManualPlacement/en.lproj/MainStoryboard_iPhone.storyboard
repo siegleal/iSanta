@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11B26" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11C74" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <development defaultVersion="4200" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
@@ -16,12 +16,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="KSN-wt-V8I">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <gestureRecognizers/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="e9H-WN-wR0">
                                 <rect key="frame" x="0.0" y="416" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="Item" id="ew1-Wb-qi5">
+                                    <barButtonItem title="Operation" id="ew1-Wb-qi5">
                                         <connections>
                                             <action selector="actionButtonPress:" destination="2" id="t4N-qr-1Xj"/>
                                         </connections>
@@ -33,8 +34,14 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="KSN-wt-V8I" id="jj5-oT-iRA"/>
+                        <outlet property="tapRecognizer" destination="9i3-dr-ofL" id="9IL-st-jHl"/>
                     </connections>
                 </viewController>
+                <tapGestureRecognizer id="9i3-dr-ofL">
+                    <connections>
+                        <action selector="tapped:" destination="2" id="Sbd-eP-zy2"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
         </scene>
     </scenes>
@@ -43,6 +50,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ManualPlacementViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="tapRecognizer" candidateClass="UITapGestureRecognizer"/>
             </relationships>
         </class>
     </classes>
