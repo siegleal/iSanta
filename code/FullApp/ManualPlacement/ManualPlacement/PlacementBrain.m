@@ -8,6 +8,7 @@
 
 #import "PlacementBrain.h"
 
+
 @implementation PlacementBrain
 @synthesize targetImage = _targetImage;
 @synthesize points = _points;
@@ -28,29 +29,47 @@
     return _targetImage;
 }
 
-- (NSMutableSet *)points
+- (void)printPoints
 {
-    if (!_points) _points = [[NSMutableSet alloc] init];
+    NSEnumerator *e = [self.points objectEnumerator];
+    NSValue *i = [e nextObject];
+    NSString *output = @"";
+    while(i)
+    {
+        output = [output stringByAppendingFormat:@" %f, %f ;",i.CGPointValue.x,i.CGPointValue.y];
+        i = [e nextObject];
+    }  
+    NSLog(@"%@",output);
+}
+
+- (NSMutableArray *)points
+{
+    if (!_points) _points = [[NSMutableArray alloc] init];
     return _points;
 }
 
-- (void)addPoint:(Impact *)pointToAdd
+- (void)addPointatX:(CGFloat)x andY:(CGFloat)y
 {
+    NSValue *pointToAdd = [NSValue valueWithCGPoint:CGPointMake(x, y)];
     [self.points addObject:pointToAdd];
+    [self printPoints];
 }
 
 - (void)removePointatX:(int)x andY:(int)y
 {
     NSEnumerator *e = [self.points objectEnumerator];
-    Impact *i = e.nextObject;
+    NSValue *i = e.nextObject;
     while(i)
     {
-        if (i.position.x == x && i.position.y == y)
+        if (i.CGPointValue.x == x && i.CGPointValue.y == y)
         {
             [self.points removeObject:i];
         }
+        i = e.nextObject;
     }
 }
+
+
 
 
 @end

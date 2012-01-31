@@ -7,18 +7,13 @@
 //
 
 #import "ManualPlacementViewController.h"
-@interface ManualPlacementViewController()
-    @property (nonatomic,strong) UIActionSheet *actionSheet;
-
-@end
-
 
 
 @implementation ManualPlacementViewController
 @synthesize brain = _brain;
 @synthesize tapRecognizer = _tapRecognizer;
+@synthesize longPressRec = _longPressRec;
 @synthesize imageView = _imageView;
-@synthesize actionSheet = _actionSheet;
 
 
 int currentOp = 1;
@@ -27,6 +22,7 @@ int currentOp = 1;
 {
     self.imageView.image = self.brain.targetImage;
     [self.view addGestureRecognizer:[self tapRecognizer]];
+    [self.view addGestureRecognizer:[self longPressRec]];
     NSLog(@"Logged");
 }
 
@@ -36,12 +32,21 @@ int currentOp = 1;
     return _brain;
 }
 - (IBAction)tapped:(id)sender {
+    CGPoint loc = [self.tapRecognizer locationInView:self.view];
+    NSLog(@"double tap @ %f %f", loc.x,loc.y);
+    [self.brain addPointatX:loc.x andY:loc.y];
     
+}
+
+- (IBAction)longPress:(id)sender {
+    NSLog(@"Long press received");
+    //start editing
 }
 
 
 
-     -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+
+    /* -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
     {
         //Finger Down
         UITouch *anyTouch = [touches anyObject];
@@ -59,38 +64,14 @@ int currentOp = 1;
             //Create a new Smile
             NSLog(@"thrice");        
         }
-    }
+    }*/
 
 - (UITapGestureRecognizer *) tapRecognizer{
     if (!_tapRecognizer) _tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
+    _tapRecognizer.numberOfTapsRequired = 2;
     return _tapRecognizer;
 }
 
-
-- (UIActionSheet *)actionSheet
-{
-    if (!_actionSheet) _actionSheet = [[UIActionSheet alloc] initWithTitle:@"Select option" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Remove point" otherButtonTitles:@"Add point",@"Move point", nil];
-    return _actionSheet;
-}
-
-- (IBAction)actionButtonPress:(id)sender {
-    [self.actionSheet showInView:self.view];                                  
-                                  
-}
-
-- (void)actionSheet: (UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    //NSLog(@"CurrentOp was %d",currentOp);
-    //NSLog(@"CurrentOp = %d",currentOp);
-    if (buttonIndex == 3) //Remove points
-    {
-        NSLog(@"Cancelled op");
-    }
-    else 
-    {
-        currentOp = buttonIndex;
-    }
-}
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -106,6 +87,7 @@ int currentOp = 1;
 - (void)viewDidUnload {
     [self setImageView:nil];
     [self setTapRecognizer:nil];
+    [self setLongPressRec:nil];
     [super viewDidUnload];
 }
 @end

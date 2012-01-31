@@ -9,13 +9,22 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "ManualPlacement/ManualPlacementViewController.h"
-         timestampString = "349383638.830662"
+         timestampString = "349648956.028065"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "18"
-         endingLineNumber = "18"
+         startingLineNumber = "19"
+         endingLineNumber = "19"
          landmarkName = "@interface ManualPlacementViewController"
          landmarkType = "2">
       </FileBreakpoint>
    </FileBreakpoints>
+   <ExceptionBreakpoints>
+      <ExceptionBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         scope = "0"
+         stopOnStyle = "0">
+      </ExceptionBreakpoint>
+   </ExceptionBreakpoints>
 </Bucket>

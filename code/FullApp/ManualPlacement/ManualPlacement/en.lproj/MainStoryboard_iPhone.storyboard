@@ -14,34 +14,23 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="KSN-wt-V8I">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <gestureRecognizers/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="e9H-WN-wR0">
-                                <rect key="frame" x="0.0" y="416" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <items>
-                                    <barButtonItem title="Operation" id="ew1-Wb-qi5">
-                                        <connections>
-                                            <action selector="actionButtonPress:" destination="2" id="t4N-qr-1Xj"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="imageView" destination="KSN-wt-V8I" id="jj5-oT-iRA"/>
-                        <outlet property="tapRecognizer" destination="9i3-dr-ofL" id="9IL-st-jHl"/>
+                        <outlet property="longPressRec" destination="u7J-Ir-Mmh" id="SpU-q8-E8j"/>
                     </connections>
                 </viewController>
-                <tapGestureRecognizer id="9i3-dr-ofL">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="u7J-Ir-Mmh">
                     <connections>
-                        <action selector="tapped:" destination="2" id="Sbd-eP-zy2"/>
+                        <action selector="longPress:" destination="2" id="VKA-oO-4Fp"/>
                     </connections>
-                </tapGestureRecognizer>
+                </pongPressGestureRecognizer>
             </objects>
         </scene>
     </scenes>
@@ -50,6 +39,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ManualPlacementViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="longPressRec" candidateClass="UILongPressGestureRecognizer"/>
                 <relationship kind="outlet" name="tapRecognizer" candidateClass="UITapGestureRecognizer"/>
             </relationships>
         </class>

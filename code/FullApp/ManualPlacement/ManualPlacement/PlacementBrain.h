@@ -8,19 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-typedef struct {
-    int x;
-    int y;
-} ASpoint;
-
-@interface Impact : NSObject
-@property ASpoint position;
-@end
 
 @interface PlacementBrain : NSObject
 
 @property (nonatomic, strong) UIImage *targetImage;
-@property (nonatomic, strong) NSMutableSet *points;
+@property (nonatomic, strong) NSMutableArray *points;
 
+- (void)addPointatX:(CGFloat)x andY:(CGFloat)y;
+- (void)removePointatX:(int)x andY:(int)y;
 
 @end
