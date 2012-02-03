@@ -9,6 +9,7 @@
 #import "ManualPlacementViewController.h"
 
 
+
 @implementation ManualPlacementViewController
 @synthesize brain = _brain;
 @synthesize tapRecognizer = _tapRecognizer;
@@ -23,6 +24,7 @@ int currentOp = 1;
     self.imageView.image = self.brain.targetImage;
     [self.view addGestureRecognizer:[self tapRecognizer]];
     [self.view addGestureRecognizer:[self longPressRec]];
+    
     NSLog(@"Logged");
 }
 
@@ -31,11 +33,26 @@ int currentOp = 1;
     if (!_brain) _brain = [[PlacementBrain alloc] init];
     return _brain;
 }
+
+-(void) drawCirclesOnScreen
+{
+    //TODO remove previously added subviews
+    
+    for (NSValue *p in self.brain.points) {
+        UIImageView *iv = [[UIImageView alloc] initWithImage:self.brain.circleImage];
+        iv.center = p.CGPointValue;
+        [self.view addSubview:iv];
+    }
+}
+
 - (IBAction)tapped:(id)sender {
     CGPoint loc = [self.tapRecognizer locationInView:self.view];
+    //DEBUG: show the double tap location
     NSLog(@"double tap @ %f %f", loc.x,loc.y);
+    //add points to array
     [self.brain addPointatX:loc.x andY:loc.y];
-    
+    //draw them 
+    [self drawCirclesOnScreen];
 }
 
 - (IBAction)longPress:(id)sender {
@@ -71,6 +88,8 @@ int currentOp = 1;
     _tapRecognizer.numberOfTapsRequired = 2;
     return _tapRecognizer;
 }
+
+
 
 
 

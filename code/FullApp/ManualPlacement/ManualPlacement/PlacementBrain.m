@@ -11,6 +11,7 @@
 
 @implementation PlacementBrain
 @synthesize targetImage = _targetImage;
+@synthesize circleImage = _circleImage;
 @synthesize points = _points;
 
 - (UIImage *)targetImage
@@ -27,6 +28,15 @@
     //
     if (!_targetImage) _targetImage = [[UIImage alloc] initWithContentsOfFile:path];
     return _targetImage;
+}
+
+- (UIImage *)circleImage
+{
+    NSBundle *appBundle = [NSBundle mainBundle];
+    NSString *path = [appBundle pathForResource:@"circle" 
+                                         ofType:@"png"];
+    if (!_circleImage) _circleImage = [[UIImage alloc] initWithContentsOfFile:path];
+    return _circleImage;
 }
 
 - (void)printPoints

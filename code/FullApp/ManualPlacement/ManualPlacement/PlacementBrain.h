@@ -12,6 +12,7 @@
 @interface PlacementBrain : NSObject
 
 @property (nonatomic, strong) UIImage *targetImage;
+@property (nonatomic, strong) UIImage *circleImage;
 @property (nonatomic, strong) NSMutableArray *points;
 
 - (void)addPointatX:(CGFloat)x andY:(CGFloat)y;
