@@ -57,7 +57,6 @@
         output = [output stringByAppendingFormat:@" %f, %f ;",i.CGPointValue.x,i.CGPointValue.y];
         i = [e nextObject];
     }  
-    NSLog(@"%@",output);
 }
 
 - (NSMutableArray *)points
@@ -85,6 +84,11 @@
         }
         i = e.nextObject;
     }
+}
+
+-(void) removePoint:(NSValue *)p
+{
+    [self.points removeObject:p];
 }
 
 

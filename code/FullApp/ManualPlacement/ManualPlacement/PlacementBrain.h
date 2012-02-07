@@ -18,5 +18,6 @@
 
 - (void)addPointatX:(CGFloat)x andY:(CGFloat)y;
 - (void)removePointatX:(int)x andY:(int)y;
+-(void) removePoint:(NSValue *)p;
 
 @end

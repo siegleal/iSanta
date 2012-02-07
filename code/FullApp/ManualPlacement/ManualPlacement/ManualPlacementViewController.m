@@ -24,7 +24,9 @@
 @synthesize ivArray = _ivArray;
 
 bool deleting;
-const double ALPHAVAL = .4;
+const double ALPHAVAL = .25;
+const double ANIMATEDURATION = 1;
+const int DISTTHRESHOLD = 30;
 
 
 int currentOp = 1;
@@ -54,22 +56,36 @@ int currentOp = 1;
 
 - (IBAction)tapped:(id)sender {
     CGPoint loc = [self.tapRecognizer locationInView:self.view];
-    //DEBUG: show the double tap location
-    NSLog(@"double tap @ %f %f", loc.x,loc.y);
-    //add points to array
-    [self.brain addPointatX:loc.x andY:loc.y];
-    //draw them 
-    UIImageView *iv = [[UIImageView alloc] initWithImage:self.brain.circleImage];
-    iv.animationImages = self.brain.animationArray;
-    iv.center = loc;
-    iv.animationDuration = 1;
-    [self.view addSubview:iv];
-    //add view to array
-    [self.ivArray addObject:iv];
+    
+    if (!deleting){
+        //add points to array
+        [self.brain addPointatX:loc.x andY:loc.y];
+        //draw them 
+        UIImageView *iv = [[UIImageView alloc] initWithImage:self.brain.circleImage];
+        iv.animationImages = self.brain.animationArray;
+        iv.center = loc;
+        iv.animationDuration = ANIMATEDURATION;
+        [self.view addSubview:iv];
+        //add view to array
+        [self.ivArray addObject:iv];
+    }
+    else
+    {
+        //done deleting
+        deleting = NO;
+        
+        //undim
+        self.imageView.alpha = 1.0;
+        
+        //stop animating
+        for (UIImageView *iv in self.ivArray) {
+            [iv stopAnimating];
+        }
+
+    }
 }
 
 - (IBAction)longPress:(id)sender {
-    NSLog(@"Long press received");
     //start editing
     deleting = YES;
     
@@ -80,43 +96,59 @@ int currentOp = 1;
     for (UIImageView *iv in self.ivArray) {
         [iv startAnimating];
     }
+    
+    //let it be known that I am deleting
+    deleting = YES;
 }
 
 - (IBAction)singleTap:(id)sender {
+    if (deleting)
+    {
+        CGPoint loc = [self.singleTapRec locationInView:self.view];
+        
+        //find the closest point
+        int closestIndex = 0;
+        double closestDist = 999;
+
+        if (self.brain.points.count > 0)
+        {
+            //loop thru all of the points
+            NSEnumerator *e = [self.brain.points objectEnumerator];            
+            for (int i = 0; i < self.brain.points.count; i++) 
+            {
+                NSValue *obj = [e nextObject];
+                double dist = sqrt(pow(loc.x - obj.CGPointValue.x,2.0) + pow(loc.y - obj.CGPointValue.y,2.0));
+                if (dist < closestDist) {
+                    closestDist = dist;
+                    closestIndex = i;
+                }
+            }
+            
+            //prevent a random tap from removing a point
+            if (closestDist < DISTTHRESHOLD){
+                //remove from controller & view
+                UIImageView *iv = [self.ivArray objectAtIndex:closestIndex];
+                [iv removeFromSuperview];
+                [self.ivArray removeObjectAtIndex:closestIndex];
+                
+                
+                //remove from brain            
+                [self.brain removePoint:[self.brain.points objectAtIndex:closestIndex]];
+
+            }
+        }
+        
+
+    }
     
 }
 
-
-
-    /* -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-    {
-        //Finger Down
-        UITouch *anyTouch = [touches anyObject];
-        if (anyTouch.tapCount == 1) 
-        {
-            //Create a new Smile
-            NSLog(@"tapped at %f, %f",[self.tapRecognizer locationInView:self.view].x,[self.tapRecognizer locationInView:self.view].y);  
-            
-        }else if (anyTouch.tapCount == 2) 
-        {
-            //Create a new Smile
-            NSLog(@"twice");        
-        }else if (anyTouch.tapCount == 3) 
-        {
-            //Create a new Smile
-            NSLog(@"thrice");        
-        }
-    }*/
 
 - (UITapGestureRecognizer *) tapRecognizer{
     if (!_tapRecognizer) _tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
     _tapRecognizer.numberOfTapsRequired = 2;
     return _tapRecognizer;
 }
-
-
-
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
