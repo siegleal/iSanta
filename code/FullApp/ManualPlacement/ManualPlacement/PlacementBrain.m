@@ -13,6 +13,14 @@
 @synthesize targetImage = _targetImage;
 @synthesize circleImage = _circleImage;
 @synthesize points = _points;
+@synthesize animationArray = _animationArray;
+
+- (NSArray *)animationArray
+{
+    if (!_animationArray) _animationArray = [[NSArray alloc] initWithObjects:[UIImage imageNamed:@"circle.png"],
+                                             [UIImage imageNamed:@"redcircle.png"], nil];
+    return _animationArray;
+}
 
 - (UIImage *)targetImage
 {
@@ -33,7 +41,7 @@
 - (UIImage *)circleImage
 {
     NSBundle *appBundle = [NSBundle mainBundle];
-    NSString *path = [appBundle pathForResource:@"circle" 
+    NSString *path = [appBundle pathForResource:@"circle-crosshair" 
                                          ofType:@"png"];
     if (!_circleImage) _circleImage = [[UIImage alloc] initWithContentsOfFile:path];
     return _circleImage;

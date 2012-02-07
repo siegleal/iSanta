@@ -8,13 +8,23 @@
 
 #import "ManualPlacementViewController.h"
 
+@interface ManualPlacementViewController()
+@property (nonatomic, strong) NSMutableArray *ivArray;
+
+@end
+
 
 
 @implementation ManualPlacementViewController
 @synthesize brain = _brain;
 @synthesize tapRecognizer = _tapRecognizer;
 @synthesize longPressRec = _longPressRec;
+@synthesize singleTapRec = _singleTapRec;
 @synthesize imageView = _imageView;
+@synthesize ivArray = _ivArray;
+
+bool deleting;
+const double ALPHAVAL = .4;
 
 
 int currentOp = 1;
@@ -22,10 +32,17 @@ int currentOp = 1;
 - (void) viewDidLoad
 {
     self.imageView.image = self.brain.targetImage;
+    self.view.backgroundColor = [UIColor blackColor];
     [self.view addGestureRecognizer:[self tapRecognizer]];
     [self.view addGestureRecognizer:[self longPressRec]];
+    [self.view addGestureRecognizer:[self singleTapRec]];
+    deleting = NO;
     
-    NSLog(@"Logged");
+}
+
+- (NSArray *)ivArray{
+    if (!_ivArray) _ivArray = [[NSMutableArray alloc] init];
+    return _ivArray;
 }
 
 - (PlacementBrain *)brain
@@ -34,16 +51,6 @@ int currentOp = 1;
     return _brain;
 }
 
--(void) drawCirclesOnScreen
-{
-    //TODO remove previously added subviews
-    
-    for (NSValue *p in self.brain.points) {
-        UIImageView *iv = [[UIImageView alloc] initWithImage:self.brain.circleImage];
-        iv.center = p.CGPointValue;
-        [self.view addSubview:iv];
-    }
-}
 
 - (IBAction)tapped:(id)sender {
     CGPoint loc = [self.tapRecognizer locationInView:self.view];
@@ -52,14 +59,32 @@ int currentOp = 1;
     //add points to array
     [self.brain addPointatX:loc.x andY:loc.y];
     //draw them 
-    [self drawCirclesOnScreen];
+    UIImageView *iv = [[UIImageView alloc] initWithImage:self.brain.circleImage];
+    iv.animationImages = self.brain.animationArray;
+    iv.center = loc;
+    iv.animationDuration = 1;
+    [self.view addSubview:iv];
+    //add view to array
+    [self.ivArray addObject:iv];
 }
 
 - (IBAction)longPress:(id)sender {
     NSLog(@"Long press received");
     //start editing
+    deleting = YES;
+    
+    //dim background
+    self.imageView.alpha = ALPHAVAL;
+    
+    //animate
+    for (UIImageView *iv in self.ivArray) {
+        [iv startAnimating];
+    }
 }
 
+- (IBAction)singleTap:(id)sender {
+    
+}
 
 
 
@@ -107,6 +132,7 @@ int currentOp = 1;
     [self setImageView:nil];
     [self setTapRecognizer:nil];
     [self setLongPressRec:nil];
+    [self setSingleTapRec:nil];
     [super viewDidUnload];
 }
 @end

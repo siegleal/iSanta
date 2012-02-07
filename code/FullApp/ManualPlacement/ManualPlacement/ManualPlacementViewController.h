@@ -14,6 +14,7 @@
 @property (nonatomic, strong) PlacementBrain *brain;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapRecognizer;
 @property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *longPressRec;
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *singleTapRec;
 
 
 

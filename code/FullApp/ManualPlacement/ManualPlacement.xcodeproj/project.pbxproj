@@ -19,6 +19,8 @@
 		0A9405AE14CB2BF000703A78 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A9405AC14CB2BF000703A78 /* MainStoryboard_iPad.storyboard */; };
 		0A9405B114CB2BF000703A78 /* ManualPlacementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A9405B014CB2BF000703A78 /* ManualPlacementViewController.m */; };
 		E00D50B014DC61FC00B9A51F /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = E00D50AF14DC61FC00B9A51F /* circle.png */; };
+		E0A3F2DD14E0B2490058A438 /* circle-crosshair.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A3F2DC14E0B2490058A438 /* circle-crosshair.png */; };
+		E0A3F2E014E0B2500058A438 /* redcircle.png in Resources */ = {isa = PBXBuildFile; fileRef = E0A3F2DF14E0B2500058A438 /* redcircle.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		0A9405AF14CB2BF000703A78 /* ManualPlacementViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManualPlacementViewController.h; sourceTree = "<group>"; };
 		0A9405B014CB2BF000703A78 /* ManualPlacementViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManualPlacementViewController.m; sourceTree = "<group>"; };
 		E00D50AF14DC61FC00B9A51F /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
+		E0A3F2DC14E0B2490058A438 /* circle-crosshair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle-crosshair.png"; sourceTree = "<group>"; };
+		E0A3F2DF14E0B2500058A438 /* redcircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redcircle.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 		0A94059E14CB2BF000703A78 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E0A3F2DF14E0B2500058A438 /* redcircle.png */,
+				E0A3F2DC14E0B2490058A438 /* circle-crosshair.png */,
 				E00D50AF14DC61FC00B9A51F /* circle.png */,
 				0A7CCE9514CB780500948BE1 /* TakePhoto.png */,
 				0A94059F14CB2BF000703A78 /* ManualPlacement-Info.plist */,
@@ -168,6 +174,8 @@
 				0A9405AE14CB2BF000703A78 /* MainStoryboard_iPad.storyboard in Resources */,
 				0A7CCE9614CB780500948BE1 /* TakePhoto.png in Resources */,
 				E00D50B014DC61FC00B9A51F /* circle.png in Resources */,
+				E0A3F2DD14E0B2490058A438 /* circle-crosshair.png in Resources */,
+				E0A3F2E014E0B2500058A438 /* redcircle.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
