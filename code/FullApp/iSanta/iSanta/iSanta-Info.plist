@@ -8,12 +8,16 @@
 	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleBlackOpaque</string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string>Logo.JPG</string>
+		<string>iSantaIcon.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>NSWC.${PRODUCT_NAME:rfc1034identifier}</string>
+	<key>UIPrerenderedIcon</key>
+	<true/>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>

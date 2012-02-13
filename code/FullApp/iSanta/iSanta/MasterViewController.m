@@ -7,7 +7,6 @@
 //
 
 #import "MasterViewController.h"
-#import "NewTestViewController.h"
 #import "DetailViewController.h"
 
 @interface MasterViewController ()
@@ -153,6 +152,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self selectRowAtIndexPath:indexPath];
+}
+
+- (void) selectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         self.detailViewController.detailItem = selectedObject;    
@@ -275,17 +279,51 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     NSManagedObject *managedObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[managedObject valueForKey:@"date_Time"] description];
+    
+    NSLocale *currentLocale = [NSLocale systemLocale];
+    NSString *dateFormat;
+    NSString *dateComponents = @"MMM dd, yyyy at HH:mm ZZZZ";
+    
+    dateFormat = [NSDateFormatter dateFormatFromTemplate:dateComponents options:0 locale:currentLocale];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:dateFormat];
+    
+    NSString *formattedDate = [dateFormatter stringFromDate:(NSDate *)[managedObject valueForKey:@"date_Time"]];
+    
+    cell.textLabel.text = formattedDate;
 }
 
 - (void)insertNewObject
 {
-    NewTestViewController *newTest = [[NewTestViewController alloc] init];
-    newTest.fetchedResultsController = self.fetchedResultsController;
-    newTest.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    [self presentModalViewController:newTest animated:YES];
+    
+    // Create a new instance of the entity managed by the fetched results controller.
+    NSManagedObject *testReportObject = [NSEntityDescription insertNewObjectForEntityForName:@"Test_Report" inManagedObjectContext:self.managedObjectContext];
+    // Configure the new managed object..
+    [testReportObject setValue:[NSDate date] forKey:@"date_Time"];
+    
+    NSManagedObject *shooterObject = [NSEntityDescription insertNewObjectForEntityForName:@"Shooter_Information" inManagedObjectContext:self.managedObjectContext];
+    [testReportObject setValue:shooterObject forKey:@"test_Shooter"];
+    
+    NSManagedObject *rangeObject = [NSEntityDescription insertNewObjectForEntityForName:@"Range_Information" inManagedObjectContext:self.managedObjectContext];
+    [testReportObject setValue:rangeObject forKey:@"test_Range"];
+    
+    NSManagedObject *weaponObject = [NSEntityDescription insertNewObjectForEntityForName:@"Weapon_Information" inManagedObjectContext:self.managedObjectContext];
+    [testReportObject setValue:weaponObject forKey:@"test_Weapon"];
+    
+    NSManagedObject *ammoObject = [NSEntityDescription insertNewObjectForEntityForName:@"Ammunition_Information" inManagedObjectContext:self.managedObjectContext];
+    [testReportObject setValue:ammoObject forKey:@"test_Ammunition"];
+    
+    NSManagedObject *photoObject = [NSEntityDescription insertNewObjectForEntityForName:@"Photo_Information" inManagedObjectContext:self.managedObjectContext];
+    [testReportObject setValue:photoObject forKey:@"test_Photo"];
+    
+    //Create the detailViewController.
+    self.detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"detailViewController"];
+    //Attach the new detail item.
+    [self.detailViewController setDetailItem:testReportObject];
+    //Push the detail view.
+    [self.navigationController pushViewController:self.detailViewController animated:YES];
+    
+    
 }
-
-//- (void)newTestWizard
 
 @end

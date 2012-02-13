@@ -20,6 +20,12 @@
 @synthesize detailDescriptionTable = _detailDescriptionTable;
 @synthesize targetImage;
 @synthesize selectedIndexPath;
+@synthesize imagePickerSourceType;
+@synthesize imagePickerCaptureMode;
+@synthesize imagePickerCameraDevice;
+@synthesize doneToolBar;
+@synthesize temperaturePicker;
+@synthesize respondingTextField;
 
 #pragma mark - Managing the detail item
 
@@ -58,6 +64,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    temperaturePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 200, 320, 216)];
+    temperaturePicker.delegate = self;
+    temperaturePicker.showsSelectionIndicator = YES;
+    
     [self configureView];
 }
 
@@ -70,6 +81,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+//    [self.view setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"iSantaTableBackground.png"]]];
     [super viewWillAppear:animated];
 }
 
@@ -118,34 +130,51 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    DetailTableViewCell *cell = [[DetailTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil indexPath:indexPath];
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    cell.textField.delegate = self;
+    
+    doneToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    [doneToolBar setBarStyle:UIBarStyleBlackOpaque];
+    UIBarButtonItem *fixedWidth = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
+    fixedWidth.width = doneToolBar.frame.size.width - 70;
+    UIBarButtonItem *done = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:cell.textField action:@selector(resignFirstResponder)];
+    
+    [doneToolBar setItems:[NSArray arrayWithObjects:fixedWidth, done, nil] animated:NO];
+    
+    [cell.textField setInputAccessoryView:doneToolBar];
+    
+    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+    
+    NSString *value = @"";
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell = [[DetailTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil indexPath:indexPath];
     }
     
     switch (indexPath.section) {
         case 0:
+            [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
             [cell.imageView setImage:[[UIImage alloc] initWithData:
                                     [self.detailItem valueForKeyPath:@"test_Photo.image"]]];
+            self.targetImage = [self.detailItem valueForKeyPath:@"test_Photo.image"];
+            cell.textField.enabled = NO;
             [cell.textLabel setText:@"Photo"];
             [cell.detailTextLabel setText:@""];
             break;
         case 1:
             switch (indexPath.row) {
                 case 0:
-                    [cell.textLabel setText:@"First Name"];
-                    [cell.detailTextLabel setText:[[self.detailItem 
-                                                   valueForKeyPath:@"test_Shooter.first_Name"]
-                                                   description]];
+                    [cell.imageView setImage:nil];
+                    [cell setTextFieldPlaceholder:@"First Name"];
+                    [cell setTextFieldText:[[self.detailItem valueForKeyPath:@"test_Shooter.first_Name"] description]];
+                    cell.textField.keyboardType = UIKeyboardTypeASCIICapable;
                     break;
                 case 1:
-                    [cell.textLabel setText:@"Last Name"];
-                    [cell.detailTextLabel setText:[[self.detailItem 
-                                                   valueForKeyPath:@"test_Shooter.last_Name"]
-                                                   description]];
+                    [cell.imageView setImage:nil];
+                    [cell setTextFieldPlaceholder:@"Last Name"];
+                    [cell setTextFieldText:[[self.detailItem valueForKeyPath:@"test_Shooter.last_Name"]description]];
+                    cell.textField.keyboardType = UIKeyboardTypeASCIICapable;
                     break;
                 default:
                     break;
@@ -154,22 +183,32 @@
         case 2:
             switch (indexPath.row) {
                 case 0:
-                    [cell.textLabel setText:@"Firing Range"];
-                    [cell.detailTextLabel setText:[[self.detailItem 
-                                                   valueForKeyPath:@"test_Range.firing_Range"]
-                                                   description]];
+                    [cell.imageView setImage:nil];
+                    [cell setTextFieldPlaceholder:@"Firing Range"];
+                    [cell setTextFieldText:[[self.detailItem valueForKeyPath:@"test_Range.firing_Range"]description]];
+                    cell.textField.keyboardType = UIKeyboardTypeASCIICapable;
                     break;
                 case 1:
-                    [cell.textLabel setText:@"Distance to Target"];
-                    [cell.detailTextLabel setText:[[self.detailItem 
-                                                   valueForKeyPath:@"test_Range.distance_To_Target"]
-                                                   description]];
+                    [cell.imageView setImage:nil];
+                    [cell setTextFieldPlaceholder:@"Distance to Target"];
+                    value = [[self.detailItem valueForKeyPath:@"test_Range.distance_To_Target"] description];
+                    if (![value isEqualToString:@"0"])
+                        [cell setTextFieldText:value];
+                    else
+                        [cell setTextFieldText:@""];
+                    cell.textField.keyboardType = UIKeyboardTypeNumberPad;
                     break;
                 case 2:
-                    [cell.textLabel setText:@"Range Temperature"];
-                    [cell.detailTextLabel setText:[[self.detailItem valueForKeyPath:
-                                                   @"test_Range.range_Temperature"]
-                                                   description]];
+                    [cell.imageView setImage:nil];
+                    [cell setTextFieldPlaceholder:@"Range Temperature"];
+                    value = [[self.detailItem valueForKeyPath:@"test_Range.range_Temperature"] description];
+                    if (value != nil && [value length] > 0)
+                        [cell setTextFieldText:value];
+                    else
+                        [cell setTextFieldText:@""];
+////////////////////
+                    [cell.textField setInputView:temperaturePicker];
+////////////////////
                     break;
                 default:
                     break;
@@ -178,22 +217,26 @@
         case 3:
             switch (indexPath.row) {
                 case 0:
-                    [cell.textLabel setText:@"Serial Number"];
-                    [cell.detailTextLabel setText:[[self.detailItem 
-                                                   valueForKeyPath:@"test_Weapon.serial_Number"]
-                                                   description]];
+                    [cell.imageView setImage:nil];
+                    [cell setTextFieldPlaceholder:@"Serial Number"];
+                    value = [[self.detailItem valueForKeyPath:@"test_Weapon.serial_Number"]description];
+                    if (![value isEqualToString:@"0"])
+                        [cell setTextFieldText:value];
+                    else
+                        [cell setTextFieldText:@""];
+                    cell.textField.keyboardType = UIKeyboardTypeNumberPad;
                     break;
                 case 1:
-                    [cell.textLabel setText:@"Weapon Nomenclature"];
-                    [cell.detailTextLabel setText:[[self.detailItem valueForKeyPath:
-                                                   @"test_Weapon.weapon_Nomenclature"]
-                                                   description]];
+                    [cell.imageView setImage:nil];
+                    [cell setTextFieldPlaceholder:@"Weapon Nomenclature"];
+                    [cell setTextFieldText:[[self.detailItem valueForKeyPath:@"test_Weapon.weapon_Nomenclature"] description]];
+                    cell.textField.keyboardType = UIKeyboardTypeASCIICapable;
                     break;
                 case 2:
-                    [cell.textLabel setText:@"Notes"];
-                    [cell.detailTextLabel setText:[[self.detailItem 
-                                                   valueForKeyPath:@"test_Weapon.weapon_Notes"]
-                                                   description]];
+                    [cell.imageView setImage:nil];
+                    [cell setTextFieldPlaceholder:@"Notes"];
+                    [cell setTextFieldText:[[self.detailItem valueForKeyPath:@"test_Weapon.weapon_Notes"]description]];
+                    cell.textField.keyboardType = UIKeyboardTypeASCIICapable;
                     break;
                 default:
                     break;
@@ -202,34 +245,51 @@
         case 4:
             switch (indexPath.row) {
                 case 0:
-                    [cell.textLabel setText:@"Caliber"];
-                    [cell.detailTextLabel setText:[[self.detailItem 
-                                                   valueForKeyPath:@"test_Ammunition.caliber"]
-                                                   description]];
+                    [cell.imageView setImage:nil];
+                    [cell setTextFieldPlaceholder:@"Caliber"];
+                    value = [[self.detailItem valueForKeyPath:@"test_Ammunition.caliber"]description];
+                    if (![value isEqualToString:@"0"])
+                        [cell setTextFieldText:value];
+                    else
+                        [cell setTextFieldText:@""];
+                    cell.textField.keyboardType = UIKeyboardTypeNumberPad;
                     break;
                 case 1:
-                    [cell.textLabel setText:@"Lot Number"];
-                    [cell.detailTextLabel setText:[[self.detailItem 
-                                                   valueForKeyPath:@"test_Ammunition.lot_Number"]
-                                                   description]];
+                    [cell.imageView setImage:nil];
+                    [cell setTextFieldPlaceholder:@"Lot Number"];
+                    value = [[self.detailItem valueForKeyPath:@"test_Ammunition.lot_Number"] description];
+                    if (![value isEqualToString:@"0"])
+                        [cell setTextFieldText:value];
+                    else
+                        [cell setTextFieldText:@""];
+                    cell.textField.keyboardType = UIKeyboardTypeNumberPad;
                     break;
                 case 2:
-                    [cell.textLabel setText:@"Number of Shots Fired"];
-                    [cell.detailTextLabel setText:[[self.detailItem valueForKeyPath:
-                                                   @"test_Ammunition.number_Of_Shots"]
-                                                   description]];
+                    [cell.imageView setImage:nil];
+                    [cell setTextFieldPlaceholder:@"Number of Shots Fired"];
+                    value = [[self.detailItem valueForKeyPath:@"test_Ammunition.number_Of_Shots"] description];
+                    if (![value isEqualToString:@"0"])
+                        [cell setTextFieldText:value];
+                    else
+                        [cell setTextFieldText:@""];
+                    cell.textField.keyboardType = UIKeyboardTypeNumberPad;
                     break;
                 case 3:
-                    [cell.textLabel setText:@"Projectile Mass"];
-                    [cell.detailTextLabel setText:[[self.detailItem valueForKeyPath:
-                                                   @"test_Ammunition.projectile_Mass"]
-                                                   description]];
+                    [cell.imageView setImage:nil];
+                    [cell setTextFieldPlaceholder:@"Projectile Mass"];
+                    value = [[self.detailItem valueForKeyPath:@"test_Ammunition.projectile_Mass"] description];
+                    if (![value isEqualToString:@"0"])
+                        [cell setTextFieldText:value];
+                    else
+                        [cell setTextFieldText:@""];
+                    cell.textField.keyboardType = UIKeyboardTypeNumberPad;
                     break;
                 case 4:
-                    [cell.textLabel setText:@"Notes"];
-                    [cell.detailTextLabel setText:[[self.detailItem valueForKeyPath:
-                                                   @"test_Ammunition.ammunition_Notes"]
-                                                   description]];
+                    [cell.imageView setImage:nil];
+                    [cell setTextFieldPlaceholder:@"Notes"];
+                    [cell setTextFieldText:[[self.detailItem valueForKeyPath:@"test_Ammunition.ammunition_Notes"] description]];
+                    cell.textField.keyboardType = UIKeyboardTypeASCIICapable;
+
                     break;
                 default:
                     break;
@@ -281,13 +341,12 @@
             return @"Weapon Information";
             break;
         case 4:
-            return @"Ammunition Information";
+            return @"Ammunition Informtion";
             break;
         default:
             return nil;
             break;
     }
-
 }
 
 #pragma mark Table View Delegate
@@ -295,20 +354,34 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     selectedIndexPath = indexPath;
-    
-    if(indexPath.section == 0)
+////////////////////////    
+//    [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+////////////////////////    
+    if(indexPath.section == 0 && indexPath.row == 0)
     {
+        UIActionSheet *photoSourceChooser = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Analyze Current", @"Take Photo", @"Choose Existing", nil];
         UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
         pickerController.delegate = self;
-        pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-        [self presentModalViewController:pickerController animated:YES];
+        pickerController.sourceType = self.imagePickerSourceType;
+        if (pickerController.sourceType == UIImagePickerControllerSourceTypeCamera) {
+            pickerController.cameraCaptureMode = self.imagePickerCaptureMode;
+            pickerController.cameraDevice = self.imagePickerCameraDevice;
+        }
+        [photoSourceChooser showInView:self.view];
     }
-    else if(indexPath.section == 2 && indexPath.row == 2)
+    else
     {
-        UIActionSheet *temperatureSheet = [[UIActionSheet alloc] initWithTitle:@"Choose a Temperature" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:[NSString stringWithUTF8String: "Cold (<50°)"],[NSString stringWithUTF8String: "Ambient (50° to 95°)"],[NSString stringWithUTF8String: "Hot (>95°)"], nil];
+        [((DetailTableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textField becomeFirstResponder];
+        if (((DetailTableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textField.isFirstResponder)
+        {
+            NSLog(@"TextField is first responder");
+        }
+/*      else if(indexPath.section == 2 && indexPath.row == 2)
+        {
+            UIActionSheet *temperatureSheet = [[UIActionSheet alloc] initWithTitle:@"Choose a Temperature" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:[NSString stringWithUTF8String: "Cold (<50°)"],[NSString stringWithUTF8String: "Ambient (50° to 95°)"],[NSString stringWithUTF8String: "Hot (>95°)"], nil];
         
-        [temperatureSheet showInView:self.view];
-    }
+            [temperatureSheet showInView:self.view];
+        }
     else
     {
         NSString *message = @"Please enter the "; 
@@ -320,9 +393,36 @@
                                    cancelButtonTitle:@"Cancel" 
                                    otherButtonTitles:@"Submit", nil];
         [inputAlert setAlertViewStyle:UIAlertViewStylePlainTextInput];
+        if(indexPath.section == 1)
+        {
+            [[inputAlert textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeASCIICapable];
+        }
+        else if(indexPath.section == 2)
+        {
+            if(indexPath.row == 0)
+                [[inputAlert textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeASCIICapable];
+            else
+                [[inputAlert textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeNumberPad];
+        }
+        else if(indexPath.section == 3)
+        {
+            if(indexPath.row == 0)
+                [[inputAlert textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeNumberPad];
+            else
+                [[inputAlert textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeASCIICapable];
+        }
+        else if(indexPath.section == 4)
+        {
+            if(indexPath.row == 4)
+                [[inputAlert textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeASCIICapable];
+            else
+                [[inputAlert textFieldAtIndex:0] setKeyboardType:UIKeyboardTypeNumberPad];
+        }
         [inputAlert show];
     }
-    
+ */
+    }
+    [tableView reloadData];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -333,17 +433,16 @@
     targetImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     
     //Place the Image in CoreData.
-    [self.detailItem setValue:UIImagePNGRepresentation(targetImage) forKeyPath:@"test_Photo.image"];
+    [self.detailItem setValue:UIImageJPEGRepresentation(targetImage, 0.85) forKeyPath:@"test_Photo.image"];
     
     [self.detailDescriptionTable cellForRowAtIndexPath:selectedIndexPath].imageView.image = targetImage;
     
-//    [self.detailDescriptionTable reloadData];
+    [self.detailDescriptionTable reloadData];
     
     [self dismissModalViewControllerAnimated:YES];
 }
 
 #pragma mark - Alert View Delegate call backs
-
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(buttonIndex == 1)
@@ -351,9 +450,8 @@
         [[self.detailDescriptionTable cellForRowAtIndexPath:selectedIndexPath].detailTextLabel setText:[alertView textFieldAtIndex:0].text];
         
         [self updateCoreDataModelWithString:[alertView textFieldAtIndex:0].text atCellIndexPath:selectedIndexPath];
-        
-        [self.detailDescriptionTable reloadData];
     }
+    [self.detailDescriptionTable reloadData];
 }
 
 - (void)updateCoreDataModelWithString:(NSString *)text atCellIndexPath:(NSIndexPath *)indexPath
@@ -371,7 +469,7 @@
             else if (indexPath.row == 1)
                 [self.detailItem setValue:[NSNumber numberWithInt:[text intValue]] forKeyPath:@"test_Range.distance_To_Target"];
             else
-                [self.detailItem setValue:[NSNumber numberWithDouble:[text doubleValue]] forKeyPath:@"test_Range.range_Temperature"];
+                [self.detailItem setValue:text forKeyPath:@"test_Range.range_Temperature"];
             break;
         case 3:
             if (indexPath.row == 0)
@@ -418,24 +516,161 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    NSArray *arrayOfTemps = [NSArray arrayWithObjects:[NSString stringWithUTF8String: "Cold (<50°)"],[NSString stringWithUTF8String: "Ambient (50° to 95°)"],[NSString stringWithUTF8String: "Hot (>95°)"], nil];
-    switch (buttonIndex) {
-        case 0:
-            if(selectedIndexPath.section == 2 && selectedIndexPath.row == 2)
-                [self.detailItem setValue:[arrayOfTemps objectAtIndex:0] forKeyPath:@"test_Range.range_Temperature"];
+    if([actionSheet.title isEqualToString:@"Choose a Temperature"])
+    {
+        NSArray *arrayOfTemps = [NSArray arrayWithObjects:[NSString stringWithUTF8String: "Cold (<50°)"],[NSString stringWithUTF8String: "Ambient (50° to 95°)"],[NSString stringWithUTF8String: "Hot (>95°)"], nil];
+        switch (buttonIndex) {
+            case 0:
+                if(selectedIndexPath.section == 2 && selectedIndexPath.row == 2)
+                {
+                    [self updateCoreDataModelWithString:[arrayOfTemps objectAtIndex:0] atCellIndexPath:selectedIndexPath];
+                }   
+                break;
+            case 1:
+                if(selectedIndexPath.section == 2 && selectedIndexPath.row == 2)
+                {
+                    [self updateCoreDataModelWithString:[arrayOfTemps objectAtIndex:1] atCellIndexPath:selectedIndexPath];
+                }
+                break;
+            case 2:
+                if(selectedIndexPath.section == 2 && selectedIndexPath.row == 2)
+                {
+                    [self updateCoreDataModelWithString:[arrayOfTemps objectAtIndex:2] atCellIndexPath:selectedIndexPath];
+                }
+                break;
+            default:
+                break;
+        }
+        [self.detailDescriptionTable reloadData];
+    }
+    else
+    {
+        switch (buttonIndex) {
+            case 0:
+                //Pass image to the analysis view.
+                break;
+            case 1:
+                self.imagePickerSourceType = UIImagePickerControllerSourceTypeCamera;
+                self.imagePickerCameraDevice = UIImagePickerControllerCameraDeviceRear;
+                self.imagePickerCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+                break;
+            case 2:
+                self.imagePickerSourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+#pragma mark - UITextField Delegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    respondingTextField = textField;
+    [self.view setFrame:CGRectMake(0, 170, 320, self.detailDescriptionTable.frame.size.height - 280)];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self.view setFrame:CGRectMake(0, 0, 320, 416)];
+    
+    switch (textField.tag) {
+        case 100:
+            [self.detailItem setValue:textField.text forKeyPath:@"test_Shooter.first_Name"];
             break;
-        case 1:
-            if(selectedIndexPath.section == 2 && selectedIndexPath.row == 2)
-                [self.detailItem setValue:[arrayOfTemps objectAtIndex:1] forKeyPath:@"test_Range.range_Temperature"];
+        case 101:
+            [self.detailItem setValue:textField.text forKeyPath:@"test_Shooter.last_Name"];
             break;
-        case 2:
-            if(selectedIndexPath.section == 2 && selectedIndexPath.row == 2)
-                [self.detailItem setValue:[arrayOfTemps objectAtIndex:2] forKeyPath:@"test_Range.range_Temperature"];
+        case 200:
+            [self.detailItem setValue:textField.text forKeyPath:@"test_Range.firing_Range"];
+            break;
+        case 201:
+            [self.detailItem setValue:[NSNumber numberWithInt:[textField.text intValue]] forKeyPath:@"test_Range.distance_To_Target"];
+            break;
+        case 202:
+            [self.detailItem setValue:textField.text forKeyPath:@"test_Range.range_Temperature"];
+            break;
+        case 300:
+            [self.detailItem setValue:[NSNumber numberWithInt:[textField.text intValue]] forKeyPath:@"test_Weapon.serial_Number"];
+            break;
+        case 301:
+            [self.detailItem setValue:textField.text forKeyPath:@"test_Weapon.weapon_Nomenclature"];
+            break;
+        case 302:
+            [self.detailItem setValue:textField.text forKeyPath:@"test_Weapon.weapon_Notes"];
+            break;
+        case 400:
+            [self.detailItem setValue:[NSNumber numberWithDouble:[textField.text doubleValue]] forKeyPath:@"test_Ammunition.caliber"];
+            break;
+        case 401:
+            [self.detailItem setValue:[NSNumber numberWithInt:[textField.text intValue]] forKeyPath:@"test_Ammunition.lot_Number"];
+            break;
+        case 402:
+            [self.detailItem setValue:[NSNumber numberWithInt:[textField.text intValue]] forKeyPath:@"test_Ammunition.number_Of_Shots"];
+            break;
+        case 403:
+            [self.detailItem setValue:[NSNumber numberWithDouble:[textField.text doubleValue]] forKeyPath:@"test_Ammunition.projectile_Mass"];
+            break;
+        case 404:
+            [self.detailItem setValue:textField.text forKeyPath:@"test_Ammunition.ammunition_Notes"];
             break;
         default:
             break;
     }
-    [self.detailDescriptionTable reloadData];
+    [textField setUserInteractionEnabled:NO];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    //[textField resignFirstResponder];
+    return NO;
+}
+
+- (IBAction)dismissKeyboard:(id)sender
+{
+    [self.view endEditing:YES];
+}
+
+#pragma mark - UIPickerViewDelegate
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
+    respondingTextField.text = [self pickerView:pickerView titleForRow:row forComponent:component];
+}
+
+// tell the picker the title for a given component
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    if (row == 0) {
+        return [NSString stringWithUTF8String: "Cold (<50°)"];
+    }
+    else if (row == 1)
+    {
+        return [NSString stringWithUTF8String: "Ambient (50° to 95°)"];
+    }
+    else
+    {
+        return [NSString stringWithUTF8String: "Hot (>95°)"];
+    }
+}
+
+// tell the picker the width of each row for a given component
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
+    int sectionWidth = 300;
+    
+    return sectionWidth;
+}
+
+#pragma mark - UIPickerViewDatasource
+
+// tell the picker how many rows are available for a given component
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    NSUInteger numRows = 3;
+    
+    return numRows;
+}
+
+// tell the picker how many components it will have
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    return 1;
 }
 
 @end

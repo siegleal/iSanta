@@ -20,4 +20,6 @@
 
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
+- (void) selectRowAtIndexPath:(NSIndexPath *)indexPath;
+
 @end
