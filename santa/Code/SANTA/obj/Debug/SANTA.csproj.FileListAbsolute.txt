@@ -1,0 +1,5 @@
+C:\Users\siegleal\Desktop\senior project\Code\SANTA\bin\Debug\SANTA.exe.config
+C:\Users\siegleal\Desktop\senior project\Code\SANTA\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\siegleal\Desktop\senior project\Code\SANTA\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\siegleal\Desktop\senior project\Code\SANTA\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\siegleal\iSanta\santa\Code\SANTA\bin\Debug\SANTA.exe.config

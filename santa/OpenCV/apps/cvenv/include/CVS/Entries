@@ -1,0 +1,26 @@
+/Makefile.am/1.1/Thu Oct 17 21:52:09 2002//
+/Makefile.in/1.1/Thu Oct 17 21:52:09 2002//
+/assert.h/1.1/Thu Oct 17 21:52:09 2002//
+/ctype.h/1.1/Thu Oct 17 21:52:09 2002//
+/dirent.h/1.1/Thu Oct 17 21:52:09 2002//
+/eic.h/1.1/Thu Oct 17 21:52:09 2002//
+/eicval.h/1.1/Thu Oct 17 21:52:09 2002//
+/errno.h/1.1/Thu Oct 17 21:52:09 2002//
+/fcntl.h/1.1/Thu Oct 17 21:52:09 2002//
+/float.h/1.1/Thu Oct 17 21:52:09 2002//
+/iso646.h/1.1/Thu Oct 17 21:52:09 2002//
+/limits.h/1.1/Thu Oct 17 21:52:09 2002//
+/math.h/1.1/Thu Oct 17 21:52:09 2002//
+/setjmp.h/1.1/Thu Oct 17 21:52:09 2002//
+/signal.h/1.1/Thu Oct 17 21:52:09 2002//
+/starteic.h/1.1/Thu Oct 17 21:52:09 2002//
+/stdarg.h/1.1/Thu Oct 17 21:52:09 2002//
+/stddef.h/1.1/Thu Oct 17 21:52:08 2002//
+/stdio.h/1.1/Thu Oct 17 21:52:08 2002//
+/stdlib.h/1.1/Thu Oct 17 21:52:08 2002//
+/string.h/1.1/Thu Oct 17 21:52:08 2002//
+/termios.h/1.1/Thu Oct 17 21:52:08 2002//
+/time.h/1.1/Thu Oct 17 21:52:08 2002//
+/unistd.h/1.1/Thu Oct 17 21:52:07 2002//
+/xalloc.h/1.1/Thu Oct 17 21:52:07 2002//
+D

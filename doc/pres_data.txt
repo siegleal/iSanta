@@ -1,0 +1,51 @@
+==BACKGROUND
+
+NSWC SWD
+- Needs to be able to ana;yze targets in the field
+- Want to increase the accuracy of analysis
+	- By hand is not accurate enough due to the method
+
+Want an iOS app for ease of use and large availability of hardware
+
+We will use image recognition to identify bullet holes in the large target
+- The app will normalize the image and approximate bullet holes
+- The user can manually adjust impact placement after regocnition
+
+==CLIENT OVERVIEW
+
+Charles Zeller, Techincal Warrant Holder, Small Arms & Weapons Crane Division
+
+David Long, Air, Land, Sea, and Expeditionary Systems Small Arms Project Manager Crane Division
+
+Handle small arms testing at NSWC Crane (Where does this fit in?)
+
+==CURRENT SYSTEM
+
+Desktop system designed by Rose Senior Design Team 2-3 years ago
+- Technicians don't like needing to go back to the office to see the results
+- Cannot use USB devices (Cameras, SD card readers) anymore
+- Using Rulers does not give results that are as accurate as desired
+
+==TECHONOLOGIES USED
+
+iOS 5
+- Objective-C
+- C++
+
+CSV to get results into Excel-readable format
+
+OpenCV for image regocnition
+- (add more with Alex later)
+
+==DESIGN ARCHITECTURE
+
+Include Arch diagram (fix it)
+
+MVC (Model View Controller)
+-Driven by iOS standards
+
+Engine System
+- Large tasks in background not appropriate for MVC architecture
+	- Normalization
+	- Statistical Analysis
+	- Excel-readable formatting and e-mail
