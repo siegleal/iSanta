@@ -1,0 +1,291 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9D692E5414E29FAB0075BD97 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D692E5314E29FAB0075BD97 /* UIKit.framework */; };
+		9D692E5614E29FAB0075BD97 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D692E5514E29FAB0075BD97 /* Foundation.framework */; };
+		9D692E5814E29FAB0075BD97 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D692E5714E29FAB0075BD97 /* CoreGraphics.framework */; };
+		9D692E5E14E29FAB0075BD97 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9D692E5C14E29FAB0075BD97 /* InfoPlist.strings */; };
+		9D692E6014E29FAB0075BD97 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D692E5F14E29FAB0075BD97 /* main.m */; };
+		9D692E6414E29FAB0075BD97 /* CSVEmailTesterAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D692E6314E29FAB0075BD97 /* CSVEmailTesterAppDelegate.m */; };
+		9D692E6714E29FAB0075BD97 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D692E6514E29FAB0075BD97 /* MainStoryboard.storyboard */; };
+		9D692E6A14E29FAB0075BD97 /* CSVEmailTesterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D692E6914E29FAB0075BD97 /* CSVEmailTesterViewController.m */; };
+		9D692E7114E2A7AC0075BD97 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D692E7014E2A7AC0075BD97 /* MessageUI.framework */; };
+		9D692E9114E328F30075BD97 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9D692E9014E328F30075BD97 /* Logo.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		9D692E4F14E29FAB0075BD97 /* CSVEmailTester.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSVEmailTester.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D692E5314E29FAB0075BD97 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9D692E5514E29FAB0075BD97 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9D692E5714E29FAB0075BD97 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9D692E5B14E29FAB0075BD97 /* CSVEmailTester-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CSVEmailTester-Info.plist"; sourceTree = "<group>"; };
+		9D692E5D14E29FAB0075BD97 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9D692E5F14E29FAB0075BD97 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9D692E6114E29FAB0075BD97 /* CSVEmailTester-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSVEmailTester-Prefix.pch"; sourceTree = "<group>"; };
+		9D692E6214E29FAB0075BD97 /* CSVEmailTesterAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSVEmailTesterAppDelegate.h; sourceTree = "<group>"; };
+		9D692E6314E29FAB0075BD97 /* CSVEmailTesterAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSVEmailTesterAppDelegate.m; sourceTree = "<group>"; };
+		9D692E6614E29FAB0075BD97 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		9D692E6814E29FAB0075BD97 /* CSVEmailTesterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CSVEmailTesterViewController.h; sourceTree = "<group>"; };
+		9D692E6914E29FAB0075BD97 /* CSVEmailTesterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CSVEmailTesterViewController.m; sourceTree = "<group>"; };
+		9D692E7014E2A7AC0075BD97 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		9D692E9014E328F30075BD97 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9D692E4C14E29FAB0075BD97 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D692E7114E2A7AC0075BD97 /* MessageUI.framework in Frameworks */,
+				9D692E5414E29FAB0075BD97 /* UIKit.framework in Frameworks */,
+				9D692E5614E29FAB0075BD97 /* Foundation.framework in Frameworks */,
+				9D692E5814E29FAB0075BD97 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9D692E4414E29FAB0075BD97 = {
+			isa = PBXGroup;
+			children = (
+				9D692E7014E2A7AC0075BD97 /* MessageUI.framework */,
+				9D692E5914E29FAB0075BD97 /* CSVEmailTester */,
+				9D692E5214E29FAB0075BD97 /* Frameworks */,
+				9D692E5014E29FAB0075BD97 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9D692E5014E29FAB0075BD97 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D692E4F14E29FAB0075BD97 /* CSVEmailTester.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9D692E5214E29FAB0075BD97 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9D692E5314E29FAB0075BD97 /* UIKit.framework */,
+				9D692E5514E29FAB0075BD97 /* Foundation.framework */,
+				9D692E5714E29FAB0075BD97 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9D692E5914E29FAB0075BD97 /* CSVEmailTester */ = {
+			isa = PBXGroup;
+			children = (
+				9D692E6214E29FAB0075BD97 /* CSVEmailTesterAppDelegate.h */,
+				9D692E6314E29FAB0075BD97 /* CSVEmailTesterAppDelegate.m */,
+				9D692E6514E29FAB0075BD97 /* MainStoryboard.storyboard */,
+				9D692E6814E29FAB0075BD97 /* CSVEmailTesterViewController.h */,
+				9D692E6914E29FAB0075BD97 /* CSVEmailTesterViewController.m */,
+				9D692E5A14E29FAB0075BD97 /* Supporting Files */,
+			);
+			path = CSVEmailTester;
+			sourceTree = "<group>";
+		};
+		9D692E5A14E29FAB0075BD97 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9D692E9014E328F30075BD97 /* Logo.png */,
+				9D692E5B14E29FAB0075BD97 /* CSVEmailTester-Info.plist */,
+				9D692E5C14E29FAB0075BD97 /* InfoPlist.strings */,
+				9D692E5F14E29FAB0075BD97 /* main.m */,
+				9D692E6114E29FAB0075BD97 /* CSVEmailTester-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9D692E4E14E29FAB0075BD97 /* CSVEmailTester */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D692E6D14E29FAB0075BD97 /* Build configuration list for PBXNativeTarget "CSVEmailTester" */;
+			buildPhases = (
+				9D692E4B14E29FAB0075BD97 /* Sources */,
+				9D692E4C14E29FAB0075BD97 /* Frameworks */,
+				9D692E4D14E29FAB0075BD97 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CSVEmailTester;
+			productName = CSVEmailTester;
+			productReference = 9D692E4F14E29FAB0075BD97 /* CSVEmailTester.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9D692E4614E29FAB0075BD97 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 9D692E4914E29FAB0075BD97 /* Build configuration list for PBXProject "CSVEmailTester" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9D692E4414E29FAB0075BD97;
+			productRefGroup = 9D692E5014E29FAB0075BD97 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9D692E4E14E29FAB0075BD97 /* CSVEmailTester */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9D692E4D14E29FAB0075BD97 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D692E5E14E29FAB0075BD97 /* InfoPlist.strings in Resources */,
+				9D692E6714E29FAB0075BD97 /* MainStoryboard.storyboard in Resources */,
+				9D692E9114E328F30075BD97 /* Logo.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9D692E4B14E29FAB0075BD97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D692E6014E29FAB0075BD97 /* main.m in Sources */,
+				9D692E6414E29FAB0075BD97 /* CSVEmailTesterAppDelegate.m in Sources */,
+				9D692E6A14E29FAB0075BD97 /* CSVEmailTesterViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9D692E5C14E29FAB0075BD97 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D692E5D14E29FAB0075BD97 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9D692E6514E29FAB0075BD97 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9D692E6614E29FAB0075BD97 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9D692E6B14E29FAB0075BD97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Eric Henderson (9VJDDX5J65)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2B5859D8-FBD8-40C6-816B-81E08DD61F88";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9D692E6C14E29FAB0075BD97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Eric Henderson (9VJDDX5J65)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2B5859D8-FBD8-40C6-816B-81E08DD61F88";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9D692E6E14E29FAB0075BD97 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CSVEmailTester/CSVEmailTester-Prefix.pch";
+				INFOPLIST_FILE = "CSVEmailTester/CSVEmailTester-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9D692E6F14E29FAB0075BD97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CSVEmailTester/CSVEmailTester-Prefix.pch";
+				INFOPLIST_FILE = "CSVEmailTester/CSVEmailTester-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9D692E4914E29FAB0075BD97 /* Build configuration list for PBXProject "CSVEmailTester" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D692E6B14E29FAB0075BD97 /* Debug */,
+				9D692E6C14E29FAB0075BD97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D692E6D14E29FAB0075BD97 /* Build configuration list for PBXNativeTarget "CSVEmailTester" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D692E6E14E29FAB0075BD97 /* Debug */,
+				9D692E6F14E29FAB0075BD97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9D692E4614E29FAB0075BD97 /* Project object */;
+}

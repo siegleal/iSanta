@@ -45,7 +45,7 @@
     </entity>
     <elements>
         <element name="Ammunition_Information" positionX="-243" positionY="18" width="128" height="135"/>
-        <element name="iSanta_Point" positionX="61" positionY="198" width="128" height="90"/>
+        <element name="iSanta_Point" positionX="70" positionY="198" width="128" height="90"/>
         <element name="Photo_Information" positionX="-225" positionY="180" width="128" height="90"/>
         <element name="Range_Information" positionX="133" positionY="-81" width="128" height="105"/>
         <element name="Shooter_Information" positionX="169" positionY="69" width="128" height="90"/>

@@ -9,13 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "MasterViewController.h"
 #import "DetailTableViewCell.h"
+#import "ManualPlacementViewController.h"
+#import "PlacementBrain.h"
 
 @interface DetailViewController : UIViewController <UISplitViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (strong, nonatomic) id detailItem;
-@property (nonatomic) UIImagePickerControllerSourceType imagePickerSourceType;
-@property (nonatomic) UIImagePickerControllerCameraCaptureMode imagePickerCaptureMode;
-@property (nonatomic) UIImagePickerControllerCameraDevice imagePickerCameraDevice;
+
+@property (strong, nonatomic) UIImagePickerController *pickerController;
+
+@property (strong, nonatomic) ManualPlacementViewController *manPlace;
 
 @property (nonatomic, retain) IBOutlet UITableView *detailDescriptionTable;
 
@@ -31,5 +34,7 @@
 - (IBAction)dismissKeyboard:(id)sender;
 
 - (void)updateCoreDataModelWithString:(NSString *)text atCellIndexPath:(NSIndexPath *)indexPath;
+
+- (NSMutableArray *)getArrayOfPointsFromDetailItem:(id)detailItem;
 
 @end

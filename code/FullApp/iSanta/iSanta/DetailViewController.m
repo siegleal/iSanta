@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import <objc/runtime.h>
 
 @interface DetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -20,12 +21,11 @@
 @synthesize detailDescriptionTable = _detailDescriptionTable;
 @synthesize targetImage;
 @synthesize selectedIndexPath;
-@synthesize imagePickerSourceType;
-@synthesize imagePickerCaptureMode;
-@synthesize imagePickerCameraDevice;
 @synthesize doneToolBar;
 @synthesize temperaturePicker;
 @synthesize respondingTextField;
+@synthesize pickerController;
+@synthesize manPlace;
 
 #pragma mark - Managing the detail item
 
@@ -69,6 +69,8 @@
     temperaturePicker.delegate = self;
     temperaturePicker.showsSelectionIndicator = YES;
     
+    NSLog(@"%s", class_getName([[self.detailItem valueForKeyPath:@"test_Photo.point"] class]));
+    
     [self configureView];
 }
 
@@ -108,6 +110,22 @@
     } else {
         return YES;
     }
+}
+
+- (NSMutableArray *)getArrayOfPointsFromDetailItem:(id)detailItem
+{
+    NSMutableArray *outPoints = [[NSMutableArray alloc] init];
+    
+    NSArray *points = [[NSArray alloc] initWithArray:[[self.detailItem valueForKeyPath:@"test_Photo.point"] allObjects]];
+    
+    for (int i = 0; i < [points count]; i++)
+    {
+        float x = [[[points objectAtIndex:i] valueForKey:@"x"] floatValue];
+        float y = [[[points objectAtIndex:i] valueForKey:@"y"] floatValue];
+        [outPoints addObject:[NSValue valueWithCGPoint:CGPointMake(x, y)]];
+    }
+    
+    return outPoints;
 }
 
 #pragma mark - Table View Data Source
@@ -157,7 +175,7 @@
             [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
             [cell.imageView setImage:[[UIImage alloc] initWithData:
                                     [self.detailItem valueForKeyPath:@"test_Photo.image"]]];
-            self.targetImage = [self.detailItem valueForKeyPath:@"test_Photo.image"];
+            self.targetImage = [UIImage imageWithData:[self.detailItem valueForKeyPath:@"test_Photo.image"]];
             cell.textField.enabled = NO;
             [cell.textLabel setText:@"Photo"];
             [cell.detailTextLabel setText:@""];
@@ -206,9 +224,7 @@
                         [cell setTextFieldText:value];
                     else
                         [cell setTextFieldText:@""];
-////////////////////
                     [cell.textField setInputView:temperaturePicker];
-////////////////////
                     break;
                 default:
                     break;
@@ -360,13 +376,6 @@
     if(indexPath.section == 0 && indexPath.row == 0)
     {
         UIActionSheet *photoSourceChooser = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Analyze Current", @"Take Photo", @"Choose Existing", nil];
-        UIImagePickerController *pickerController = [[UIImagePickerController alloc] init];
-        pickerController.delegate = self;
-        pickerController.sourceType = self.imagePickerSourceType;
-        if (pickerController.sourceType == UIImagePickerControllerSourceTypeCamera) {
-            pickerController.cameraCaptureMode = self.imagePickerCaptureMode;
-            pickerController.cameraDevice = self.imagePickerCameraDevice;
-        }
         [photoSourceChooser showInView:self.view];
     }
     else
@@ -516,50 +525,39 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
-    if([actionSheet.title isEqualToString:@"Choose a Temperature"])
-    {
-        NSArray *arrayOfTemps = [NSArray arrayWithObjects:[NSString stringWithUTF8String: "Cold (<50°)"],[NSString stringWithUTF8String: "Ambient (50° to 95°)"],[NSString stringWithUTF8String: "Hot (>95°)"], nil];
-        switch (buttonIndex) {
-            case 0:
-                if(selectedIndexPath.section == 2 && selectedIndexPath.row == 2)
-                {
-                    [self updateCoreDataModelWithString:[arrayOfTemps objectAtIndex:0] atCellIndexPath:selectedIndexPath];
-                }   
-                break;
-            case 1:
-                if(selectedIndexPath.section == 2 && selectedIndexPath.row == 2)
-                {
-                    [self updateCoreDataModelWithString:[arrayOfTemps objectAtIndex:1] atCellIndexPath:selectedIndexPath];
-                }
-                break;
-            case 2:
-                if(selectedIndexPath.section == 2 && selectedIndexPath.row == 2)
-                {
-                    [self updateCoreDataModelWithString:[arrayOfTemps objectAtIndex:2] atCellIndexPath:selectedIndexPath];
-                }
-                break;
-            default:
-                break;
-        }
-        [self.detailDescriptionTable reloadData];
+    pickerController = [[UIImagePickerController alloc] init];
+    pickerController.delegate = self;
+      
+    switch (buttonIndex) {
+        case 0:
+            if (self.targetImage == NULL) {
+                [[[UIAlertView alloc] initWithTitle:@"No Image Added" message:@"You have not added an image to this report. Please add an image before trying to analyze." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+                    break;
+            }
+            manPlace = [[ManualPlacementViewController alloc] initWithNibName:@"ManualPlacement" bundle:nil];
+            [manPlace.brain setTargetImage:self.targetImage];
+            [manPlace.brain setPoints:[self getArrayOfPointsFromDetailItem:self.detailItem]];
+            manPlace.title = @"Target Analysis";
+            [manPlace.imageView setImage:self.targetImage];
+            break;
+        case 1:
+            pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+            pickerController.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+            pickerController.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+            break;
+        case 2:
+            pickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            break;
+        default:
+            break;
     }
-    else
+    if (buttonIndex == 0)
     {
-        switch (buttonIndex) {
-            case 0:
-                //Pass image to the analysis view.
-                break;
-            case 1:
-                self.imagePickerSourceType = UIImagePickerControllerSourceTypeCamera;
-                self.imagePickerCameraDevice = UIImagePickerControllerCameraDeviceRear;
-                self.imagePickerCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
-                break;
-            case 2:
-                self.imagePickerSourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-                break;
-            default:
-                break;
-        }
+        [self.navigationController pushViewController:manPlace animated:YES];
+    }
+    else if (buttonIndex != 3)
+    {
+        [self presentModalViewController:pickerController animated:YES];
     }
 }
 
