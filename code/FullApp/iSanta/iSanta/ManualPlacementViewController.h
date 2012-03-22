@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapRecognizer;
 @property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *longPressRec;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *singleTapRec;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 
 

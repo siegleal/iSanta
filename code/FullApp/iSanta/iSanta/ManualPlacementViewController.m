@@ -20,6 +20,7 @@
 @synthesize tapRecognizer = _tapRecognizer;
 @synthesize longPressRec = _longPressRec;
 @synthesize singleTapRec = _singleTapRec;
+@synthesize scrollView = _scrollView;
 @synthesize imageView = _imageView;
 @synthesize ivArray = _ivArray;
 
@@ -38,8 +39,15 @@ int currentOp = 1;
     [self.view addGestureRecognizer:[self tapRecognizer]];
     [self.view addGestureRecognizer:[self longPressRec]];
     [self.view addGestureRecognizer:[self singleTapRec]];
+    self.scrollView.minimumZoomScale=1.0;
+    self.scrollView.maximumZoomScale = 3.0;
+    self.scrollView.delegate = self;
     deleting = NO;
     
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
+    return self.imageView;
 }
 
 - (NSArray *)ivArray{
@@ -165,6 +173,7 @@ int currentOp = 1;
     [self setTapRecognizer:nil];
     [self setLongPressRec:nil];
     [self setSingleTapRec:nil];
+    [self setScrollView:nil];
     [super viewDidUnload];
 }
 @end
