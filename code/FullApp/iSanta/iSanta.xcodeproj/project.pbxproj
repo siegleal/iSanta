@@ -44,6 +44,8 @@
 		69B94DB11499403500F0C847 /* iSantaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B94DB01499403500F0C847 /* iSantaTests.m */; };
 		69C0D33114E9E96D00F6C131 /* CSVEmailTesterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C0D33014E9E96D00F6C131 /* CSVEmailTesterViewController.m */; };
 		69C0D33314E9EC4200F6C131 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C0D33214E9EC4200F6C131 /* MessageUI.framework */; };
+		E00FC6B0151CDEAB00FF5EBD /* stats.c in Sources */ = {isa = PBXBuildFile; fileRef = E00FC6AE151CDEAB00FF5EBD /* stats.c */; };
+		E00FC6B4151CE83B00FF5EBD /* stats.c in Sources */ = {isa = PBXBuildFile; fileRef = E00FC6AE151CDEAB00FF5EBD /* stats.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +113,8 @@
 		69C0D32F14E9E96D00F6C131 /* CSVEmailTesterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVEmailTesterViewController.h; sourceTree = "<group>"; };
 		69C0D33014E9E96D00F6C131 /* CSVEmailTesterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVEmailTesterViewController.m; sourceTree = "<group>"; };
 		69C0D33214E9EC4200F6C131 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		E00FC6AE151CDEAB00FF5EBD /* stats.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stats.c; path = iSanta/stats.c; sourceTree = "<group>"; };
+		E00FC6AF151CDEAB00FF5EBD /* stats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stats.h; path = iSanta/stats.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +234,7 @@
 				69AD7E8814E9B2A8001F8A67 /* Master/DetailView Controllers */,
 				69AD7E8914E9B2E3001F8A67 /* Manual Placement */,
 				69C0D32E14E9E91600F6C131 /* CSV Exporter */,
+				E00FC6AC151CDE9200FF5EBD /* Stats */,
 				696D0E7A14BB8789003EFE82 /* CoreData Classes */,
 				69B94D821499403400F0C847 /* Supporting Files */,
 			);
@@ -278,6 +283,16 @@
 				69C0D33014E9E96D00F6C131 /* CSVEmailTesterViewController.m */,
 			);
 			name = "CSV Exporter";
+			sourceTree = "<group>";
+		};
+		E00FC6AC151CDE9200FF5EBD /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				E00FC6AF151CDEAB00FF5EBD /* stats.h */,
+				E00FC6AE151CDEAB00FF5EBD /* stats.c */,
+			);
+			name = Stats;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -394,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E00FC6B4151CE83B00FF5EBD /* stats.c in Sources */,
 				69B94D881499403400F0C847 /* main.m in Sources */,
 				69B94D8C1499403400F0C847 /* AppDelegate.m in Sources */,
 				69B94D951499403500F0C847 /* iSanta.xcdatamodeld in Sources */,
@@ -418,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				69B94DB11499403500F0C847 /* iSantaTests.m in Sources */,
+				E00FC6B0151CDEAB00FF5EBD /* stats.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
