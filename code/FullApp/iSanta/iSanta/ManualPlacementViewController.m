@@ -32,6 +32,10 @@ const int DISTTHRESHOLD = 30;
 
 int currentOp = 1;
 
+- (void) donePlacing{
+    NSLog(@"you continued");
+}
+
 - (void) viewDidLoad
 {
     self.imageView.image = self.brain.targetImage;
@@ -42,12 +46,20 @@ int currentOp = 1;
     self.scrollView.minimumZoomScale=1.0;
     self.scrollView.maximumZoomScale = 3.0;
     self.scrollView.delegate = self;
+    [self.scrollView addSubview:self.imageView];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(donePlacing)];
     deleting = NO;
     
 }
 
+                                              
+
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
     return self.imageView;
+}
+
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale{
+    
 }
 
 - (NSArray *)ivArray{
@@ -63,7 +75,7 @@ int currentOp = 1;
 
 
 - (IBAction)tapped:(id)sender {
-    CGPoint loc = [self.tapRecognizer locationInView:self.view];
+    CGPoint loc = [self.tapRecognizer locationInView:self.imageView];
     
     if (!deleting){
         //add points to array
@@ -73,7 +85,7 @@ int currentOp = 1;
         iv.animationImages = self.brain.animationArray;
         iv.center = loc;
         iv.animationDuration = ANIMATEDURATION;
-        [self.view addSubview:iv];
+        [self.imageView addSubview:iv];
         //add view to array
         [self.ivArray addObject:iv];
     }
@@ -112,7 +124,7 @@ int currentOp = 1;
 - (IBAction)singleTap:(id)sender {
     if (deleting)
     {
-        CGPoint loc = [self.singleTapRec locationInView:self.view];
+        CGPoint loc = [self.singleTapRec locationInView:self.imageView];
         
         //find the closest point
         int closestIndex = 0;
