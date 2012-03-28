@@ -12,4 +12,11 @@
 
 @interface CSVEmailTesterViewController : UITableViewController <MFMailComposeViewControllerDelegate>
 
+@property (nonatomic, strong) NSData *targetImage;
+@property (nonatomic, strong) NSMutableArray *points;
+@property (nonatomic, strong) NSString *mimeType;
+@property (nonatomic, strong) NSString *imageFileName;
+@property (nonatomic, strong) NSDictionary *stats;
+@property (nonatomic, strong) NSDictionary *generalInfo;
+
 @end

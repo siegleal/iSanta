@@ -113,6 +113,7 @@
 		69C0D32F14E9E96D00F6C131 /* CSVEmailTesterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVEmailTesterViewController.h; sourceTree = "<group>"; };
 		69C0D33014E9E96D00F6C131 /* CSVEmailTesterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVEmailTesterViewController.m; sourceTree = "<group>"; };
 		69C0D33214E9EC4200F6C131 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		9D44D4CD1523879200BDB2F2 /* StatsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsProvider.h; path = iSanta/StatsProvider.h; sourceTree = "<group>"; };
 		E00FC6AE151CDEAB00FF5EBD /* stats.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stats.c; path = iSanta/stats.c; sourceTree = "<group>"; };
 		E00FC6AF151CDEAB00FF5EBD /* stats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stats.h; path = iSanta/stats.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -290,6 +291,7 @@
 			children = (
 				E00FC6AF151CDEAB00FF5EBD /* stats.h */,
 				E00FC6AE151CDEAB00FF5EBD /* stats.c */,
+				9D44D4CD1523879200BDB2F2 /* StatsProvider.h */,
 			);
 			name = Stats;
 			path = ..;
