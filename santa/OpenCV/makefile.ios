@@ -1,0 +1,99 @@
+#! /bin/bash                                                                                                                                                                                                     
+
+# 2007-05-23, Mark Asbach <asbach@ient.rwth-aachen.de>                                                                                                                                                           
+
+# This shell script makes use of VPATH builds and the special 'framework' Makefile target of                                                                                                                     
+# the top level Makefile to create a universal binary framework out of native frameworks.                                                                                                                        
+# No manual './configure && make && make install' is necessary if the framework is sufficient                                                                                                                    
+# for you. However, Python bindings are not generated this way because of issues with                                                                                                                            
+# different python versions and universal binaries.                                                                                                                                                              
+#                                                                                                                                                                                                                
+# If you need python wrappers and standard unix install, you should do a manual VPATH                                                                                                                            
+# build with all the settings you like.                                                                                                                                                                          
+#                                                                                                                                                                                                                
+# The resulting framework is created as a Private Framework that must be copied into your                                                                                                                        
+# application bundle by a dedicated 'Copy Files' build step. See the demo XCode project                                                                                                                          
+# included with OpenCV and/or have a look at                                                                                                                                                                     
+# http://developer.apple.com/documentation/MacOSX/Conceptual/BPFrameworks/Tasks/CreatingFrameworks.html#//apple_ref/doc/uid/20002258-106880-BAJJBIEF                                                             
+
+# the current directory should not be configured                                                                                                                                                                 
+if test -x Makefile; then make distclean; fi
+
+# (re-)create directories                                                                                                                                                                                        
+rm -rf build_ppc build_i386 build_iphoneos OpenCV.framework
+mkdir build_ppc
+mkdir build_i386
+mkdir build_iphoneos
+
+# find out how many parallel processes we want to use for make                                                                                                                                                   
+# see http://freshmeat.net/projects/kernbench/, we use a slightly different 'optimum' guess                                                                                                                      
+export parallel_jobs=$((2 * `sysctl -n hw.ncpu` + 1))
+
+# this setting defines where the framework should be installed                                                                                                                                                   
+#export FRAMEWORK_INSTALL_PATH="@executable_path/../Frameworks"                                                                                                                                                  
+#export FRAMEWORK_INSTALL_PATH="/Library/Frameworks"                                                                                                                                                             
+export FRAMEWORK_INSTALL_PATH="/Users/Red/Library/Frameworks"
+
+# build powerpc version                                                                                                                                                                                          
+echo "Building ppc version of the OpenCV framework"
+echo "============================================"
+cd build_ppc && ../configure --build=`arch` --host="powerpc-apple-darwin8" CXXFLAGS="-arch ppc" --without-python --without-swig --disable-apps && make -j $parallel_jobs framework FRAMEWORK_ARCH=ppc
+
+cd build_ppc
+
+# build arm version                                                                                                                                                                                              
+echo "Building iPhoneOS arm version of the OpenCV framework"
+echo "============================================="
+if test -d ../build_iphoneos; then cd ../build_iphoneos; fi
+../configure \
+ --disable-shared \
+  --enable-static \
+  --host="arm-apple-darwin9" --target=arm-apple-darwin9 \
+  --without-imageio  --without-carbon  --without-python --without-gtk --without-swig --disable-apps \
+ CC=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.0 \
+ CPP=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/cpp \
+ CXXCPP=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/cpp \
+ CXX=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.0\
+ AR=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/ar \
+ RANLIB=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/ranlib \
+ NM=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/nm \
+  CFLAGS="-arch armv6 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -fmessage-length=0 -fvisibility=hidden -miphoneos-version-min=2.0 -gdwarf-2 -mthumb -mipho\
+neos-version-min=2.0 -I/Library/iPhone/include -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.sdk" \
+ LDFLAGS="-arch armv6 -pipe -std=c99 -gdwarf-2 -mthumb -I/Library/iPhone/include -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.sdk" \
+ CXXFLAGS="-arch armv6 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -fmessage-length=0 -fvisibility=hidden -miphoneos-version-min=2.0 -gdwarf-2 -mthumb -miphoneos-ver\
+sion-min=2.0 -I/Library/iPhone/include -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.sdk" \
+&& make -j $parallel_jobs framework FRAMEWORK_ARCH=armv6 FRAMEWORK_LIBTOOL=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/libtool
+
+# --build=arm-apple-darwin9 --host="arm-apple-darwin9" \                                                                                                                                                         
+# --target=arm-apple \                                                                                                                                                                                           
+# --target=armv6 \                                                                                                                                                                                               
+# CXXCPP=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/gcc-4.0\                                                                                                                                       
+# CPPFLAGS="-arch armv6 -pipe -std=c99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -fmessage-length=0 -fvisibility=hidden -miphoneos-version-min=2.0 -gdwarf-2 -mthumb -mip\
+honeos-version-min=2.0 -I/Library/iPhone/include -isysroot /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS2.2.sdk" \                                                                              
+
+# build intel version                                                                                                                                                                                            
+echo "Building i386 version of the OpenCV framework"
+echo "============================================="
+if test -d ../build_i386; then cd ../build_i386; fi
+../configure --build=`arch` --host="i686-apple-darwin8" CXXFLAGS="-arch i386"\
+ --enable-static \
+ --disable-shared \
+ --without-gtk  \
+  --without-imageio --without-carbon --without-python --without-swig --disable-apps\
+ && make -j $parallel_jobs\
+ framework FRAMEWORK_ARCH=i386  FRAMEWORK_LIBTOOL=libtool
+
+# FMWK_ARGS="-static -all_load -Wl,-Y,100"\                                                                                                                                                                      
+# build universal version                                                                                                                                                                                        
+echo "Creating universal Framework"
+echo "============================================="
+if test -d ../build_i386; then cd .. ; fi
+cp -Rp build_i386/OpenCV.framework ./
+lipo -create build_iphoneos/OpenCV.framework/OpenCV\
+              build_i386/OpenCV.framework/OpenCV\
+ -output OpenCV.framework/Versions/A/OpenCV
+
+
+# finalize                                                                                                                                                                                                       
+echo "Done!"
+open .
