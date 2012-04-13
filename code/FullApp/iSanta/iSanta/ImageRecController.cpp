@@ -8,7 +8,7 @@
 //using namespace System::Drawing;
 //using namespace ImageRecognition;
 
-List<Point>^ ImageRecController::ProcessImage(String^ imagePath, int shotsFired, int pixelsPerRadius,
+Point* ImageRecController::ProcessImage(char* imagePath, int shotsFired, int pixelsPerRadius,
 											  int ROIx, int ROIy, int ROIheight, int ROIwidth) {
 	CvRect ROI;
 	ROI.x = ROIx;

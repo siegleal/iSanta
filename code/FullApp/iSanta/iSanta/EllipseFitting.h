@@ -1,13 +1,42 @@
 #pragma once
 
-//#using "System.Drawing.dll"
+#include "/Users/siegleal/Desktop/iSanta/code/FullApp/iSanta/iSanta/OpenCV.framework/Headers/opencv2/core/core_c.h"
+#include "/Users/siegleal/Desktop/iSanta/code/FullApp/iSanta/iSanta/OpenCV.framework/Headers/opencv2/highgui/highgui_c.h"
+#include "/Users/siegleal/Desktop/iSanta/code/FullApp/iSanta/iSanta/OpenCV.framework/Headers/opencv2/opencv.hpp"
+#include "/Users/siegleal/Desktop/iSanta/code/FullApp/iSanta/iSanta/OpenCV.framework/Headers/opencv2/core/types_c.h"
+#include "/Users/siegleal/Desktop/iSanta/code/FullApp/iSanta/iSanta/OpenCV.framework/Headers/opencv2/legacy/compat.hpp"
 
-//using namespace System;
-//using namespace System::Collections::Generic;
-//using namespace System::Drawing;
+
+
+typedef struct{
+    int x;
+    int y;
+} Point;
+
+class ScoredPoint {
+public:
+	float score;
+	Point center;
+    
+	ScoredPoint(float score, Point center) : score(score), center(center) { };
+};
+
+typedef struct _pointnode{
+    ScoredPoint* Value;
+    _pointnode* Next;
+} PointNode;
+
+typedef struct{
+    PointNode* head;
+} PointsLinkedList;
+
+
+void AddBefore(PointsLinkedList* x,PointNode* y,ScoredPoint z);
+void AddLast(PointsLinkedList* list,ScoredPoint sp);
 
 
 	class EllipseFitting {
+        
 	public:
-		static List<Point>^ ProcessImage(String^ imagePath, int shotsFired, int pixelsPerRadius, CvRect ROI);
+		static Point* ProcessImage(char* imagePath, int shotsFired, int pixelsPerRadius, CvRect ROI);
 	};

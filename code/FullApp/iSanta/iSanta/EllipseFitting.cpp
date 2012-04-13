@@ -2,25 +2,13 @@
 //#include "cv.h"
 #include "EllipseFitting.h"
 
-//#using "System.dll"
-//#using "System.Drawing.dll"
 
-//using namespace System;
-//using namespace System::Collections::Generic;
-//using namespace System::Drawing;
-//using namespace System::Runtime::InteropServices;
-//using namespace ImageRecognition;
+
 
 // Threshold value
 const int threshold = 80;
 
-class ScoredPoint {
-public:
-	float score;
-	Point center;
 
-	ScoredPoint(float score, Point center) : score(score), center(center) { };
-}
 
 // Computes the average distance from the circle of an array of points
 float computeError(CvPoint center, int radius, CvPoint2D32f* points, int count)
@@ -39,13 +27,21 @@ float computeError(CvPoint center, int radius, CvPoint2D32f* points, int count)
 	return error / count;
 }
 
+void AddBefore(PointsLinkedList* list, PointNode* node, ScoredPoint point){
+    
+}
+
+void AddLast(PointsLinkedList* list, ScoredPoint point){
+    
+}
+
 // Begins bullet-hole recognition
-List<Point>^ EllipseFitting::ProcessImage(String^ imagePath, int numShots, int pixelsPerRadius, CvRect ROI)
+Point* EllipseFitting::ProcessImage(char* imagePath, int numShots, int pixelsPerRadius, CvRect ROI)
 {
-	char* path = (char*)(void*)Marshal::StringToHGlobalAnsi(imagePath);
+	char* path = imagePath;
 	IplImage* src = cvLoadImage(path);
 	cvSetImageROI(src, ROI);
-	Marshal::FreeHGlobal(IntPtr(path));
+	
 
 	// Create dynamic structure and sequence
 	CvMemStorage* stor = cvCreateMemStorage(0);
@@ -72,7 +68,7 @@ List<Point>^ EllipseFitting::ProcessImage(String^ imagePath, int numShots, int p
 	cvFindContours(thresholdImg, stor, &cont, sizeof(CvContour),
 		CV_RETR_LIST, CV_CHAIN_APPROX_SIMPLE, cvPoint(0,0));
 
-	LinkedList<ScoredPoint^>^ scoredPoints = gcnew LinkedList<ScoredPoint^>();
+	PointsLinkedList scoredPoints;
 
 	// This cycle draw the contour and approximate it by an ellipse
 	for (; cont; cont = cont->h_next) {
@@ -114,15 +110,17 @@ List<Point>^ EllipseFitting::ProcessImage(String^ imagePath, int numShots, int p
 
 		// Compute the error of the ellipse from the expected bullet hole
 		float error = computeError(center, pixelsPerRadius, PointArray2D32f, count);
-		Point p(center.x + ROI.x, center.y + ROI.y);
-		ScoredPoint^ scoredPoint = gcnew ScoredPoint(error, p);
+		Point p;
+        p.x = center.x + ROI.x;
+        p.y = center.y + ROI.y;
+		ScoredPoint scoredPoint = *new ScoredPoint(error, p);
 
 		// Add the ellipse to the list of possible bullet holes
-		LinkedListNode<ScoredPoint^>^ current = scoredPoints->First;
+		PointNode* current = scoredPoints.head;
 		bool added = false;
-		while (current != nullptr) {
+		while (current != NULL) {
 			if (error <= current->Value->score) {
-				scoredPoints->AddBefore(current, scoredPoint);
+				AddBefore(&scoredPoints,current, scoredPoint);
 				added = true;
 				break;
 			}
@@ -131,7 +129,7 @@ List<Point>^ EllipseFitting::ProcessImage(String^ imagePath, int numShots, int p
 
 		// Add the scored point to the end if it hasn't been added yet
 		if (!added) {
-			scoredPoints->AddLast(scoredPoint);
+			AddLast(&scoredPoints,scoredPoint);
 		}
 
 		// Free memory
@@ -141,10 +139,20 @@ List<Point>^ EllipseFitting::ProcessImage(String^ imagePath, int numShots, int p
 	}
 
 	// Pick the top numShots bullet holes to return
-	List<Point>^ points = gcnew List<Point>();
-	LinkedListNode<ScoredPoint^>^ current = scoredPoints->First;
-	for (int i = 0; i < numShots && current != nullptr; i++, current = current->Next) {
-		points->Add(current->Value->center);
+    //find the size of the list
+    PointNode* current = scoredPoints.head;
+    int listSize = 0;
+    while (current != NULL){
+        listSize++;
+        current = current->Next;
+    }
+    Point* points = (Point*)malloc(listSize * sizeof(Point));
+    
+    
+    
+	current = scoredPoints.head;
+	for (int i = 0; i < numShots && current != NULL; i++, current = current->Next) {
+		points[i] = (current->Value->center);
 	}
 
 	// Free memory
