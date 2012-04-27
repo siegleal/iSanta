@@ -44,6 +44,8 @@
 		69B94DB11499403500F0C847 /* iSantaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B94DB01499403500F0C847 /* iSantaTests.m */; };
 		69C0D33114E9E96D00F6C131 /* CSVEmailTesterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C0D33014E9E96D00F6C131 /* CSVEmailTesterViewController.m */; };
 		69C0D33314E9EC4200F6C131 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C0D33214E9EC4200F6C131 /* MessageUI.framework */; };
+		9DABA30E154ADB3300912C45 /* StatsDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DABA30D154ADB3300912C45 /* StatsDisplayController.m */; };
+		9DABA312154ADB7900912C45 /* PointsDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DABA311154ADB7900912C45 /* PointsDisplayController.m */; };
 		E00FC6B0151CDEAB00FF5EBD /* stats.c in Sources */ = {isa = PBXBuildFile; fileRef = E00FC6AE151CDEAB00FF5EBD /* stats.c */; };
 		E00FC6B4151CE83B00FF5EBD /* stats.c in Sources */ = {isa = PBXBuildFile; fileRef = E00FC6AE151CDEAB00FF5EBD /* stats.c */; };
 /* End PBXBuildFile section */
@@ -114,6 +116,10 @@
 		69C0D33014E9E96D00F6C131 /* CSVEmailTesterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVEmailTesterViewController.m; sourceTree = "<group>"; };
 		69C0D33214E9EC4200F6C131 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		9D44D4CD1523879200BDB2F2 /* StatsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsProvider.h; path = iSanta/StatsProvider.h; sourceTree = "<group>"; };
+		9DABA30C154ADB3300912C45 /* StatsDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsDisplayController.h; sourceTree = "<group>"; };
+		9DABA30D154ADB3300912C45 /* StatsDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsDisplayController.m; sourceTree = "<group>"; };
+		9DABA310154ADB7900912C45 /* PointsDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointsDisplayController.h; sourceTree = "<group>"; };
+		9DABA311154ADB7900912C45 /* PointsDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointsDisplayController.m; sourceTree = "<group>"; };
 		E00FC6AE151CDEAB00FF5EBD /* stats.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stats.c; path = iSanta/stats.c; sourceTree = "<group>"; };
 		E00FC6AF151CDEAB00FF5EBD /* stats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stats.h; path = iSanta/stats.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -282,6 +288,10 @@
 			children = (
 				69C0D32F14E9E96D00F6C131 /* CSVEmailTesterViewController.h */,
 				69C0D33014E9E96D00F6C131 /* CSVEmailTesterViewController.m */,
+				9DABA30C154ADB3300912C45 /* StatsDisplayController.h */,
+				9DABA30D154ADB3300912C45 /* StatsDisplayController.m */,
+				9DABA310154ADB7900912C45 /* PointsDisplayController.h */,
+				9DABA311154ADB7900912C45 /* PointsDisplayController.m */,
 			);
 			name = "CSV Exporter";
 			sourceTree = "<group>";
@@ -428,6 +438,8 @@
 				69AD7E8414E9B29F001F8A67 /* ManualPlacementViewController.m in Sources */,
 				69AD7E8514E9B29F001F8A67 /* PlacementBrain.m in Sources */,
 				69C0D33114E9E96D00F6C131 /* CSVEmailTesterViewController.m in Sources */,
+				9DABA30E154ADB3300912C45 /* StatsDisplayController.m in Sources */,
+				9DABA312154ADB7900912C45 /* PointsDisplayController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
