@@ -1,21 +1,15 @@
 \subsection{Primary Flow Diagram}
-\includegraphics[width=.91\textwidth]{PrimaryFlowDiagram.pdf}
+\includegraphics[width=.91\textwidth]{ArchitectureModel20.pdf}
 
 \subsubsection{Description of Primary App Flows}
 \paragraph{A.} This flow goes from the master view controller to the test detail view controller which will show the detail view of a stored test. This is the basic test information. Statistical Report information will be shown on another screen.
-\paragraph{B.} This flow goes from the master view controller to the new test view controller. Here the user will be able to enter the information for a new test. The fields in this view will be populated from the previously used date.
-\paragraph{C.} This flow shows what happens when the user chooses to edit the photo associated with the app. Another view is presented to give the user the option to view the current photo or change the photo.
-\paragraph{D.} If the user presses analyze then the image is reanalyzed in another view which first makes and attempt at finding all of the wholes and then give the user a chance to correct, add, and/or remove holes.
-\paragraph{E.} If the user chooses to replace the current photo they are given the option to take a new photo or use an image in the photo gallery. This is the flow for the photo gallery view. The user is presented with their standard photo gallery and can choose an image before clicking done.
-\paragraph{F.} If the user chooses to replace the current photo they are given the option to take a new photo or use an image in the photo gallery. This is the flow for the camera view. The user is presented with the standard camera view and can take a photo. They then have the option of retaking the photo or accepting the photo.
-\paragraph{G.} The selected image is analyzed in the analysis view which first makes and attempt at finding all of the wholes and then give the user a chance to correct, add, and/or remove holes.
-\paragraph{H.} The selected image is analyzed in the analysis view which first makes and attempt at finding all of the wholes and then give the user a chance to correct, add, and/or remove holes.
-\paragraph{I.} The Image Analysis View Controller passes the image to the Image Recognition Engine to handle the actual processing. The image is normalized and an attempt to find the holes is made. The normalized image and the points that describe the hole locations are passed back to the Image Analysis Engine.
-\paragraph{J.} If the user is creating a new test then control is passed back to the New Test View Controller with the new image selected. This is so the user can continue to fill out information about the new test or complete the creation of the new test.
-\paragraph{K.} If the user is editing a test then control is passed to the Test Detail View Controller with the new image selected.
-\paragraph{L.} The user can click a ``Report'' button to be taken to the Test Report View Controller. This controller creates the report for the test including all statistical calculations. Report generation is handled this way to ensure that a user can not send and out of date report from the app over email. A new report is generated every time from the data in the test. 
-\paragraph{M.} The Report Statistics Engine handles calculating the statistical information from the points given in the photo. It then passes this data back to the Test Report View Controller for viewing.
-\paragraph{N.} The Report Export Engine handles generating the report file that will be emailed off of the device. 
+\paragraph{B.} This flow shows what happens when the user chooses to edit the photo associated with the app. Another view is presented to give the user the option to view the current photo or change the photo.
+\paragraph{C.}  If the user chooses to replace the current photo they are given the option to take a new photo or use an image in the photo gallery. This is the flow for the photo gallery view. The user is presented with their standard photo gallery and can choose an image before clicking done. If the user presses analyze then the image is reanalyzed in another view which first makes and attempt at finding all of the holes (D) and then give the user a chance to correct, add, and/or remove holes (E).
+\paragraph{F.} The user is sent back to the Report Detail View Controller.
+\paragraph{G.} The user can click a ``Export'' button to be taken to the Report Detail View Controller. This controller creates the report for the test including all statistical calculations. Report generation is handled this way to ensure that a user can not send and out of date report from the app over email. A new report is generated every time from the data in the test. 
+\paragraph{H.} The Report Statistics Engine handles calculating the statistical information from the points given in the photo. It then passes this data back to the Test Report View Controller for viewing.
+\paragraph{I.} The Report Export Engine handles generating the report file that will be emailed off of the device. 
+\paragraph{J.} This is the CSV plus Image file being sent through Email.
 
 \subsubsection{Description of Supplementary App Flows}
 \paragraph{} In addition to the main application controllers there will need to be a few supplementary controllers. They are described below.
