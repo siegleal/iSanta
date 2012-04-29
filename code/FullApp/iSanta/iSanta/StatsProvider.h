@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Photo_Information.h"
 
 @protocol StatsProvider <NSObject>
 
-- (NSDictionary *)getStats:(NSMutableArray *)points;
+- (NSInteger)getRowCount:(NSMutableArray *)points;
+- (NSString *)getTitleForIndex:(NSInteger)index;
+- (NSString *)getValueForIndex:(NSInteger)index;
 
 @end
