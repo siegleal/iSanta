@@ -2,7 +2,7 @@
 //  Weapon_Information.h
 //  iSanta
 //
-//  Created by Jack Hall on 1/9/12.
+//  Created by  on 5/3/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -13,9 +13,9 @@
 
 @interface Weapon_Information : NSManagedObject
 
-@property (nonatomic, retain) NSString * weapon_Notes;
 @property (nonatomic, retain) NSNumber * serial_Number;
 @property (nonatomic, retain) NSString * weapon_Nomenclature;
+@property (nonatomic, retain) NSString * weapon_Notes;
 @property (nonatomic, retain) Test_Report *test;
 
 @end

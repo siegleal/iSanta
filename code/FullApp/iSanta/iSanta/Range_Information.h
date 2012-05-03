@@ -2,7 +2,7 @@
 //  Range_Information.h
 //  iSanta
 //
-//  Created by Jack Hall on 1/9/12.
+//  Created by  on 5/3/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -13,9 +13,9 @@
 
 @interface Range_Information : NSManagedObject
 
-@property (nonatomic, retain) NSString * distance_To_Target;
+@property (nonatomic, retain) NSNumber * distance_To_Target;
 @property (nonatomic, retain) NSString * firing_Range;
-@property (nonatomic, retain) NSNumber * range_Temperature;
+@property (nonatomic, retain) NSString * range_Temperature;
 @property (nonatomic, retain) Test_Report *test;
 
 @end

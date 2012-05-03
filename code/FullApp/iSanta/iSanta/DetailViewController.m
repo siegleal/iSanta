@@ -178,25 +178,25 @@
                     [cell.textLabel setText:@"Photo"];
                     [cell.detailTextLabel setText:@""];
                     break;
-                case 1:
+                case 1:                    
                     [cell.imageView setImage:nil];
                     [cell setTextFieldPlaceholder:@"Target Height"];
-                    [cell setTextFieldText:[[self.detailItem valueForKeyPath:@"test_Photo.target_Height"] description]];
-                    cell.textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+                    value = [[self.detailItem valueForKeyPath:@"test_Photo.target_Height"]description];
                     if (![value isEqualToString:@"0"])
                         [cell setTextFieldText:value];
                     else
                         [cell setTextFieldText:@""];
+                    cell.textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
                     break;
                 case 2:
                     [cell.imageView setImage:nil];
                     [cell setTextFieldPlaceholder:@"Target Width"];
-                    [cell setTextFieldText:[[self.detailItem valueForKeyPath:@"test_Photo.target_Width"] description]];
-                    cell.textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+                    value = [[self.detailItem valueForKeyPath:@"test_Photo.target_Width"]description];
                     if (![value isEqualToString:@"0"])
                         [cell setTextFieldText:value];
                     else
                         [cell setTextFieldText:@""];
+                    cell.textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
                     break;
                 default:
                     break;
@@ -494,7 +494,7 @@
                 [self.detailItem setValue:[NSKeyedArchiver archivedDataWithRootObject:self.points] forKeyPath:@"test_Photo.points"];
             else if (indexPath.row == 1)
                 [self.detailItem setValue:[NSNumber numberWithDouble:[text doubleValue]] forKeyPath:@"test_Photo.target_Height"];
-            else
+            else if (indexPath.row == 2)
                 [self.detailItem setValue:[NSNumber numberWithDouble:[text doubleValue]] forKeyPath:@"test_Photo.target_Width"];
             break;
         case 1:
@@ -607,6 +607,7 @@
     switch (textField.tag) {
         case 001:
             [self.detailItem setValue:[NSNumber numberWithDouble:[textField.text doubleValue]] forKeyPath:@"test_Photo.target_Height"];
+             NSLog(@"%f",[[[self.detailItem valueForKeyPath:@"test_Photo.target_Height"] description] doubleValue]);
             break;
         case 002:
             [self.detailItem setValue:[NSNumber numberWithDouble:[textField.text doubleValue]]  forKeyPath:@"test_Photo.target_Width"];

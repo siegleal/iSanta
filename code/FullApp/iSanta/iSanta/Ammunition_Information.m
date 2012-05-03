@@ -2,18 +2,19 @@
 //  Ammunition_Information.m
 //  iSanta
 //
-//  Created by Jack Hall on 1/9/12.
+//  Created by  on 5/3/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "Ammunition_Information.h"
+#import "Test_Report.h"
 
 
 @implementation Ammunition_Information
 
+@dynamic ammunition_Notes;
 @dynamic caliber;
 @dynamic lot_Number;
-@dynamic ammunition_Notes;
 @dynamic number_Of_Shots;
 @dynamic projectile_Mass;
 @dynamic test;

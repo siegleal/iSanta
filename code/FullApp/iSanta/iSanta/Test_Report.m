@@ -2,12 +2,16 @@
 //  Test_Report.m
 //  iSanta
 //
-//  Created by Jack Hall on 1/9/12.
+//  Created by  on 5/3/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "Test_Report.h"
 #import "Ammunition_Information.h"
+#import "Photo_Information.h"
+#import "Range_Information.h"
+#import "Shooter_Information.h"
+#import "Weapon_Information.h"
 
 
 @implementation Test_Report

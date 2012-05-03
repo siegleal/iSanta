@@ -2,7 +2,7 @@
 //  Photo_Information.m
 //  iSanta
 //
-//  Created by Jack Hall on 1/9/12.
+//  Created by  on 5/3/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
@@ -13,7 +13,9 @@
 @implementation Photo_Information
 
 @dynamic image;
-@dynamic point;
+@dynamic points;
+@dynamic target_Height;
+@dynamic target_Width;
 @dynamic test;
 
 @end
