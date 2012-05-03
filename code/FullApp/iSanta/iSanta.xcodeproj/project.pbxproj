@@ -18,6 +18,9 @@
 		696D0E7914BB8770003EFE82 /* Range_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E7814BB8770003EFE82 /* Range_Information.m */; };
 		696E3DDB14E8577A00C0A84A /* DetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E3DDA14E8577A00C0A84A /* DetailTableViewCell.m */; };
 		696E3DDE14E857CC00C0A84A /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696E3DDD14E857CC00C0A84A /* DetailTableViewCell.xib */; };
+		699BE3371553165400571400 /* EllipseFitting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 699BE3331553165400571400 /* EllipseFitting.cpp */; };
+		699BE3381553165400571400 /* ImageRecController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 699BE3351553165400571400 /* ImageRecController.cpp */; };
+		699BE33A1553166600571400 /* OpenCV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 699BE3391553166600571400 /* OpenCV.framework */; };
 		69AD7E8214E9B29F001F8A67 /* circle-crosshair.png in Resources */ = {isa = PBXBuildFile; fileRef = 69AD7E7B14E9B29F001F8A67 /* circle-crosshair.png */; };
 		69AD7E8314E9B29F001F8A67 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 69AD7E7C14E9B29F001F8A67 /* circle.png */; };
 		69AD7E8414E9B29F001F8A67 /* ManualPlacementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AD7E7E14E9B29F001F8A67 /* ManualPlacementViewController.m */; };
@@ -81,6 +84,11 @@
 		696E3DD914E8577A00C0A84A /* DetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableViewCell.h; sourceTree = "<group>"; };
 		696E3DDA14E8577A00C0A84A /* DetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewCell.m; sourceTree = "<group>"; };
 		696E3DDD14E857CC00C0A84A /* DetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
+		699BE3331553165400571400 /* EllipseFitting.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EllipseFitting.cpp; sourceTree = "<group>"; };
+		699BE3341553165400571400 /* EllipseFitting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EllipseFitting.h; sourceTree = "<group>"; };
+		699BE3351553165400571400 /* ImageRecController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageRecController.cpp; sourceTree = "<group>"; };
+		699BE3361553165400571400 /* ImageRecController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageRecController.h; sourceTree = "<group>"; };
+		699BE3391553166600571400 /* OpenCV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCV.framework; path = iSanta/OpenCV.framework; sourceTree = "<group>"; };
 		69AD7E7B14E9B29F001F8A67 /* circle-crosshair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle-crosshair.png"; sourceTree = "<group>"; };
 		69AD7E7C14E9B29F001F8A67 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 		69AD7E7D14E9B29F001F8A67 /* ManualPlacementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualPlacementViewController.h; sourceTree = "<group>"; };
@@ -136,6 +144,7 @@
 				69B94D7C1499403400F0C847 /* Foundation.framework in Frameworks */,
 				69B94D7E1499403400F0C847 /* CoreGraphics.framework in Frameworks */,
 				69B94D801499403400F0C847 /* CoreData.framework in Frameworks */,
+				699BE33A1553166600571400 /* OpenCV.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +181,17 @@
 				696D0E6514BB8732003EFE82 /* Ammunition_Information.m */,
 			);
 			name = "CoreData Classes";
+			sourceTree = "<group>";
+		};
+		699BE3311553163C00571400 /* Image Recognition */ = {
+			isa = PBXGroup;
+			children = (
+				699BE3331553165400571400 /* EllipseFitting.cpp */,
+				699BE3341553165400571400 /* EllipseFitting.h */,
+				699BE3351553165400571400 /* ImageRecController.cpp */,
+				699BE3361553165400571400 /* ImageRecController.h */,
+			);
+			name = "Image Recognition";
 			sourceTree = "<group>";
 		};
 		69AD7E8814E9B2A8001F8A67 /* Master/DetailView Controllers */ = {
@@ -224,6 +244,7 @@
 		69B94D781499403400F0C847 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				699BE3391553166600571400 /* OpenCV.framework */,
 				69B94D791499403400F0C847 /* UIKit.framework */,
 				69B94D7B1499403400F0C847 /* Foundation.framework */,
 				69B94D7D1499403400F0C847 /* CoreGraphics.framework */,
@@ -244,6 +265,7 @@
 				69AD7E8814E9B2A8001F8A67 /* Master/DetailView Controllers */,
 				69AD7E8914E9B2E3001F8A67 /* Manual Placement */,
 				69C0D32E14E9E91600F6C131 /* CSV Exporter */,
+				699BE3311553163C00571400 /* Image Recognition */,
 				E00FC6AC151CDE9200FF5EBD /* Stats */,
 				696D0E7A14BB8789003EFE82 /* CoreData Classes */,
 				69B94D821499403400F0C847 /* Supporting Files */,
@@ -444,6 +466,8 @@
 				69C0D33114E9E96D00F6C131 /* CSVEmailTesterViewController.m in Sources */,
 				9DABA30E154ADB3300912C45 /* StatsDisplayController.m in Sources */,
 				9DABA312154ADB7900912C45 /* PointsDisplayController.m in Sources */,
+				699BE3371553165400571400 /* EllipseFitting.cpp in Sources */,
+				699BE3381553165400571400 /* ImageRecController.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +576,10 @@
 		69B94DB51499403500F0C847 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/iSanta\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iSanta/iSanta-Prefix.pch";
 				INFOPLIST_FILE = "iSanta/iSanta-Info.plist";
@@ -563,6 +591,10 @@
 		69B94DB61499403500F0C847 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/iSanta\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iSanta/iSanta-Prefix.pch";
 				INFOPLIST_FILE = "iSanta/iSanta-Info.plist";

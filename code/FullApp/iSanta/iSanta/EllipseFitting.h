@@ -1,10 +1,10 @@
 #pragma once
 
-#include "/Users/siegleal/Desktop/iSanta/code/FullApp/iSanta/iSanta/OpenCV.framework/Headers/opencv2/core/core_c.h"
-#include "/Users/siegleal/Desktop/iSanta/code/FullApp/iSanta/iSanta/OpenCV.framework/Headers/opencv2/highgui/highgui_c.h"
-#include "/Users/siegleal/Desktop/iSanta/code/FullApp/iSanta/iSanta/OpenCV.framework/Headers/opencv2/opencv.hpp"
-#include "/Users/siegleal/Desktop/iSanta/code/FullApp/iSanta/iSanta/OpenCV.framework/Headers/opencv2/core/types_c.h"
-#include "/Users/siegleal/Desktop/iSanta/code/FullApp/iSanta/iSanta/OpenCV.framework/Headers/opencv2/legacy/compat.hpp"
+#include "OpenCV.framework/Headers/opencv2/core/core_c.h"
+#include "OpenCV.framework/Headers/opencv2/highgui/highgui_c.h"
+#include "OpenCV.framework/Headers/opencv2/opencv.hpp"
+#include "OpenCV.framework/Headers/opencv2/core/types_c.h"
+#include "OpenCV.framework/Headers/opencv2/legacy/compat.hpp"
 
 
 
