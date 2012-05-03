@@ -42,6 +42,7 @@
 		69B94DA61499403500F0C847 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B94D7F1499403400F0C847 /* CoreData.framework */; };
 		69B94DAE1499403500F0C847 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 69B94DAC1499403500F0C847 /* InfoPlist.strings */; };
 		69B94DB11499403500F0C847 /* iSantaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B94DB01499403500F0C847 /* iSantaTests.m */; };
+		69BBF70E1552F5F800FF833D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 69BBF70D1552F5F800FF833D /* Settings.bundle */; };
 		69C0D33114E9E96D00F6C131 /* CSVEmailTesterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C0D33014E9E96D00F6C131 /* CSVEmailTesterViewController.m */; };
 		69C0D33314E9EC4200F6C131 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C0D33214E9EC4200F6C131 /* MessageUI.framework */; };
 		9DABA30E154ADB3300912C45 /* StatsDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DABA30D154ADB3300912C45 /* StatsDisplayController.m */; };
@@ -112,6 +113,7 @@
 		69B94DAD1499403500F0C847 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		69B94DAF1499403500F0C847 /* iSantaTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iSantaTests.h; sourceTree = "<group>"; };
 		69B94DB01499403500F0C847 /* iSantaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iSantaTests.m; sourceTree = "<group>"; };
+		69BBF70D1552F5F800FF833D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = ../Settings.bundle; sourceTree = "<group>"; };
 		69C0D32F14E9E96D00F6C131 /* CSVEmailTesterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSVEmailTesterViewController.h; sourceTree = "<group>"; };
 		69C0D33014E9E96D00F6C131 /* CSVEmailTesterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVEmailTesterViewController.m; sourceTree = "<group>"; };
 		69C0D33214E9EC4200F6C131 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -238,6 +240,7 @@
 				69B94D8B1499403400F0C847 /* AppDelegate.m */,
 				69B94D8D1499403500F0C847 /* MainStoryboard_iPhone.storyboard */,
 				69B94D901499403500F0C847 /* MainStoryboard_iPad.storyboard */,
+				69BBF70D1552F5F800FF833D /* Settings.bundle */,
 				69AD7E8814E9B2A8001F8A67 /* Master/DetailView Controllers */,
 				69AD7E8914E9B2E3001F8A67 /* Manual Placement */,
 				69C0D32E14E9E91600F6C131 /* CSV Exporter */,
@@ -387,6 +390,7 @@
 				69AD7E8314E9B29F001F8A67 /* circle.png in Resources */,
 				69AD7E8614E9B29F001F8A67 /* redcircle.png in Resources */,
 				69AD7E8F14E9B562001F8A67 /* ManualPlacement.xib in Resources */,
+				69BBF70E1552F5F800FF833D /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
