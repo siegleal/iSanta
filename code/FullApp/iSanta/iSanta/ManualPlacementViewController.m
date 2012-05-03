@@ -7,6 +7,7 @@
 //
 
 #import "ManualPlacementViewController.h"
+#import "DetailViewController.h"
 
 //
 //@interface myUIImageView : UIImageView
@@ -45,6 +46,7 @@
 @synthesize imageView = _imageView;
 @synthesize ivArray = _ivArray;
 @synthesize modeSheet = _modeSheet;
+@synthesize detailView = _detailView;
 
 
 //bool deleting;
@@ -90,6 +92,13 @@ int currentOp = 1;
     
 }
 
+- (void)viewWillDisappear:(BOOL)animated
+{
+    // Send points back to the detail view.
+    [self.detailView setPoints:self.brain.points];
+    // Do the super code
+    [super viewWillDisappear:animated];
+}
                                               
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{

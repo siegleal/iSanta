@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="872" systemVersion="11C74" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1171" systemVersion="11D50d" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Ammunition_Information" representedClassName="Ammunition_Information" syncable="YES">
         <attribute name="ammunition_Notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="caliber" attributeType="Double" defaultValueString="0" syncable="YES"/>
@@ -8,14 +8,11 @@
         <attribute name="projectile_Mass" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <relationship name="test" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Test_Report" inverseName="test_Ammunition" inverseEntity="Test_Report" syncable="YES"/>
     </entity>
-    <entity name="iSanta_Point" representedClassName="iSanta_Point" syncable="YES">
-        <attribute name="x" attributeType="Double" defaultValueString="0" syncable="YES"/>
-        <attribute name="y" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="photo" optional="YES" minCount="1" maxCount="1" deletionRule="Cascade" destinationEntity="Photo_Information" inverseName="point" inverseEntity="Photo_Information" syncable="YES"/>
-    </entity>
     <entity name="Photo_Information" representedClassName="Photo_Information" syncable="YES">
         <attribute name="image" attributeType="Binary" syncable="YES"/>
-        <relationship name="point" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="iSanta_Point" inverseName="photo" inverseEntity="iSanta_Point" syncable="YES"/>
+        <attribute name="points" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="target_Height" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="target_Width" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <relationship name="test" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Test_Report" inverseName="test_Photo" inverseEntity="Test_Report" syncable="YES"/>
     </entity>
     <entity name="Range_Information" representedClassName="Range_Information" syncable="YES">
@@ -45,8 +42,7 @@
     </entity>
     <elements>
         <element name="Ammunition_Information" positionX="-243" positionY="18" width="128" height="135"/>
-        <element name="iSanta_Point" positionX="70" positionY="198" width="128" height="90"/>
-        <element name="Photo_Information" positionX="-225" positionY="180" width="128" height="90"/>
+        <element name="Photo_Information" positionX="-225" positionY="180" width="128" height="120"/>
         <element name="Range_Information" positionX="133" positionY="-81" width="128" height="105"/>
         <element name="Shooter_Information" positionX="169" positionY="69" width="128" height="90"/>
         <element name="Test_Report" positionX="-38" positionY="-9" width="128" height="135"/>

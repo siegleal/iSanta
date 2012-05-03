@@ -26,6 +26,7 @@
 @synthesize respondingTextField;
 @synthesize pickerController;
 @synthesize manPlace;
+@synthesize points;
 
 #pragma mark - Managing the detail item
 
@@ -69,8 +70,6 @@
     temperaturePicker.delegate = self;
     temperaturePicker.showsSelectionIndicator = YES;
     
-    NSLog(@"%s", class_getName([[self.detailItem valueForKeyPath:@"test_Photo.point"] class]));
-    
     [self configureView];
 }
 
@@ -94,6 +93,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated
 {
+    [self updateCoreDataModelWithString:nil atCellIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
 	[super viewWillDisappear:animated];
 }
 
@@ -112,20 +112,16 @@
     }
 }
 
-- (NSMutableArray *)getArrayOfPointsFromDetailItem:(id)detailItem
+- (void)setPoints:(NSArray *)inPoints
 {
-    NSMutableArray *outPoints = [[NSMutableArray alloc] init];
+    points = inPoints;
+}
+
+- (NSArray *)getArrayOfPointsFromDetailItem:(id)detailItem
+{
+    points = [NSKeyedUnarchiver unarchiveObjectWithData:[self.detailItem valueForKeyPath:@"test_Photo.points"]];
     
-    NSArray *points = [[NSArray alloc] initWithArray:[[self.detailItem valueForKeyPath:@"test_Photo.point"] allObjects]];
-    
-    for (int i = 0; i < [points count]; i++)
-    {
-        float x = [[[points objectAtIndex:i] valueForKey:@"x"] floatValue];
-        float y = [[[points objectAtIndex:i] valueForKey:@"y"] floatValue];
-        [outPoints addObject:[NSValue valueWithCGPoint:CGPointMake(x, y)]];
-    }
-    
-    return outPoints;
+    return points;
 }
 
 #pragma mark - Table View Data Source
@@ -172,13 +168,40 @@
     
     switch (indexPath.section) {
         case 0:
-            [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
-            [cell.imageView setImage:[[UIImage alloc] initWithData:
-                                    [self.detailItem valueForKeyPath:@"test_Photo.image"]]];
-            self.targetImage = [UIImage imageWithData:[self.detailItem valueForKeyPath:@"test_Photo.image"]];
-            cell.textField.enabled = NO;
-            [cell.textLabel setText:@"Photo"];
-            [cell.detailTextLabel setText:@""];
+            switch (indexPath.row) {
+                case 0:
+                    [cell setSelectionStyle:UITableViewCellSelectionStyleBlue];
+                    [cell.imageView setImage:[[UIImage alloc] initWithData:
+                                              [self.detailItem valueForKeyPath:@"test_Photo.image"]]];
+                    self.targetImage = [UIImage imageWithData:[self.detailItem valueForKeyPath:@"test_Photo.image"]];
+                    cell.textField.enabled = NO;
+                    [cell.textLabel setText:@"Photo"];
+                    [cell.detailTextLabel setText:@""];
+                    break;
+                case 1:
+                    [cell.imageView setImage:nil];
+                    [cell setTextFieldPlaceholder:@"Target Height"];
+                    [cell setTextFieldText:[[self.detailItem valueForKeyPath:@"test_Photo.target_Height"] description]];
+                    cell.textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+                    if (![value isEqualToString:@"0"])
+                        [cell setTextFieldText:value];
+                    else
+                        [cell setTextFieldText:@""];
+                    break;
+                case 2:
+                    [cell.imageView setImage:nil];
+                    [cell setTextFieldPlaceholder:@"Target Width"];
+                    [cell setTextFieldText:[[self.detailItem valueForKeyPath:@"test_Photo.target_Width"] description]];
+                    cell.textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
+                    if (![value isEqualToString:@"0"])
+                        [cell setTextFieldText:value];
+                    else
+                        [cell setTextFieldText:@""];
+                    break;
+                default:
+                    break;
+            }
+            
             break;
         case 1:
             switch (indexPath.row) {
@@ -321,7 +344,7 @@
 {
     switch (section) {
         case 0:
-            return 1;
+            return 3;
             break;
         case 1:
             return 2;
@@ -466,6 +489,14 @@
 - (void)updateCoreDataModelWithString:(NSString *)text atCellIndexPath:(NSIndexPath *)indexPath
 {
     switch (indexPath.section) {
+        case 0:
+            if (indexPath.row == 0)
+                [self.detailItem setValue:[NSKeyedArchiver archivedDataWithRootObject:self.points] forKeyPath:@"test_Photo.points"];
+            else if (indexPath.row == 1)
+                [self.detailItem setValue:[NSNumber numberWithDouble:[text doubleValue]] forKeyPath:@"test_Photo.target_Height"];
+            else
+                [self.detailItem setValue:[NSNumber numberWithDouble:[text doubleValue]] forKeyPath:@"test_Photo.target_Width"];
+            break;
         case 1:
             if (indexPath.row == 0)
                 [self.detailItem setValue:text forKeyPath:@"test_Shooter.first_Name"];
@@ -539,6 +570,7 @@
             [manPlace.brain setPoints:[self getArrayOfPointsFromDetailItem:self.detailItem]];
             manPlace.title = @"Target Analysis";
             [manPlace.imageView setImage:self.targetImage];
+            manPlace.detailView = self;
             break;
         case 1:
             pickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -573,6 +605,12 @@
     [self.view setFrame:CGRectMake(0, 0, 320, 416)];
     
     switch (textField.tag) {
+        case 001:
+            [self.detailItem setValue:[NSNumber numberWithDouble:[textField.text doubleValue]] forKeyPath:@"test_Photo.target_Height"];
+            break;
+        case 002:
+            [self.detailItem setValue:[NSNumber numberWithDouble:[textField.text doubleValue]]  forKeyPath:@"test_Photo.target_Width"];
+            break;
         case 100:
             [self.detailItem setValue:textField.text forKeyPath:@"test_Shooter.first_Name"];
             break;

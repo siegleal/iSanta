@@ -18,7 +18,7 @@
 
 @property (strong, nonatomic) UIImagePickerController *pickerController;
 
-@property (strong, nonatomic) ManualPlacementViewController *manPlace;
+@property (nonatomic) ManualPlacementViewController *manPlace;
 
 @property (nonatomic, retain) IBOutlet UITableView *detailDescriptionTable;
 
@@ -31,10 +31,14 @@
 
 @property (nonatomic, retain) UITextField *respondingTextField;
 
+@property (nonatomic, retain) NSArray *points;
+
 - (IBAction)dismissKeyboard:(id)sender;
 
 - (void)updateCoreDataModelWithString:(NSString *)text atCellIndexPath:(NSIndexPath *)indexPath;
 
 - (NSMutableArray *)getArrayOfPointsFromDetailItem:(id)detailItem;
+
+- (void)setPoints:(NSArray *)inPoints;
 
 @end

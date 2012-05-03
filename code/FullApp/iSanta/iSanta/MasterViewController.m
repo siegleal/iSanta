@@ -48,14 +48,6 @@
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
     self.navigationItem.rightBarButtonItem = addButton;
-    
-    //Remove Me
-    //****
-    double points[] = {1.0, 2.0, 3.0};
-    double x[] = {5.0,10.0,1.0};
-    NSLog(@"%f", PearsonProductMomentCorrelation(points, x, 3));
-    //****
-    //
 }
 
 - (void)viewDidUnload
