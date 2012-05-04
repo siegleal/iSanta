@@ -124,52 +124,62 @@
         if(indexPath.row == 0)
         {
             cell.textLabel.text = @"Shooter";
-            cell.detailTextLabel.text = @"Eric";
+            //cell.detailTextLabel.text = @"Eric";
+            cell.detailTextLabel.text = [self.reportData objectForKey:@"Shooter"];
         }
         else if(indexPath.row == 1)
         {
             cell.textLabel.text = @"Date Fired";
-            cell.detailTextLabel.text = @"2/3/2012";
+            //cell.detailTextLabel.text = @"2/3/2012";
+            cell.detailTextLabel.text = [self.reportData objectForKey:@"Date Fired"];
         }
         else if(indexPath.row == 2)
         {
             cell.textLabel.text = @"Place";
-            cell.detailTextLabel.text = @"RHIT";
+            //cell.detailTextLabel.text = @"RHIT";
+            cell.detailTextLabel.text = [self.reportData objectForKey:@"Place"];
         }
         else if(indexPath.row == 3)
         {
             cell.textLabel.text = @"Temperature";
-            cell.detailTextLabel.text = @"24 C";
+            //cell.detailTextLabel.text = @"24 C";
+            cell.detailTextLabel.text = [self.reportData objectForKey:@"Temperature"];
         }
         else if(indexPath.row == 4)
         {
             cell.textLabel.text = @"Target Distance";
-            cell.detailTextLabel.text = @"100 yards";
+            //cell.detailTextLabel.text = @"100 yards";
+            cell.detailTextLabel.text = [self.reportData objectForKey:@"Target Distance"];
         }
         else if(indexPath.row == 5)
         {
             cell.textLabel.text = @"Shots Fired";
-            cell.detailTextLabel.text = @"5";
+            //cell.detailTextLabel.text = @"5";
+            cell.detailTextLabel.text = [self.reportData objectForKey:@"Shots Fired"];
         }
         else if(indexPath.row == 6)
         {
             cell.textLabel.text = @"Serial #";
-            cell.detailTextLabel.text = @"12345";
+            //cell.detailTextLabel.text = @"12345";
+            cell.detailTextLabel.text = [self.reportData objectForKey:@"Serial #"];
         }
         else if(indexPath.row == 7)
         {
             cell.textLabel.text = @"Projectile";
-            cell.detailTextLabel.text = @"50 cal";
+            //cell.detailTextLabel.text = @"50 cal";
+            cell.detailTextLabel.text = [self.reportData objectForKey:@"Projectile"];
         }
         else if(indexPath.row == 8)
         {
             cell.textLabel.text = @"Lot #";
-            cell.detailTextLabel.text = @"25";
+            //cell.detailTextLabel.text = @"25";
+            cell.detailTextLabel.text = [self.reportData objectForKey:@"Lot #"];
         }
         else if(indexPath.row == 9)
         {
             cell.textLabel.text = @"Projectile Mass";
-            cell.detailTextLabel.text = @"5g";
+            //cell.detailTextLabel.text = @"5g";
+            cell.detailTextLabel.text = [self.reportData objectForKey:@"Projectile Mass"];
         }
     }
     else if(indexPath.section == 1)

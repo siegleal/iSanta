@@ -105,15 +105,17 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
+    NSValue *p = [self.points objectAtIndex:indexPath.section];
+    
     if(indexPath.row == 0)
     {
         cell.textLabel.text = @"X";
-        cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%d", indexPath.section];
+        cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%d", p.CGPointValue.x];
     }
     else
     {
         cell.textLabel.text = @"Y";
-        cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%d", indexPath.section];
+        cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%d", p.CGPointValue.y];
     }
     
     return cell;
