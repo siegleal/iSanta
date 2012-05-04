@@ -10,6 +10,11 @@
 #import "PlacementBrain.h"
 @class DetailViewController;
 
+//@interface mySingleTapRec : UITapGestureRecognizer
+//
+//
+//@end
+
 
 @interface ManualPlacementViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
@@ -19,6 +24,7 @@
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *singleTapRec;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIView *masterView;
+
 
 @property (nonatomic) DetailViewController *detailView;
 

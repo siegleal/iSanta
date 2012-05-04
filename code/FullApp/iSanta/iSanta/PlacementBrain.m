@@ -12,6 +12,7 @@
 @implementation PlacementBrain
 @synthesize targetImage = _targetImage;
 @synthesize circleImage = _circleImage;
+@synthesize editImage = _editImage;
 @synthesize points = _points;
 @synthesize animationArray = _animationArray;
 
@@ -45,6 +46,15 @@
                                          ofType:@"png"];
     if (!_circleImage) _circleImage = [[UIImage alloc] initWithContentsOfFile:path];
     return _circleImage;
+}
+
+- (UIImage *)editImage
+{
+    NSBundle *appBundle = [NSBundle mainBundle];
+    NSString *path = [appBundle pathForResource:@"edit-circle-crosshair" 
+                                         ofType:@"png"];
+    if (!_editImage) _editImage = [[UIImage alloc] initWithContentsOfFile:path];
+    return _editImage;
 }
 
 - (void)printPoints

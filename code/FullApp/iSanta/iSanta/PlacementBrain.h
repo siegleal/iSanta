@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) UIImage *targetImage;
 @property (nonatomic, strong) UIImage *circleImage;
+@property (nonatomic, strong) UIImage *editImage;
 @property (nonatomic, strong) NSMutableArray *points;
 @property (nonatomic, strong) NSArray *animationArray;
 
