@@ -31,7 +31,7 @@
 
 @property (nonatomic, retain) UITextField *respondingTextField;
 
-@property (nonatomic, retain) NSArray *points;
+@property (nonatomic, retain) NSMutableArray *points;
 
 - (IBAction)dismissKeyboard:(id)sender;
 
@@ -39,6 +39,6 @@
 
 - (NSMutableArray *)getArrayOfPointsFromDetailItem:(id)detailItem;
 
-- (void)setPoints:(NSArray *)inPoints;
+- (void)addPointWithXValue:(int)x andYValue:(int)y;
 
 @end

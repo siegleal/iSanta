@@ -112,16 +112,46 @@
     }
 }
 
-- (void)setPoints:(NSArray *)inPoints
-{
-    points = inPoints;
-}
+#pragma mark - Point Methods
 
-- (NSArray *)getArrayOfPointsFromDetailItem:(id)detailItem
+
+- (NSMutableArray *)getArrayOfPointsFromDetailItem:(id)detailItem
 {
     points = [NSKeyedUnarchiver unarchiveObjectWithData:[self.detailItem valueForKeyPath:@"test_Photo.points"]];
-    
+    if (points == nil) {
+        points = [[NSMutableArray alloc] init];
+    }
     return points;
+}
+
+- (void)addPointWithXValue:(int)x andYValue:(int)y
+{
+    //Add a point locally.
+    [self.points addObject:[NSValue valueWithCGPoint:CGPointMake(x, y)]];
+    //Save points to CoreData.
+    [self.detailItem setValue:[NSKeyedArchiver archivedDataWithRootObject:self.points] forKeyPath:@"test_Photo.points"];
+}
+
+#pragma mark - Unit Conversion Methods
+
+- (double)convertInchesToCentimeters:(double)inches 
+{
+    return inches * 2.54;
+}
+
+- (double)convertCentimetersToInches:(double)centimeters
+{
+    return centimeters * 0.3937;
+}
+
+- (double)convertYardsToMeters:(double)yards
+{
+    return yards * 0.9144;
+}
+
+- (double)convertMetersToYards:(double)meters
+{
+    return meters * 1.094;
 }
 
 #pragma mark - Table View Data Source
@@ -162,6 +192,8 @@
     
     NSString *value = @"";
     
+    BOOL metric = [[NSUserDefaults standardUserDefaults] boolForKey:@"unit_preference"];
+    
     if (cell == nil) {
         cell = [[DetailTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil indexPath:indexPath];
     }
@@ -180,9 +212,15 @@
                     break;
                 case 1:                    
                     [cell.imageView setImage:nil];
-                    [cell setTextFieldPlaceholder:@"Target Height"];
                     value = [[self.detailItem valueForKeyPath:@"test_Photo.target_Height"]description];
-                    if (![value isEqualToString:@"0"])
+                    if (metric) {
+                        [cell setTextFieldPlaceholder:@"Target Height (cm)"];
+                        value = [NSString stringWithFormat:@"%f",[self convertInchesToCentimeters:[value doubleValue]]];
+                    }
+                    else {
+                        [cell setTextFieldPlaceholder:@"Target Height (in)"];
+                    }
+                    if ([value doubleValue] != 0.0)
                         [cell setTextFieldText:value];
                     else
                         [cell setTextFieldText:@""];
@@ -190,9 +228,15 @@
                     break;
                 case 2:
                     [cell.imageView setImage:nil];
-                    [cell setTextFieldPlaceholder:@"Target Width"];
                     value = [[self.detailItem valueForKeyPath:@"test_Photo.target_Width"]description];
-                    if (![value isEqualToString:@"0"])
+                    if (metric) {
+                        [cell setTextFieldPlaceholder:@"Target Width (cm)"];
+                        value = [NSString stringWithFormat:@"%f",[self convertInchesToCentimeters:[value doubleValue]]];
+                    }
+                    else {
+                        [cell setTextFieldPlaceholder:@"Target Width (in)"];
+                    }                    
+                    if ([value doubleValue] != 0.0)
                         [cell setTextFieldText:value];
                     else
                         [cell setTextFieldText:@""];
@@ -231,9 +275,15 @@
                     break;
                 case 1:
                     [cell.imageView setImage:nil];
-                    [cell setTextFieldPlaceholder:@"Distance to Target"];
                     value = [[self.detailItem valueForKeyPath:@"test_Range.distance_To_Target"] description];
-                    if (![value isEqualToString:@"0"])
+                    if (metric) {
+                        [cell setTextFieldPlaceholder:@"Distance to Target (m)"];
+                        value = [NSString stringWithFormat:@"%f",[self convertYardsToMeters:[value doubleValue]]];
+                    }
+                    else {
+                        [cell setTextFieldPlaceholder:@"Distance to Target (yd)"];
+                    }
+                    if ([value doubleValue] != 0.0)
                         [cell setTextFieldText:value];
                     else
                         [cell setTextFieldText:@""];
@@ -488,14 +538,30 @@
 
 - (void)updateCoreDataModelWithString:(NSString *)text atCellIndexPath:(NSIndexPath *)indexPath
 {
+    BOOL metric = [[NSUserDefaults standardUserDefaults] boolForKey:@"unit_preference"];
+    
     switch (indexPath.section) {
         case 0:
             if (indexPath.row == 0)
                 [self.detailItem setValue:[NSKeyedArchiver archivedDataWithRootObject:self.points] forKeyPath:@"test_Photo.points"];
             else if (indexPath.row == 1)
-                [self.detailItem setValue:[NSNumber numberWithDouble:[text doubleValue]] forKeyPath:@"test_Photo.target_Height"];
+            {
+                if (metric) {//convert cm to inches
+                    [self.detailItem setValue:[NSNumber numberWithDouble:[self convertCentimetersToInches:[text doubleValue]]] forKeyPath:@"test_Photo.target_Height"];
+                }
+                else {//save inches
+                    [self.detailItem setValue:[NSNumber numberWithDouble:[text doubleValue]] forKeyPath:@"test_Photo.target_Height"];
+                }
+            }
             else if (indexPath.row == 2)
-                [self.detailItem setValue:[NSNumber numberWithDouble:[text doubleValue]] forKeyPath:@"test_Photo.target_Width"];
+            {
+                if (metric) {//convert cm to inches
+                    [self.detailItem setValue:[NSNumber numberWithDouble:[self convertCentimetersToInches:[text doubleValue]]] forKeyPath:@"test_Photo.target_Width"];
+                }
+                else {//save inches
+                    [self.detailItem setValue:[NSNumber numberWithDouble:[text doubleValue]] forKeyPath:@"test_Photo.target_Width"];
+                }
+            }
             break;
         case 1:
             if (indexPath.row == 0)
@@ -507,7 +573,12 @@
             if (indexPath.row == 0)
                 [self.detailItem setValue:text forKeyPath:@"test_Range.firing_Range"];
             else if (indexPath.row == 1)
-                [self.detailItem setValue:[NSNumber numberWithInt:[text intValue]] forKeyPath:@"test_Range.distance_To_Target"];
+            {
+                if (metric) {
+                    [self.detailItem setValue:[NSNumber numberWithInt:[self convertMetersToYards:[text doubleValue]]] forKeyPath:@"test_Range.distance_To_Target"];
+                }
+                [self.detailItem setValue:[NSNumber numberWithInt:[text doubleValue]] forKeyPath:@"test_Range.distance_To_Target"];
+            }
             else
                 [self.detailItem setValue:text forKeyPath:@"test_Range.range_Temperature"];
             break;
@@ -558,6 +629,8 @@
 {
     pickerController = [[UIImagePickerController alloc] init];
     pickerController.delegate = self;
+    
+//    NSArray *temp = [NSArray arrayWithObjects:[NSValue valueWithCGPoint:CGPointMake(500, 500)], [NSValue valueWithCGPoint:CGPointMake(600, 600)], [NSValue valueWithCGPoint:CGPointMake(700, 700)], [NSValue valueWithCGPoint:CGPointMake(400, 400)], nil];
       
     switch (buttonIndex) {
         case 0:
@@ -565,6 +638,7 @@
                 [[[UIAlertView alloc] initWithTitle:@"No Image Added" message:@"You have not added an image to this report. Please add an image before trying to analyze." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
                     break;
             }
+            
             manPlace = [[ManualPlacementViewController alloc] initWithNibName:@"ManualPlacement" bundle:nil];
             [manPlace.brain setTargetImage:self.targetImage];
             [manPlace.brain setPoints:[self getArrayOfPointsFromDetailItem:self.detailItem]];

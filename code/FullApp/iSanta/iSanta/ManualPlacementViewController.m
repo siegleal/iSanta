@@ -195,16 +195,6 @@ int currentOp = 1;
            }
     return _rtButton;
 }
-
-
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    // Send points back to the detail view.
-    [self.detailView setPoints:self.brain.points];
-    // Do the super code
-    [super viewWillDisappear:animated];
-}
                                               
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
@@ -264,6 +254,8 @@ int currentOp = 1;
     if (status == NORMAL){
         //add points to array
         [self.brain addPointatX:loc.x andY:loc.y];
+        //add point to the detail view and coredata.
+        [self.detailView addPointWithXValue:loc.x andYValue:loc.y];
         //draw them 
         UIImageView *iv = [[UIImageView alloc] initWithImage:self.brain.circleImage];
         iv.animationImages = self.brain.animationArray;
