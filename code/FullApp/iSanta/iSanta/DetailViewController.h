@@ -11,6 +11,7 @@
 #import "DetailTableViewCell.h"
 #import "ManualPlacementViewController.h"
 #import "PlacementBrain.h"
+#import "StatsDisplayController.h"
 
 @interface DetailViewController : UIViewController <UISplitViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 

@@ -112,6 +112,51 @@
     }
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"detailToStats"])
+    {
+        //Send points to the stats controller.
+        StatsDisplayController *statsDisplayController = [segue destinationViewController];
+        [statsDisplayController setPoints:self.points];
+        //Create the dictionary of report data.
+        NSMutableDictionary *reportDictionary = [[NSMutableDictionary alloc] init];
+        //Shooter Name (last, first)
+        [reportDictionary setObject:[NSString stringWithFormat:@"%s, %s",[self.detailItem valueForKeyPath:@"test_Shooter.last_Name"],[self.detailItem valueForKeyPath:@"test_Shooter.first_Name"]] forKey:@"Shooter"];
+        //Test Date
+        NSLocale *currentLocale = [NSLocale systemLocale];
+        NSString *dateFormat;
+        NSString *dateComponents = @"MMM dd, yyyy at HH:mm ZZZZ";
+        
+        dateFormat = [NSDateFormatter dateFormatFromTemplate:dateComponents options:0 locale:currentLocale];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:dateFormat];
+        
+        NSString *formattedDate = [dateFormatter stringFromDate:(NSDate *)[self.detailItem valueForKey:@"date_Time"]];
+        [reportDictionary setObject:formattedDate forKey:@"Date Fired"];
+        //Firing Range
+        [reportDictionary setObject:[self.detailItem valueForKeyPath:@"test_Range.firing_Range"] forKey:@"Place"];
+        //Temperature
+        [reportDictionary setObject:[self.detailItem valueForKeyPath:@"test_Range.range_Temperature"] forKey:@"Temperature"];
+        //Target Distance
+        [reportDictionary setObject:[self.detailItem valueForKeyPath:@"test_Range.distance_To_Target"]  forKey:@"Target Distance"];
+        //Shots Fired
+        [reportDictionary setObject:[self.detailItem valueForKeyPath:@"test_Ammunition.number_Of_Shots"] forKey:@"Shots Fired"];
+        //Serial Number
+        [reportDictionary setObject:[self.detailItem valueForKeyPath:@"test_Weapon.serial_Number"] forKey:@"Weapon Serial #"];
+        //Weapon Nomenclature
+        [reportDictionary setObject:[self.detailItem valueForKeyPath:@"test_Weapon.weapon_Nomenclature"] forKey:@"Weapon Nomenclature"];
+        //Projectile Caliber
+        [reportDictionary setObject:[self.detailItem valueForKeyPath:@"test_Ammunition.caliber"] forKey:@"Projectile Caliber"];
+        //Lot Number
+        [reportDictionary setObject:[self.detailItem valueForKeyPath:@"test_Ammunition.lot_Number"] forKey:@"Lot #"];
+        //Projectile Mass
+        [reportDictionary setObject:[self.detailItem valueForKeyPath:@"test_Ammunition.projectile_Mass"] forKey:@"Projectile Mass"];
+        //send the dictionary to the stats controller.
+        [statsDisplayController setReportData:reportDictionary];
+    }
+}
+
 #pragma mark - Point Methods
 
 

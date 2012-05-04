@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.0" toolsVersion="1938" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50d" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="3">
     <dependencies>
+        <deployment defaultVersion="1296" identifier="iOS"/>
         <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="933"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
         <scene sceneID="11">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
@@ -20,6 +22,7 @@
             </objects>
             <point key="canvasLocation" x="-1" y="64"/>
         </scene>
+        <!--Master View Controller - Master-->
         <scene sceneID="18">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
@@ -68,6 +71,7 @@
             </objects>
             <point key="canvasLocation" x="459" y="64"/>
         </scene>
+        <!--Detail View Controller - Report Detail-->
         <scene sceneID="24">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23" sceneMemberID="firstResponder"/>
@@ -104,7 +108,7 @@
                     <navigationItem key="navigationItem" title="Detail" id="26">
                         <barButtonItem key="rightBarButtonItem" title="Export" style="done" id="tub-uo-CtX">
                             <connections>
-                                <segue destination="ven-In-iXi" kind="push" identifier="Stats" id="yRY-dB-8OF"/>
+                                <segue destination="ven-In-iXi" kind="push" identifier="detailToStats" id="yRY-dB-8OF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -112,6 +116,7 @@
             </objects>
             <point key="canvasLocation" x="902" y="64"/>
         </scene>
+        <!--Stats Display Controller - Statistics-->
         <scene sceneID="Sv7-Fh-kbx">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7jA-Ho-pO1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -151,7 +156,7 @@
                                 <rect key="frame" x="0.0" y="91" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="10" y="1" width="267" height="43"/>
+                                    <rect key="frame" x="10" y="0.0" width="267" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CTq-nI-gMV">
@@ -187,6 +192,7 @@
             </objects>
             <point key="canvasLocation" x="1349" y="64"/>
         </scene>
+        <!--Points Display Controller - Points (in inches)-->
         <scene sceneID="CGB-2y-O0J">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oqu-p3-MqK" userLabel="First Responder" sceneMemberID="firstResponder"/>
