@@ -13,6 +13,7 @@
 
 @synthesize statsProvider = _statsProvider;
 @synthesize points = _points;
+@synthesize reportData = _reportData;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

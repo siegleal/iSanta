@@ -13,5 +13,6 @@
 
 @property (strong, nonatomic) id<StatsProvider> statsProvider;
 @property (strong, nonatomic) NSMutableArray *points;
+@property (nonatomic, retain) NSDictionary *reportData;
 
 @end

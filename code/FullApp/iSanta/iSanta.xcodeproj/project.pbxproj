@@ -14,7 +14,6 @@
 		696D0E6D14BB876F003EFE82 /* Photo_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E6C14BB876F003EFE82 /* Photo_Information.m */; };
 		696D0E7014BB8770003EFE82 /* Shooter_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E6F14BB8770003EFE82 /* Shooter_Information.m */; };
 		696D0E7314BB8770003EFE82 /* Weapon_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E7214BB8770003EFE82 /* Weapon_Information.m */; };
-		696D0E7614BB8770003EFE82 /* iSanta_Point.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E7514BB8770003EFE82 /* iSanta_Point.m */; };
 		696D0E7914BB8770003EFE82 /* Range_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E7814BB8770003EFE82 /* Range_Information.m */; };
 		696E3DDB14E8577A00C0A84A /* DetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E3DDA14E8577A00C0A84A /* DetailTableViewCell.m */; };
 		696E3DDE14E857CC00C0A84A /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696E3DDD14E857CC00C0A84A /* DetailTableViewCell.xib */; };
@@ -77,8 +76,6 @@
 		696D0E6F14BB8770003EFE82 /* Shooter_Information.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Shooter_Information.m; sourceTree = "<group>"; };
 		696D0E7114BB8770003EFE82 /* Weapon_Information.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Weapon_Information.h; sourceTree = "<group>"; };
 		696D0E7214BB8770003EFE82 /* Weapon_Information.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Weapon_Information.m; sourceTree = "<group>"; };
-		696D0E7414BB8770003EFE82 /* iSanta_Point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iSanta_Point.h; sourceTree = "<group>"; };
-		696D0E7514BB8770003EFE82 /* iSanta_Point.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iSanta_Point.m; sourceTree = "<group>"; };
 		696D0E7714BB8770003EFE82 /* Range_Information.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Range_Information.h; sourceTree = "<group>"; };
 		696D0E7814BB8770003EFE82 /* Range_Information.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Range_Information.m; sourceTree = "<group>"; };
 		696E3DD914E8577A00C0A84A /* DetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableViewCell.h; sourceTree = "<group>"; };
@@ -167,8 +164,6 @@
 			children = (
 				696D0E7714BB8770003EFE82 /* Range_Information.h */,
 				696D0E7814BB8770003EFE82 /* Range_Information.m */,
-				696D0E7414BB8770003EFE82 /* iSanta_Point.h */,
-				696D0E7514BB8770003EFE82 /* iSanta_Point.m */,
 				696D0E7114BB8770003EFE82 /* Weapon_Information.h */,
 				696D0E7214BB8770003EFE82 /* Weapon_Information.m */,
 				696D0E6E14BB8770003EFE82 /* Shooter_Information.h */,
@@ -458,7 +453,6 @@
 				696D0E6D14BB876F003EFE82 /* Photo_Information.m in Sources */,
 				696D0E7014BB8770003EFE82 /* Shooter_Information.m in Sources */,
 				696D0E7314BB8770003EFE82 /* Weapon_Information.m in Sources */,
-				696D0E7614BB8770003EFE82 /* iSanta_Point.m in Sources */,
 				696D0E7914BB8770003EFE82 /* Range_Information.m in Sources */,
 				696E3DDB14E8577A00C0A84A /* DetailTableViewCell.m in Sources */,
 				69AD7E8414E9B29F001F8A67 /* ManualPlacementViewController.m in Sources */,
