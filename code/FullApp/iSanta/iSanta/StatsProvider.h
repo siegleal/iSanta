@@ -11,7 +11,7 @@
 @protocol StatsProvider <NSObject>
 
 - (NSInteger)getRowCount:(NSMutableArray *)points;
-- (NSString *)getTitleForIndex:(NSInteger)index;
-- (NSString *)getValueForIndex:(NSInteger)index;
+- (NSString *)getTitleForIndex:(NSInteger)index withPoints:(NSMutableArray *)points;
+- (NSString *)getValueForIndex:(NSInteger)index withPoints:(NSMutableArray *)points;
 
 @end

@@ -100,7 +100,7 @@
 {
     // Return the number of rows in the section.
     if(section == 0)
-        return 10;
+        return 11;
     else if(section == 1)
         return 11;
         //return [self.statsProvider getRowCount:self.points];
@@ -159,23 +159,29 @@
         }
         else if(indexPath.row == 6)
         {
-            cell.textLabel.text = @"Serial #";
+            cell.textLabel.text = @"Weapon Nomenclature";
             //cell.detailTextLabel.text = @"12345";
-            cell.detailTextLabel.text = [self.reportData objectForKey:@"Serial #"];
+            cell.detailTextLabel.text = [self.reportData objectForKey:@"Weapon Nomenclature"];
         }
         else if(indexPath.row == 7)
         {
-            cell.textLabel.text = @"Projectile";
-            //cell.detailTextLabel.text = @"50 cal";
-            cell.detailTextLabel.text = [self.reportData objectForKey:@"Projectile"];
+            cell.textLabel.text = @"Weapon Serial Number";
+            //cell.detailTextLabel.text = @"12345";
+            cell.detailTextLabel.text = [self.reportData objectForKey:@"Weapon Serial Number"];
         }
         else if(indexPath.row == 8)
+        {
+            cell.textLabel.text = @"Projectile Caliber";
+            //cell.detailTextLabel.text = @"50 cal";
+            cell.detailTextLabel.text = [self.reportData objectForKey:@"Projectile Caliber"];
+        }
+        else if(indexPath.row == 9)
         {
             cell.textLabel.text = @"Lot #";
             //cell.detailTextLabel.text = @"25";
             cell.detailTextLabel.text = [self.reportData objectForKey:@"Lot #"];
         }
-        else if(indexPath.row == 9)
+        else if(indexPath.row == 10)
         {
             cell.textLabel.text = @"Projectile Mass";
             //cell.detailTextLabel.text = @"5g";
@@ -184,6 +190,8 @@
     }
     else if(indexPath.section == 1)
     {
+        //cell.textLabel.text = [self.statsProvider getTitleForIndex:indexPath.row withPoints:self.points];
+        //cell.detailTextLabel.text = [self.statsProvider getValueForIndex:indexPath.row withPoints:self.points];
         if(indexPath.row == 0)
         {
             cell.textLabel.text = @"Extreme Spread X";

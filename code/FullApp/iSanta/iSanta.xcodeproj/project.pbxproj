@@ -47,6 +47,7 @@
 		69BBF70E1552F5F800FF833D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 69BBF70D1552F5F800FF833D /* Settings.bundle */; };
 		69C0D33114E9E96D00F6C131 /* CSVEmailTesterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69C0D33014E9E96D00F6C131 /* CSVEmailTesterViewController.m */; };
 		69C0D33314E9EC4200F6C131 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C0D33214E9EC4200F6C131 /* MessageUI.framework */; };
+		9D4A6C1415581E2A00F68E3D /* DefaultStatsProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D4A6C1315581E2A00F68E3D /* DefaultStatsProvider.m */; };
 		9DABA30E154ADB3300912C45 /* StatsDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DABA30D154ADB3300912C45 /* StatsDisplayController.m */; };
 		9DABA312154ADB7900912C45 /* PointsDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DABA311154ADB7900912C45 /* PointsDisplayController.m */; };
 		E00FC6B0151CDEAB00FF5EBD /* stats.c in Sources */ = {isa = PBXBuildFile; fileRef = E00FC6AE151CDEAB00FF5EBD /* stats.c */; };
@@ -123,6 +124,8 @@
 		69C0D33014E9E96D00F6C131 /* CSVEmailTesterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CSVEmailTesterViewController.m; sourceTree = "<group>"; };
 		69C0D33214E9EC4200F6C131 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		9D44D4CD1523879200BDB2F2 /* StatsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsProvider.h; path = iSanta/StatsProvider.h; sourceTree = "<group>"; };
+		9D4A6C1215581E2A00F68E3D /* DefaultStatsProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DefaultStatsProvider.h; path = iSanta/DefaultStatsProvider.h; sourceTree = "<group>"; };
+		9D4A6C1315581E2A00F68E3D /* DefaultStatsProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DefaultStatsProvider.m; path = iSanta/DefaultStatsProvider.m; sourceTree = "<group>"; };
 		9DABA30C154ADB3300912C45 /* StatsDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsDisplayController.h; sourceTree = "<group>"; };
 		9DABA30D154ADB3300912C45 /* StatsDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsDisplayController.m; sourceTree = "<group>"; };
 		9DABA310154ADB7900912C45 /* PointsDisplayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointsDisplayController.h; sourceTree = "<group>"; };
@@ -322,6 +325,8 @@
 				E00FC6AF151CDEAB00FF5EBD /* stats.h */,
 				E00FC6AE151CDEAB00FF5EBD /* stats.c */,
 				9D44D4CD1523879200BDB2F2 /* StatsProvider.h */,
+				9D4A6C1215581E2A00F68E3D /* DefaultStatsProvider.h */,
+				9D4A6C1315581E2A00F68E3D /* DefaultStatsProvider.m */,
 			);
 			name = Stats;
 			path = ..;
@@ -462,6 +467,7 @@
 				9DABA312154ADB7900912C45 /* PointsDisplayController.m in Sources */,
 				699BE3371553165400571400 /* EllipseFitting.cpp in Sources */,
 				699BE3381553165400571400 /* ImageRecController.cpp in Sources */,
+				9D4A6C1415581E2A00F68E3D /* DefaultStatsProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
