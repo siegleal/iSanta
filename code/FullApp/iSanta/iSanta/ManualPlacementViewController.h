@@ -6,8 +6,9 @@
 //  Copyright (c) 2012 Rose-Hulman Institute of Technology. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import "PlacementBrain.h"
+#import <UIKit/UIKit.h>
+
 @class DetailViewController;
 
 //@interface mySingleTapRec : UITapGestureRecognizer

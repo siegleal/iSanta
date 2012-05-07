@@ -1,10 +1,17 @@
 #pragma once
 
-#include "OpenCV.framework/Headers/opencv2/opencv.hpp"
-#include "OpenCV.framework/Headers/opencv2/core/core_c.h"
-#include "OpenCV.framework/Headers/opencv2/highgui/highgui_c.h"
-#include "OpenCV.framework/Headers/opencv2/core/types_c.h"
-#include "OpenCV.framework/Headers/opencv2/legacy/compat.hpp"
+//#include "OpenCV.framework/Headers/opencv2/opencv.hpp"
+//#include "OpenCV.framework/Headers/opencv2/core/core_c.h"
+//#include "OpenCV.framework/Headers/opencv2/highgui/highgui_c.h"
+//#include "OpenCV.framework/Headers/opencv2/core/types_c.h"
+//#include "OpenCV.framework/Headers/opencv2/legacy/compat.hpp"
+
+#include "opencv2/opencv.hpp"
+//#include "opencv2/core/core_c.h"
+//#include "opencv2/highgui/highgui_c.h"
+//#include "opencv2/core/types_c.h"
+#include "opencv2/legacy/compat.hpp"
+
 
 
 

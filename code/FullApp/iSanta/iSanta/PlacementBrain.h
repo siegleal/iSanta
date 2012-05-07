@@ -6,8 +6,9 @@
 //  Copyright (c) 2012 Rose-Hulman Institute of Technology. All rights reserved.
 //
 
+
+#import "ImageRecController.h"
 #import <Foundation/Foundation.h>
-//#import "ImageRecController.h"
 
 
 @interface PlacementBrain : NSObject

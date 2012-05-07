@@ -6,11 +6,11 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "MasterViewController.h"
-#import "DetailTableViewCell.h"
-#import "ManualPlacementViewController.h"
 #import "PlacementBrain.h"
+#import "ManualPlacementViewController.h"
+#import "MasterViewController.h"
+#import <UIKit/UIKit.h>
+#import "DetailTableViewCell.h"
 #import "StatsDisplayController.h"
 
 @interface DetailViewController : UIViewController <UISplitViewControllerDelegate, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UIAlertViewDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
