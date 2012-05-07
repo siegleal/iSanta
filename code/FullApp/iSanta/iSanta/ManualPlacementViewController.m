@@ -8,36 +8,7 @@
 
 #import "ManualPlacementViewController.h"
 #import "DetailViewController.h"
-
-//
-//@interface myUIImageView : UIImageView
-//
-//@property (nonatomic) CGFloat alpha;
-//@end
-//
-//@implementation myUIImageView
-//
-//- (void) setAlpha:(CGFloat)alpha{
-//    
-//}
-//
-//-(CGFloat) alpha{
-//    return (CGFloat)1.0;
-//}
-//
-//@end
-
-//@implementation mySingleTapRec
-//
-//- (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-//    NSLog(@"moved");
-//}
-//
-//@end
-
-
-
+//#import "ImageRecController.h"
 
 
 
@@ -97,6 +68,8 @@ const int BTNSMALL = 60;
 const int BTNBIG = 125;
 const double BTNALPHA = .5;
 
+int selectedPointIndex = -1;
+
 
 int currentOp = 1;
 
@@ -124,12 +97,12 @@ int currentOp = 1;
     [self.masterView addSubview:self.imageView];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(donePlacing)];
 
-   status = NORMAL;
+    status = NORMAL;
     
-    [self.scrollView addSubview:self.upButton];
-    [self.scrollView addSubview:self.dnButton];
-    [self.scrollView addSubview:self.lfButton];
-    [self.scrollView addSubview:self.rtButton];
+    [self.view addSubview:self.upButton];
+    [self.view addSubview:self.dnButton];
+    [self.view addSubview:self.lfButton];
+    [self.view addSubview:self.rtButton];
     
     [self.upButton setImage:self.upImage forState:UIControlStateNormal];
     [self.dnButton setImage:self.dnImage forState:UIControlStateNormal];
@@ -140,6 +113,15 @@ int currentOp = 1;
     self.dnButton.hidden = YES;
     self.lfButton.hidden = YES;
     self.rtButton.hidden = YES;
+    
+    [self.upButton addTarget:self action:@selector(movePoint) forControlEvents:UIControlEventTouchUpInside];
+    [self.dnButton addTarget:self action:@selector(movePoint) forControlEvents:UIControlEventTouchUpInside];
+    [self.lfButton addTarget:self action:@selector(movePoint) forControlEvents:UIControlEventTouchUpInside];
+    [self.rtButton addTarget:self action:@selector(movePoint) forControlEvents:UIControlEventTouchUpInside];
+
+    
+    
+    [self loadPointsFromBrain];
 
     
 }
@@ -195,6 +177,30 @@ int currentOp = 1;
            }
     return _rtButton;
 }
+
+- (void) movePoint{
+    NSLog(@"clicked");
+    const int MOVEMENT = 5;
+//    CGPoint loc = self.selectedPoint.center;
+//    
+//    if (sender == self.upButton){
+//        loc.y -= MOVEMENT;
+//    }else if (sender == self.dnButton) {
+//        loc.y += MOVEMENT;
+//    }else if (sender == self.lfButton){
+//        loc.x -= MOVEMENT;
+//    }else { //rtButton
+//        loc.x += MOVEMENT;
+//    }
+//    
+//
+//    //change it on screen
+//    self.selectedPoint.center = loc;
+//    
+//    //change it in brain
+//    [self.brain replacePointAtIndex:selectedPointIndex withPoint:loc];
+    
+}
                                               
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
@@ -202,11 +208,28 @@ int currentOp = 1;
         return self.masterView;
 }
 
+-(void) drawAtPoint:(CGPoint) loc{
+    UIImageView *iv = [[UIImageView alloc] initWithImage:self.brain.circleImage];
+    iv.animationImages = self.brain.animationArray;
+    iv.center = loc;
+    iv.animationDuration = ANIMATEDURATION;
+    //        [self.imageView addSubview:iv];
+    [self.masterView addSubview:iv];
+    //add view to array
+    [self.ivArray addObject:iv];
+}
+
+- (void) loadPointsFromBrain{
+    for (NSValue *value in self.brain.points){
+        [self drawAtPoint:[value CGPointValue]];
+    }
+}
+
 - (void) centerButtons{
-    [self.upButton setFrame:CGRectMake(self.scrollView.center.x + self.scrollView.contentOffset.x - (.5 * BTNBIG), self.scrollView.bounds.origin.y,self.upButton.bounds.size.width,self.upButton.bounds.size.height)];
-    [self.dnButton setFrame:CGRectMake(self.view.center.x + self.scrollView.contentOffset.x - (BTNBIG / 2), self.scrollView.bounds.size.height + self.scrollView.contentOffset.y - BTNSMALL, BTNBIG,BTNSMALL)];
-    [self.lfButton setFrame:CGRectMake(self.scrollView.bounds.origin.x, self.view.center.y + self.scrollView.contentOffset.y - (BTNBIG/ 2), BTNSMALL,BTNBIG)];
-    [self.rtButton setFrame:CGRectMake(self.view.bounds.size.width + self.scrollView.contentOffset.x - BTNSMALL, self.view.center.y + self.scrollView.contentOffset.y - (BTNBIG/2), BTNSMALL,BTNBIG)];
+//    [self.upButton setFrame:CGRectMake(self.scrollView.center.x + self.scrollView.contentOffset.x - (.5 * BTNBIG), self.scrollView.bounds.origin.y,self.upButton.bounds.size.width,self.upButton.bounds.size.height)];
+//    [self.dnButton setFrame:CGRectMake(self.view.center.x + self.scrollView.contentOffset.x - (BTNBIG / 2), self.scrollView.bounds.size.height + self.scrollView.contentOffset.y - BTNSMALL, BTNBIG,BTNSMALL)];
+//    [self.lfButton setFrame:CGRectMake(self.scrollView.bounds.origin.x, self.view.center.y + self.scrollView.contentOffset.y - (BTNBIG/ 2), BTNSMALL,BTNBIG)];
+//    [self.rtButton setFrame:CGRectMake(self.view.bounds.size.width + self.scrollView.contentOffset.x - BTNSMALL, self.view.center.y + self.scrollView.contentOffset.y - (BTNBIG/2), BTNSMALL,BTNBIG)];
 }
 
 - (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale{
@@ -253,18 +276,14 @@ int currentOp = 1;
     
     if (status == NORMAL){
         //add points to array
-        [self.brain addPointatX:loc.x andY:loc.y];
+        //[self.brain addPointatX:loc.x andY:loc.y];
+        
         //add point to the detail view and coredata.
         [self.detailView addPointWithXValue:loc.x andYValue:loc.y];
         //draw them 
-        UIImageView *iv = [[UIImageView alloc] initWithImage:self.brain.circleImage];
-        iv.animationImages = self.brain.animationArray;
-        iv.center = loc;
-        iv.animationDuration = ANIMATEDURATION;
-//        [self.imageView addSubview:iv];
-        [self.masterView addSubview:iv];
-        //add view to array
-        [self.ivArray addObject:iv];
+        [self drawAtPoint:loc];
+        
+        NSLog(@"%d\n%d",self.brain.points.count,self.ivArray.count);
     }
     else //double tap to go back to NORMAL
     {
@@ -311,12 +330,30 @@ int currentOp = 1;
         case 1:
             status = MOVING;
              [self buttonsVisible:(NO)];
+            
+            //undim
+            //        self.middleView.alpha = 0.0;
+            self.imageView.alpha = 1.0;
+            
+            //stop animating
+            for (UIImageView *iv in self.ivArray) {
+                [iv stopAnimating];
+            }
 
             break;
             
         case 2:
             status = NORMAL;
              [self buttonsVisible:(YES)];
+            
+            //undim
+            //        self.middleView.alpha = 0.0;
+            self.imageView.alpha = 1.0;
+            
+            //stop animating
+            for (UIImageView *iv in self.ivArray) {
+                [iv stopAnimating];
+            }
 
             break;
             
@@ -385,7 +422,8 @@ int currentOp = 1;
         if (self.brain.points.count > 0)
         {
             //loop thru all of the points
-            NSEnumerator *e = [self.brain.points objectEnumerator];            
+            NSEnumerator *e = [self.brain.points objectEnumerator]; 
+            NSLog(@"%d\n%d",self.brain.points.count,self.ivArray.count);
             for (int i = 0; i < self.brain.points.count; i++) 
             {
                 NSValue *obj = [e nextObject];
@@ -394,9 +432,9 @@ int currentOp = 1;
                     closestDist = dist;
                     closestIndex = i;
                 }
+            
             }
-            
-            
+
             if (closestDist < EDITTHRESHOLD){
                 double zoomFactor = 2.0;
                 //remove from controller & view
@@ -407,6 +445,7 @@ int currentOp = 1;
                 [self.scrollView setZoomScale:zoomFactor];
                 [self.scrollView setContentOffset:CGPointMake((zoomFactor * self.selectedPoint.center.x) - (.5 * self.scrollView.bounds.size.width), (zoomFactor * self.selectedPoint.center.y) - (.5 * self.scrollView.bounds.size.height)) animated:YES];
                 //[self.scrollView setContentOffset:CGPointMake(self.imageView.center.x - (self.scrollView.center.x - self.selectedPoint.center.x), self.imageView.center.y - (self.scrollView.center.y - self.selectedPoint.center.y)) animated:YES];
+                selectedPointIndex = closestIndex;
 
                 
             }
@@ -415,6 +454,7 @@ int currentOp = 1;
                     [self.selectedPoint setImage:self.brain.circleImage];
                 [self.scrollView setZoomScale:1.0];
                 [self.scrollView setContentOffset:CGPointMake(0, 0 )];
+                selectedPointIndex = -1;
             }
         }
     }

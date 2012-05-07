@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+//#import "ImageRecController.h"
 
 
 @interface PlacementBrain : NSObject
@@ -20,5 +21,7 @@
 - (void)addPointatX:(CGFloat)x andY:(CGFloat)y;
 - (void)removePointatX:(int)x andY:(int)y;
 -(void) removePoint:(NSValue *)p;
+-(void) replacePointAtIndex:(int)i withPoint:(CGPoint) point;
+-(Point*) processImage;
 
 @end

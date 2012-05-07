@@ -16,6 +16,7 @@
 @synthesize points = _points;
 @synthesize animationArray = _animationArray;
 
+
 - (NSArray *)animationArray
 {
     if (!_animationArray) _animationArray = [[NSArray alloc] initWithObjects:[UIImage imageNamed:@"circle.png"],
@@ -99,6 +100,10 @@
 -(void) removePoint:(NSValue *)p
 {
     [self.points removeObject:p];
+}
+
+-(void) replacePointAtIndex:(int) i withPoint:(CGPoint) point{
+    [self.points replaceObjectAtIndex:i withObject:([NSValue valueWithCGPoint:point])];
 }
 
 

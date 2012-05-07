@@ -28,11 +28,23 @@ float computeError(CvPoint center, int radius, CvPoint2D32f* points, int count)
 }
 
 void AddBefore(PointsLinkedList* list, PointNode* node, ScoredPoint point){
-    
+    PointNode *current = list->head;
+    while (current != node){
+        current = current->Next;
+    }
+    PointNode *pn = (PointNode *)malloc(sizeof(PointNode));
+    pn->Value = &point;
+    current->Next = pn;
 }
 
 void AddLast(PointsLinkedList* list, ScoredPoint point){
-    
+    PointNode *current = list->head;
+    while (current != NULL){
+        current = current->Next;
+    }
+    PointNode *pn = (PointNode *)malloc(sizeof(PointNode));
+    pn->Value = &point;
+    current->Next = pn;
 }
 
 // Begins bullet-hole recognition
