@@ -9,6 +9,7 @@
 
 #import "ManualPlacementViewController.h"
 #import "DetailViewController.h"
+#import <QuartzCore/QuartzCore.h>
 //#import "ImageRecController.h"
 
 
@@ -97,6 +98,23 @@ int currentOp = 1;
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Manual Impact Placement" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     
     [alert show];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    UIImage *image;
+    CGPoint pt = self.masterView.bounds.origin;
+    
+    UIGraphicsBeginImageContext(self.masterView.bounds.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextConcatCTM(context, CGAffineTransformMakeTranslation(-(int)pt.x, -(int)pt.y));
+    [self.masterView.layer renderInContext:context];
+    image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    NSData *data = UIImageJPEGRepresentation(image, 0.85);
+    
+    [self.detailView saveExportImage:data];
 }
 
 - (void) viewDidLoad

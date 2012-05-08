@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		691AC5A614E300CB005441BB /* iSantaIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 691AC5A514E300CB005441BB /* iSantaIcon.png */; };
 		6928A1FD14BD161C000E639E /* Logo.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 6928A1FC14BD161C000E639E /* Logo.JPG */; };
+		6956F3E71559C88C008397BB /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6956F3E61559C88C008397BB /* QuartzCore.framework */; };
 		696D0E6614BB8732003EFE82 /* Ammunition_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E6514BB8732003EFE82 /* Ammunition_Information.m */; };
 		696D0E6A14BB8753003EFE82 /* Test_Report.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E6914BB8753003EFE82 /* Test_Report.m */; };
 		696D0E6D14BB876F003EFE82 /* Photo_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E6C14BB876F003EFE82 /* Photo_Information.m */; };
@@ -67,6 +68,7 @@
 /* Begin PBXFileReference section */
 		691AC5A514E300CB005441BB /* iSantaIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iSantaIcon.png; sourceTree = "<group>"; };
 		6928A1FC14BD161C000E639E /* Logo.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Logo.JPG; sourceTree = "<group>"; };
+		6956F3E61559C88C008397BB /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		696D0E6414BB8732003EFE82 /* Ammunition_Information.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ammunition_Information.h; sourceTree = "<group>"; };
 		696D0E6514BB8732003EFE82 /* Ammunition_Information.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ammunition_Information.m; sourceTree = "<group>"; };
 		696D0E6814BB8753003EFE82 /* Test_Report.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test_Report.h; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6956F3E71559C88C008397BB /* QuartzCore.framework in Frameworks */,
 				69C0D33314E9EC4200F6C131 /* MessageUI.framework in Frameworks */,
 				69B94D7A1499403400F0C847 /* UIKit.framework in Frameworks */,
 				69B94D7C1499403400F0C847 /* Foundation.framework in Frameworks */,
@@ -222,7 +225,6 @@
 		69B94D6A1499403400F0C847 = {
 			isa = PBXGroup;
 			children = (
-				69C0D33214E9EC4200F6C131 /* MessageUI.framework */,
 				69B94D811499403400F0C847 /* iSanta */,
 				69B94DA91499403500F0C847 /* iSantaTests */,
 				69B94D781499403400F0C847 /* Frameworks */,
@@ -242,6 +244,8 @@
 		69B94D781499403400F0C847 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6956F3E61559C88C008397BB /* QuartzCore.framework */,
+				69C0D33214E9EC4200F6C131 /* MessageUI.framework */,
 				E020C4041559BE91005431EE /* OpenCV.framework */,
 				69B94D791499403400F0C847 /* UIKit.framework */,
 				69B94D7B1499403400F0C847 /* Foundation.framework */,

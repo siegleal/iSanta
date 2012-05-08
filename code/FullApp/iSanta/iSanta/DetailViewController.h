@@ -42,4 +42,6 @@
 
 - (void)addPointWithXValue:(int)x andYValue:(int)y;
 
+- (void)saveExportImage:(NSData *)imageData;
+
 @end

@@ -112,6 +112,11 @@
     }
 }
 
+- (void)saveExportImage:(NSData *)imageData
+{
+    [self.detailItem setValue:imageData forKeyPath:@"test_Photo.export_Image"];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"detailToStats"])
@@ -119,6 +124,8 @@
         //Send points to the stats controller.
         StatsDisplayController *statsDisplayController = [segue destinationViewController];
         [statsDisplayController setPoints:self.points];
+        //Send photo with points to stats controller.
+        [statsDisplayController setTargetPhoto:[self.detailItem valueForKeyPath:@"test_Photo.export_Image"]];
         //Create the dictionary of report data.
         NSMutableDictionary *reportDictionary = [[NSMutableDictionary alloc] init];
         //Get values for the data.
