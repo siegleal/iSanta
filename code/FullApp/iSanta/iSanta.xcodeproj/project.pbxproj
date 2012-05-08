@@ -339,9 +339,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69B94DB41499403500F0C847 /* Build configuration list for PBXNativeTarget "iSanta" */;
 			buildPhases = (
+				69B94D731499403400F0C847 /* Resources */,
 				69B94D711499403400F0C847 /* Sources */,
 				69B94D721499403400F0C847 /* Frameworks */,
-				69B94D731499403400F0C847 /* Resources */,
 			);
 			buildRules = (
 			);
