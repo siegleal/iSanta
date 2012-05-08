@@ -7,7 +7,7 @@
 //
 
 
-#import "ImageRecController.h"
+//#import "ImageRecController.h"
 #import <Foundation/Foundation.h>
 
 
