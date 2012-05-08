@@ -200,27 +200,100 @@ int currentOp = 1;
     return _rtButton;
 }
 
-- (void) movePoint:(id) sender{
-    NSLog(@"clicked");
-    const int MOVEMENT = 5;
-    CGPoint loc = self.selectedPoint.center;
-    
-    if (sender == self.upButton){
-        loc.y -= MOVEMENT;
-    }else if (sender == self.dnButton) {
-        loc.y += MOVEMENT;
-    }else if (sender == self.lfButton){
-        loc.x -= MOVEMENT;
-    }else { //rtButton
-        loc.x += MOVEMENT;
-    }
-    
+-(void) resetPointImage:(UIImageView *) view{
+    [view setImage:self.brain.circleImage];
+}
 
-    //change it on screen
-    self.selectedPoint.center = loc;
-    
-    //change it in brain
-    [self.brain replacePointAtIndex:selectedPointIndex withPoint:loc];
+-(void) switchModeTo:(int)mode{
+    status = mode;
+    switch (mode) {
+        case NORMAL:
+            if (self.selectedPoint != nil)
+                [self resetPointImage:self.selectedPoint];
+            self.selectedPoint = nil;
+            
+            //undim
+            self.imageView.alpha = 1.0;
+            
+            //stop animating
+            for (UIImageView *iv in self.ivArray) {
+                [iv stopAnimating];
+            }
+            
+            [self buttonsHidden:YES];
+            self.navigationItem.prompt = @"Tap to add a point";
+
+            break;
+        
+        case MOVING:
+            if (self.selectedPoint != nil)
+                [self resetPointImage:self.selectedPoint];
+            self.selectedPoint = nil;
+            
+            //undim
+            self.imageView.alpha = 1.0;
+            
+            //stop animating
+            for (UIImageView *iv in self.ivArray) {
+                [iv stopAnimating];
+            }
+            
+            [self buttonsHidden:YES];
+            self.navigationItem.prompt = @"Tap to select a point to move";
+
+
+            break;
+            
+        case DELETING:
+            if (self.selectedPoint != nil)
+                [self resetPointImage:self.selectedPoint];
+            self.selectedPoint = nil;
+            
+            //undim
+            self.imageView.alpha = ALPHAVAL;
+            
+            //stop animating
+            for (UIImageView *iv in self.ivArray) {
+                [iv startAnimating];
+            }
+            
+            [self buttonsHidden:YES];
+            self.navigationItem.prompt = @"Tap a point to delete";
+
+
+            break;
+            
+        default:
+            break;
+    }
+}
+
+
+- (void) movePoint:(id) sender{
+    if (self.selectedPoint != nil){
+        const int MOVEMENT = 2;
+        CGPoint loc = self.selectedPoint.center;
+        
+        if (sender == self.upButton){
+            loc.y -= MOVEMENT;
+        }else if (sender == self.dnButton) {
+            loc.y += MOVEMENT;
+        }else if (sender == self.lfButton){
+            loc.x -= MOVEMENT;
+        }else { //rtButton
+            loc.x += MOVEMENT;
+        }
+        
+        //re-center the screen
+        [self centerAtX:loc.x andY:loc.y withZoomFactor:self.scrollView.zoomScale];
+
+        //change it on screen
+        self.selectedPoint.center = loc;
+        
+        //change it in brain
+        [self.brain replacePointAtIndex:selectedPointIndex withPoint:loc];
+        [self.detailView setPoints:self.brain.points];
+    }
     
 }
                                               
