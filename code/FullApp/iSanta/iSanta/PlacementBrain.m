@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 Rose-Hulman Institute of Technology. All rights reserved.
 //
 
-
 #import "PlacementBrain.h"
 
 
