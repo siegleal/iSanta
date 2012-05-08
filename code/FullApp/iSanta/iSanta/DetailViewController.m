@@ -121,39 +121,58 @@
         [statsDisplayController setPoints:self.points];
         //Create the dictionary of report data.
         NSMutableDictionary *reportDictionary = [[NSMutableDictionary alloc] init];
-        //Shooter Name (last, first)
-        [reportDictionary setObject:[NSString stringWithFormat:@"%s, %s",[self.detailItem valueForKeyPath:@"test_Shooter.last_Name"],[self.detailItem valueForKeyPath:@"test_Shooter.first_Name"]] forKey:@"Shooter"];
-        //Test Date
+        //Get values for the data.
+        NSString *name = [NSString stringWithFormat:@"%s, %s",[self.detailItem valueForKeyPath:@"test_Shooter.last_Name"],[self.detailItem valueForKeyPath:@"test_Shooter.first_Name"]];
+        
         NSLocale *currentLocale = [NSLocale systemLocale];
         NSString *dateFormat;
         NSString *dateComponents = @"MMM dd, yyyy at HH:mm ZZZZ";
-        
         dateFormat = [NSDateFormatter dateFormatFromTemplate:dateComponents options:0 locale:currentLocale];
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:dateFormat];
-        
         NSString *formattedDate = [dateFormatter stringFromDate:(NSDate *)[self.detailItem valueForKey:@"date_Time"]];
-        [reportDictionary setObject:formattedDate forKey:@"Date Fired"];
-        //Firing Range
-        [reportDictionary setObject:[self.detailItem valueForKeyPath:@"test_Range.firing_Range"] forKey:@"Place"];
-        //Temperature
-        [reportDictionary setObject:[self.detailItem valueForKeyPath:@"test_Range.range_Temperature"] forKey:@"Temperature"];
-        //Target Distance
-        [reportDictionary setObject:[self.detailItem valueForKeyPath:@"test_Range.distance_To_Target"]  forKey:@"Target Distance"];
-        //Shots Fired
-        [reportDictionary setObject:[self.detailItem valueForKeyPath:@"test_Ammunition.number_Of_Shots"] forKey:@"Shots Fired"];
-        //Serial Number
-        [reportDictionary setObject:[self.detailItem valueForKeyPath:@"test_Weapon.serial_Number"] forKey:@"Weapon Serial #"];
-        //Weapon Nomenclature
-        [reportDictionary setObject:[self.detailItem valueForKeyPath:@"test_Weapon.weapon_Nomenclature"] forKey:@"Weapon Nomenclature"];
-        //Projectile Caliber
-        [reportDictionary setObject:[self.detailItem valueForKeyPath:@"test_Ammunition.caliber"] forKey:@"Projectile Caliber"];
-        //Lot Number
-        [reportDictionary setObject:[self.detailItem valueForKeyPath:@"test_Ammunition.lot_Number"] forKey:@"Lot #"];
-        //Projectile Mass
-        [reportDictionary setObject:[self.detailItem valueForKeyPath:@"test_Ammunition.projectile_Mass"] forKey:@"Projectile Mass"];
-        //send the dictionary to the stats controller.
-        [statsDisplayController setReportData:reportDictionary];
+        
+        NSString *range = [self.detailItem valueForKeyPath:@"test_Range.firing_Range"];
+        NSString *temp = [self.detailItem valueForKeyPath:@"test_Range.range_Temperature"];
+        NSString *distance = [self.detailItem valueForKeyPath:@"test_Range.distance_To_Target"];
+        NSString *numShots = [self.detailItem valueForKeyPath:@"test_Ammunition.number_Of_Shots"];
+        NSString *weaponSerialNumber = [self.detailItem valueForKeyPath:@"test_Weapon.serial_Number"];
+        NSString *nomenclature = [self.detailItem valueForKeyPath:@"test_Weapon.weapon_Nomenclature"];
+        NSString *caliber = [self.detailItem valueForKeyPath:@"test_Ammunition.caliber"];
+        NSString *lotNum = [self.detailItem valueForKeyPath:@"test_Ammunition.lot_Number"];
+        NSString *mass = [self.detailItem valueForKeyPath:@"test_Ammunition.projectile_Mass"];
+        if(name != nil && formattedDate != nil && range != nil && temp != nil && distance != nil && numShots != nil && weaponSerialNumber != nil && nomenclature != nil && caliber != nil && lotNum != nil && mass != nil)
+        {
+            //Shooter Name (last, first)
+            [reportDictionary setObject:name forKey:@"Shooter"];
+            //Test Date
+            [reportDictionary setObject:formattedDate forKey:@"Date Fired"];
+            //Firing Range
+            [reportDictionary setObject:range forKey:@"Place"];
+            //Temperature
+            [reportDictionary setObject:temp forKey:@"Temperature"];
+            //Target Distance
+            [reportDictionary setObject:distance  forKey:@"Target Distance"];
+            //Shots Fired
+            [reportDictionary setObject:numShots forKey:@"Shots Fired"];
+            //Serial Number
+            [reportDictionary setObject:weaponSerialNumber forKey:@"Weapon Serial #"];
+            //Weapon Nomenclature
+            [reportDictionary setObject:nomenclature forKey:@"Weapon Nomenclature"];
+            //Projectile Caliber
+            [reportDictionary setObject:caliber forKey:@"Projectile Caliber"];
+            //Lot Number
+            [reportDictionary setObject:lotNum forKey:@"Lot #"];
+            //Projectile Mass
+            [reportDictionary setObject:mass forKey:@"Projectile Mass"];
+            //send the dictionary to the stats controller.
+            [statsDisplayController setReportData:reportDictionary];
+        }
+        else
+        {
+            UIAlertView *error = [[UIAlertView alloc] initWithTitle:@"Warning" message:@"There are missing values in this report. Please be sure to fill out all of the values in the report before trying to export." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
+            [error show];
+        }
     }
 }
 
@@ -174,6 +193,12 @@
     //Add a point locally.
     [self.points addObject:[NSValue valueWithCGPoint:CGPointMake(x, y)]];
     //Save points to CoreData.
+    [self.detailItem setValue:[NSKeyedArchiver archivedDataWithRootObject:self.points] forKeyPath:@"test_Photo.points"];
+}
+
+- (void)setPoints:(NSMutableArray *)inPoints
+{
+    self.points = inPoints;
     [self.detailItem setValue:[NSKeyedArchiver archivedDataWithRootObject:self.points] forKeyPath:@"test_Photo.points"];
 }
 
@@ -496,13 +521,16 @@
         UIActionSheet *photoSourceChooser = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Analyze Current", @"Take Photo", @"Choose Existing", nil];
         [photoSourceChooser showInView:self.view];
     }
-    else
+    else {
+        [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionMiddle animated:YES];
+    }
+/*    else
     {
         [((DetailTableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textField becomeFirstResponder];
         if (((DetailTableViewCell *)[tableView cellForRowAtIndexPath:indexPath]).textField.isFirstResponder)
         {
             NSLog(@"TextField is first responder");
-        }
+        }*/
 /*      else if(indexPath.section == 2 && indexPath.row == 2)
         {
             UIActionSheet *temperatureSheet = [[UIActionSheet alloc] initWithTitle:@"Choose a Temperature" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:[NSString stringWithUTF8String: "Cold (<50°)"],[NSString stringWithUTF8String: "Ambient (50° to 95°)"],[NSString stringWithUTF8String: "Hot (>95°)"], nil];
@@ -548,9 +576,9 @@
         [inputAlert show];
     }
  */
-    }
+ /*   }
     [tableView reloadData];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];*/
 }
 
 #pragma mark - Image Picker delegate call backs
@@ -713,14 +741,27 @@
 }
 
 #pragma mark - UITextField Delegate
-- (void)textFieldDidBeginEditing:(UITextField *)textField
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
     respondingTextField = textField;
+    return YES;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+//    respondingTextField = textField;
     [self.view setFrame:CGRectMake(0, 170, 320, self.detailDescriptionTable.frame.size.height - 280)];
+    
+    NSLog(@"ASDFSADF");
+    
+    CGRect r = CGRectMake(textField.bounds.origin.x, textField.bounds.origin.y, textField.bounds.size.width, textField.bounds.size.height);
+    r = [self.view convertRect:r fromView:textField.superview];
+    //[self.detailDescriptionTable scrollRectToVisible:r animated:YES];
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+    
     [self.view setFrame:CGRectMake(0, 0, 320, 416)];
     
     switch (textField.tag) {
