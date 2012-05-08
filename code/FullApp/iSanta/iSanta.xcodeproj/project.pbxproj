@@ -17,9 +17,6 @@
 		696D0E7914BB8770003EFE82 /* Range_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E7814BB8770003EFE82 /* Range_Information.m */; };
 		696E3DDB14E8577A00C0A84A /* DetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E3DDA14E8577A00C0A84A /* DetailTableViewCell.m */; };
 		696E3DDE14E857CC00C0A84A /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696E3DDD14E857CC00C0A84A /* DetailTableViewCell.xib */; };
-		699BE3371553165400571400 /* EllipseFitting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 699BE3331553165400571400 /* EllipseFitting.cpp */; };
-		699BE3381553165400571400 /* ImageRecController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 699BE3351553165400571400 /* ImageRecController.cpp */; };
-		699BE33A1553166600571400 /* OpenCV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 699BE3391553166600571400 /* OpenCV.framework */; };
 		69AD7E8214E9B29F001F8A67 /* circle-crosshair.png in Resources */ = {isa = PBXBuildFile; fileRef = 69AD7E7B14E9B29F001F8A67 /* circle-crosshair.png */; };
 		69AD7E8314E9B29F001F8A67 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 69AD7E7C14E9B29F001F8A67 /* circle.png */; };
 		69AD7E8414E9B29F001F8A67 /* ManualPlacementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AD7E7E14E9B29F001F8A67 /* ManualPlacementViewController.m */; };
@@ -36,8 +33,6 @@
 		69B94D8F1499403500F0C847 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B94D8D1499403500F0C847 /* MainStoryboard_iPhone.storyboard */; };
 		69B94D921499403500F0C847 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B94D901499403500F0C847 /* MainStoryboard_iPad.storyboard */; };
 		69B94D951499403500F0C847 /* iSanta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 69B94D931499403500F0C847 /* iSanta.xcdatamodeld */; };
-		69B94D981499403500F0C847 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B94D971499403500F0C847 /* MasterViewController.m */; };
-		69B94D9B1499403500F0C847 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B94D9A1499403500F0C847 /* DetailViewController.m */; };
 		69B94DA31499403500F0C847 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B94DA21499403500F0C847 /* SenTestingKit.framework */; };
 		69B94DA41499403500F0C847 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B94D791499403400F0C847 /* UIKit.framework */; };
 		69B94DA51499403500F0C847 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B94D7B1499403400F0C847 /* Foundation.framework */; };
@@ -52,6 +47,11 @@
 		9DABA312154ADB7900912C45 /* PointsDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DABA311154ADB7900912C45 /* PointsDisplayController.m */; };
 		E00FC6B0151CDEAB00FF5EBD /* stats.c in Sources */ = {isa = PBXBuildFile; fileRef = E00FC6AE151CDEAB00FF5EBD /* stats.c */; };
 		E00FC6B4151CE83B00FF5EBD /* stats.c in Sources */ = {isa = PBXBuildFile; fileRef = E00FC6AE151CDEAB00FF5EBD /* stats.c */; };
+		E020C3F81559BAF9005431EE /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B94D971499403500F0C847 /* MasterViewController.m */; };
+		E020C3F91559BAFB005431EE /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B94D9A1499403500F0C847 /* DetailViewController.m */; };
+		E020C3FA1559BB3A005431EE /* EllipseFitting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 699BE3331553165400571400 /* EllipseFitting.cpp */; };
+		E020C3FB1559BB3C005431EE /* ImageRecController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 699BE3351553165400571400 /* ImageRecController.cpp */; };
+		E020C4051559BE91005431EE /* OpenCV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E020C4041559BE91005431EE /* OpenCV.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +86,6 @@
 		699BE3341553165400571400 /* EllipseFitting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EllipseFitting.h; sourceTree = "<group>"; };
 		699BE3351553165400571400 /* ImageRecController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageRecController.cpp; sourceTree = "<group>"; };
 		699BE3361553165400571400 /* ImageRecController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageRecController.h; sourceTree = "<group>"; };
-		699BE3391553166600571400 /* OpenCV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCV.framework; path = iSanta/OpenCV.framework; sourceTree = "<group>"; };
 		69AD7E7B14E9B29F001F8A67 /* circle-crosshair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle-crosshair.png"; sourceTree = "<group>"; };
 		69AD7E7C14E9B29F001F8A67 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 		69AD7E7D14E9B29F001F8A67 /* ManualPlacementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualPlacementViewController.h; sourceTree = "<group>"; };
@@ -132,6 +131,7 @@
 		9DABA311154ADB7900912C45 /* PointsDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointsDisplayController.m; sourceTree = "<group>"; };
 		E00FC6AE151CDEAB00FF5EBD /* stats.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stats.c; path = iSanta/stats.c; sourceTree = "<group>"; };
 		E00FC6AF151CDEAB00FF5EBD /* stats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stats.h; path = iSanta/stats.h; sourceTree = "<group>"; };
+		E020C4041559BE91005431EE /* OpenCV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCV.framework; path = iSanta/OpenCV.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +144,7 @@
 				69B94D7C1499403400F0C847 /* Foundation.framework in Frameworks */,
 				69B94D7E1499403400F0C847 /* CoreGraphics.framework in Frameworks */,
 				69B94D801499403400F0C847 /* CoreData.framework in Frameworks */,
-				699BE33A1553166600571400 /* OpenCV.framework in Frameworks */,
+				E020C4051559BE91005431EE /* OpenCV.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +242,7 @@
 		69B94D781499403400F0C847 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				699BE3391553166600571400 /* OpenCV.framework */,
+				E020C4041559BE91005431EE /* OpenCV.framework */,
 				69B94D791499403400F0C847 /* UIKit.framework */,
 				69B94D7B1499403400F0C847 /* Foundation.framework */,
 				69B94D7D1499403400F0C847 /* CoreGraphics.framework */,
@@ -447,12 +447,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E020C3FA1559BB3A005431EE /* EllipseFitting.cpp in Sources */,
+				E020C3FB1559BB3C005431EE /* ImageRecController.cpp in Sources */,
 				E00FC6B4151CE83B00FF5EBD /* stats.c in Sources */,
 				69B94D881499403400F0C847 /* main.m in Sources */,
+				E020C3F91559BAFB005431EE /* DetailViewController.m in Sources */,
+				E020C3F81559BAF9005431EE /* MasterViewController.m in Sources */,
 				69B94D8C1499403400F0C847 /* AppDelegate.m in Sources */,
 				69B94D951499403500F0C847 /* iSanta.xcdatamodeld in Sources */,
-				69B94D981499403500F0C847 /* MasterViewController.m in Sources */,
-				69B94D9B1499403500F0C847 /* DetailViewController.m in Sources */,
 				696D0E6614BB8732003EFE82 /* Ammunition_Information.m in Sources */,
 				696D0E6A14BB8753003EFE82 /* Test_Report.m in Sources */,
 				696D0E6D14BB876F003EFE82 /* Photo_Information.m in Sources */,
@@ -465,8 +467,6 @@
 				69C0D33114E9E96D00F6C131 /* CSVEmailTesterViewController.m in Sources */,
 				9DABA30E154ADB3300912C45 /* StatsDisplayController.m in Sources */,
 				9DABA312154ADB7900912C45 /* PointsDisplayController.m in Sources */,
-				699BE3371553165400571400 /* EllipseFitting.cpp in Sources */,
-				699BE3381553165400571400 /* ImageRecController.cpp in Sources */,
 				9D4A6C1415581E2A00F68E3D /* DefaultStatsProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
