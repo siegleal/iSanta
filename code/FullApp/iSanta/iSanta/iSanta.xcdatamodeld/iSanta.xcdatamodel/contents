@@ -9,7 +9,7 @@
         <relationship name="test" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Test_Report" inverseName="test_Ammunition" inverseEntity="Test_Report" syncable="YES"/>
     </entity>
     <entity name="Photo_Information" representedClassName="Photo_Information" syncable="YES">
-        <attribute name="expor_Image" attributeType="Binary" syncable="YES"/>
+        <attribute name="export_Image" attributeType="Binary" syncable="YES"/>
         <attribute name="image" attributeType="Binary" syncable="YES"/>
         <attribute name="points" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="target_Height" attributeType="Double" defaultValueString="0.0" syncable="YES"/>

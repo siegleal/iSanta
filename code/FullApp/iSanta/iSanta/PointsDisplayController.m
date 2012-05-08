@@ -82,7 +82,7 @@
 {
     // Return the number of sections.
     //return self.points.count;
-    return 5;
+    return self.points.count;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -110,12 +110,12 @@
     if(indexPath.row == 0)
     {
         cell.textLabel.text = @"X";
-        cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%d", p.CGPointValue.x];
+        cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%.2f", p.CGPointValue.x];
     }
     else
     {
         cell.textLabel.text = @"Y";
-        cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%d", p.CGPointValue.y];
+        cell.detailTextLabel.text = [[NSString alloc] initWithFormat:@"%.2f", p.CGPointValue.y];
     }
     
     return cell;

@@ -32,7 +32,7 @@
         adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Target Distance", [self.reportData objectForKey:@"Target Distance"]];
         adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Shots Fired", [self.reportData objectForKey:@"Shots Fired"]];
         adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Weapon Nomenclature", [self.reportData objectForKey:@"Weapon Nomenclature"]];
-        adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Weapon Serial Number", [self.reportData objectForKey:@"Weapon Serial Number"]];
+        adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Weapon Serial #", [self.reportData objectForKey:@"Weapon Serial #"]];
         adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Projectile Caliber", [self.reportData objectForKey:@"Projectile Caliber"]];
         adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Lot #", [self.reportData objectForKey:@"Lot #"]];
         adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Projectile Mass", [self.reportData objectForKey:@"Projectile Mass"]];
@@ -223,9 +223,9 @@
         }
         else if(indexPath.row == 7)
         {
-            cell.textLabel.text = @"Weapon Serial Number";
+            cell.textLabel.text = @"Weapon Serial #";
             //cell.detailTextLabel.text = @"12345";
-            cell.detailTextLabel.text = [self.reportData objectForKey:@"Weapon Serial Number"];
+            cell.detailTextLabel.text = [self.reportData objectForKey:@"Weapon Serial #"];
         }
         else if(indexPath.row == 8)
         {

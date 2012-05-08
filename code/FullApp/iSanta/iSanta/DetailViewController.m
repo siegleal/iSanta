@@ -129,7 +129,7 @@
         //Create the dictionary of report data.
         NSMutableDictionary *reportDictionary = [[NSMutableDictionary alloc] init];
         //Get values for the data.
-        NSString *name = [NSString stringWithFormat:@"%s, %s",[self.detailItem valueForKeyPath:@"test_Shooter.last_Name"],[self.detailItem valueForKeyPath:@"test_Shooter.first_Name"]];
+        NSString *name = [NSString stringWithFormat:@"%@ %@",[[self.detailItem valueForKeyPath:@"test_Shooter.first_Name"] description],[[self.detailItem valueForKeyPath:@"test_Shooter.last_Name"] description]];
         
         NSLocale *currentLocale = [NSLocale systemLocale];
         NSString *dateFormat;
@@ -141,13 +141,13 @@
         
         NSString *range = [self.detailItem valueForKeyPath:@"test_Range.firing_Range"];
         NSString *temp = [self.detailItem valueForKeyPath:@"test_Range.range_Temperature"];
-        NSString *distance = [self.detailItem valueForKeyPath:@"test_Range.distance_To_Target"];
-        NSString *numShots = [self.detailItem valueForKeyPath:@"test_Ammunition.number_Of_Shots"];
-        NSString *weaponSerialNumber = [self.detailItem valueForKeyPath:@"test_Weapon.serial_Number"];
+        NSString *distance = [NSString stringWithFormat:@"%d",[self.detailItem valueForKeyPath:@"test_Range.distance_To_Target"]];
+        NSString *numShots = [NSString stringWithFormat:@"%d",[self.detailItem valueForKeyPath:@"test_Ammunition.number_Of_Shots"]];
+        NSString *weaponSerialNumber = [NSString stringWithFormat:@"%d",[self.detailItem valueForKeyPath:@"test_Weapon.serial_Number"]];
         NSString *nomenclature = [self.detailItem valueForKeyPath:@"test_Weapon.weapon_Nomenclature"];
-        NSString *caliber = [self.detailItem valueForKeyPath:@"test_Ammunition.caliber"];
-        NSString *lotNum = [self.detailItem valueForKeyPath:@"test_Ammunition.lot_Number"];
-        NSString *mass = [self.detailItem valueForKeyPath:@"test_Ammunition.projectile_Mass"];
+        NSString *caliber = [NSString stringWithFormat:@"%.2f",[[self.detailItem valueForKeyPath:@"test_Ammunition.caliber"] doubleValue]];
+        NSString *lotNum = [NSString stringWithFormat:@"%d",[self.detailItem valueForKeyPath:@"test_Ammunition.lot_Number"]];
+        NSString *mass = [NSString stringWithFormat:@"%.2f",[[self.detailItem valueForKeyPath:@"test_Ammunition.projectile_Mass"] doubleValue]];
         if(name != nil && formattedDate != nil && range != nil && temp != nil && distance != nil && numShots != nil && weaponSerialNumber != nil && nomenclature != nil && caliber != nil && lotNum != nil && mass != nil)
         {
             //Shooter Name (last, first)
@@ -159,7 +159,7 @@
             //Temperature
             [reportDictionary setObject:temp forKey:@"Temperature"];
             //Target Distance
-            [reportDictionary setObject:distance  forKey:@"Target Distance"];
+            [reportDictionary setObject:distance forKey:@"Target Distance"];
             //Shots Fired
             [reportDictionary setObject:numShots forKey:@"Shots Fired"];
             //Serial Number
@@ -583,9 +583,9 @@
         [inputAlert show];
     }
  */
- /*   }
+//}
     [tableView reloadData];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];*/
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Image Picker delegate call backs
@@ -844,15 +844,15 @@
 // tell the picker the title for a given component
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     if (row == 0) {
-        return [NSString stringWithUTF8String: "Cold (<50°)"];
+        return [NSString stringWithUTF8String: "Cold (<50F)"];
     }
     else if (row == 1)
     {
-        return [NSString stringWithUTF8String: "Ambient (50° to 95°)"];
+        return [NSString stringWithUTF8String: "Ambient (50F to 95F)"];
     }
     else
     {
-        return [NSString stringWithUTF8String: "Hot (>95°)"];
+        return [NSString stringWithUTF8String: "Hot (>95F)"];
     }
 }
 
