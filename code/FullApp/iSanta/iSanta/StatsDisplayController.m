@@ -8,12 +8,70 @@
 
 #import "StatsDisplayController.h"
 #import "PointsDisplayController.h"
+#import "DefaultStatsProvider.h"
 
 @implementation StatsDisplayController
 
 @synthesize statsProvider = _statsProvider;
 @synthesize points = _points;
 @synthesize reportData = _reportData;
+@synthesize targetPhoto = _targetPhoto;
+
+- (IBAction)launchEmail:(id)sender
+{
+    if ([MFMailComposeViewController canSendMail])
+    {
+        MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
+        mailViewController.mailComposeDelegate = self;
+        [mailViewController setSubject:@"Analysis Results"];
+        NSString *adata = @"General Info,,\n";
+        adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Shooter", [self.reportData objectForKey:@"Shooter"]];
+        adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Date Fired", [self.reportData objectForKey:@"Date Fired"]];
+        adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Place", [self.reportData objectForKey:@"Place"]];
+        adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Temperature", [self.reportData objectForKey:@"Temperature"]];
+        adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Target Distance", [self.reportData objectForKey:@"Target Distance"]];
+        adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Shots Fired", [self.reportData objectForKey:@"Shots Fired"]];
+        adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Weapon Nomenclature", [self.reportData objectForKey:@"Weapon Nomenclature"]];
+        adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Weapon Serial Number", [self.reportData objectForKey:@"Weapon Serial Number"]];
+        adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Projectile Caliber", [self.reportData objectForKey:@"Projectile Caliber"]];
+        adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Lot #", [self.reportData objectForKey:@"Lot #"]];
+        adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Projectile Mass", [self.reportData objectForKey:@"Projectile Mass"]];
+        adata = [adata stringByAppendingString:@",,\nStatistics (in inches),,\n"];
+        int count = [self.statsProvider getRowCount:self.points];
+        for(int i = 0; i < count; i++)
+        {
+            adata = [adata stringByAppendingFormat:@"%@,%@,\n", [self.statsProvider getTitleForIndex:i withPoints:self.points], [self.statsProvider getValueForIndex:i withPoints:self.points]];
+        }
+        adata = [adata stringByAppendingString:@",,\n,,\nShot Record (in inches),,\nPoint #,X Value, Y Value\n"];
+        for(int i = 0; i < self.points.count; i++)
+        {
+            NSValue *v = [self.points objectAtIndex:i];
+            CGPoint p = v.CGPointValue;
+            adata = [adata stringByAppendingFormat:@"%d,%.2f,%.2f\n",(i+1),p.x, p.y];
+        }
+        [mailViewController addAttachmentData:[adata dataUsingEncoding:NSASCIIStringEncoding] mimeType:@"text/csv" fileName:@"results.csv"];
+        [mailViewController addAttachmentData:self.targetPhoto mimeType:@"image/jpg" fileName:@"target.jpg"];
+        [self presentModalViewController:mailViewController animated:YES];
+    }
+    else
+    {
+        NSLog(@"Device is unable to send email in its current state.");
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError *)error
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
+- (id<StatsProvider>)statsProvider
+{
+    if(!_statsProvider)
+        _statsProvider = [[DefaultStatsProvider alloc] init];
+    return _statsProvider;
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -102,8 +160,8 @@
     if(section == 0)
         return 11;
     else if(section == 1)
-        return 11;
-        //return [self.statsProvider getRowCount:self.points];
+        //return 11;
+        return [self.statsProvider getRowCount:self.points];
     else
         return 1;
 }
@@ -190,9 +248,9 @@
     }
     else if(indexPath.section == 1)
     {
-        //cell.textLabel.text = [self.statsProvider getTitleForIndex:indexPath.row withPoints:self.points];
-        //cell.detailTextLabel.text = [self.statsProvider getValueForIndex:indexPath.row withPoints:self.points];
-        if(indexPath.row == 0)
+        cell.textLabel.text = [self.statsProvider getTitleForIndex:indexPath.row withPoints:self.points];
+        cell.detailTextLabel.text = [self.statsProvider getValueForIndex:indexPath.row withPoints:self.points];
+        /*if(indexPath.row == 0)
         {
             cell.textLabel.text = @"Extreme Spread X";
             cell.detailTextLabel.text = @"10";
@@ -246,7 +304,7 @@
         {
             cell.textLabel.text = @"CEP Radius";
             cell.detailTextLabel.text = @"5";
-        }
+        }*/
     }
     else
         cell.textLabel.text = @"Points";
