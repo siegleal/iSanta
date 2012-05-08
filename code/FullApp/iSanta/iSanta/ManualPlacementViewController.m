@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 Rose-Hulman Institute of Technology. All rights reserved.
 //
 
-
 #import "ManualPlacementViewController.h"
 #import "DetailViewController.h"
 //#import "ImageRecController.h"
@@ -27,8 +26,6 @@
 
 @property (nonatomic, strong) UIImageView *selectedPoint;
 - (void)buttonsVisible:(BOOL) vis;
--(void) centerAtX:(int)x andY:(int)y;
-- (void) switchModeTo:(int) mode;
 @end
 
 
@@ -77,26 +74,7 @@ int selectedPointIndex = -1;
 int currentOp = 1;
 
 - (void) donePlacing{
-    NSString *message;
-    switch (status) {
-        case NORMAL:
-            message = @"Single tap: Add point\nLong tap: Mode Select (Delete / Move)";
-            break;
-            
-        case MOVING:
-            message = @"Single tap: Select point\nDouble tap: Return to normal view\nLong tap: Mode select (Delete / Add)";
-            break;
-            
-        case DELETING:
-            message = @"Single tap: Delete point\nDouble tap: Return to normal view\nLong tap: Mode select (Move / Add)";
-            
-        default:
-            break;
-    }
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Manual Impact Placement" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    
-    [alert show];
+    NSLog(@"you continued");
 }
 
 - (void) viewDidLoad
@@ -117,7 +95,7 @@ int currentOp = 1;
 
     [self.scrollView addSubview:self.masterView];
     [self.masterView addSubview:self.imageView];
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Help" style:UIBarButtonItemStylePlain target:self action:@selector(donePlacing)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(donePlacing)];
 
     status = NORMAL;
     
@@ -142,9 +120,9 @@ int currentOp = 1;
     [self.rtButton addTarget:self action:@selector(movePoint:) forControlEvents:UIControlEventTouchUpInside];
 
     
+    
     [self loadPointsFromBrain];
-    [self switchModeTo:NORMAL];
-   
+
     
 }
 
@@ -175,8 +153,8 @@ int currentOp = 1;
     return _upButton;
 }
 - (UIButton *) dnButton{
-    if (!_dnButton){
-        _dnButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.center.x - (BTNBIG / 2), self.view.bounds.size.height - BTNSMALL - 27, BTNBIG,BTNSMALL)];
+    if (!_dnButton) {
+        _dnButton = [[UIButton alloc] initWithFrame:CGRectMake(self.view.center.x - (BTNBIG / 2), self.view.bounds.size.height - BTNSMALL, BTNBIG,BTNSMALL)];
         self.dnButton.backgroundColor = [UIColor grayColor];
         _dnButton.alpha = BTNALPHA;
          
@@ -200,100 +178,27 @@ int currentOp = 1;
     return _rtButton;
 }
 
--(void) resetPointImage:(UIImageView *) view{
-    [view setImage:self.brain.circleImage];
-}
-
--(void) switchModeTo:(int)mode{
-    status = mode;
-    switch (mode) {
-        case NORMAL:
-            if (self.selectedPoint != nil)
-                [self resetPointImage:self.selectedPoint];
-            self.selectedPoint = nil;
-            
-            //undim
-            self.imageView.alpha = 1.0;
-            
-            //stop animating
-            for (UIImageView *iv in self.ivArray) {
-                [iv stopAnimating];
-            }
-            
-            [self buttonsHidden:YES];
-            self.navigationItem.prompt = @"Tap to add a point";
-
-            break;
-        
-        case MOVING:
-            if (self.selectedPoint != nil)
-                [self resetPointImage:self.selectedPoint];
-            self.selectedPoint = nil;
-            
-            //undim
-            self.imageView.alpha = 1.0;
-            
-            //stop animating
-            for (UIImageView *iv in self.ivArray) {
-                [iv stopAnimating];
-            }
-            
-            [self buttonsHidden:YES];
-            self.navigationItem.prompt = @"Tap to select a point to move";
-
-
-            break;
-            
-        case DELETING:
-            if (self.selectedPoint != nil)
-                [self resetPointImage:self.selectedPoint];
-            self.selectedPoint = nil;
-            
-            //undim
-            self.imageView.alpha = ALPHAVAL;
-            
-            //stop animating
-            for (UIImageView *iv in self.ivArray) {
-                [iv startAnimating];
-            }
-            
-            [self buttonsHidden:YES];
-            self.navigationItem.prompt = @"Tap a point to delete";
-
-
-            break;
-            
-        default:
-            break;
-    }
-}
-
-
 - (void) movePoint:(id) sender{
-    if (self.selectedPoint != nil){
-        const int MOVEMENT = 2;
-        CGPoint loc = self.selectedPoint.center;
-        
-        if (sender == self.upButton){
-            loc.y -= MOVEMENT;
-        }else if (sender == self.dnButton) {
-            loc.y += MOVEMENT;
-        }else if (sender == self.lfButton){
-            loc.x -= MOVEMENT;
-        }else { //rtButton
-            loc.x += MOVEMENT;
-        }
-        
-        //re-center the screen
-        [self centerAtX:loc.x andY:loc.y withZoomFactor:self.scrollView.zoomScale];
-
-        //change it on screen
-        self.selectedPoint.center = loc;
-        
-        //change it in brain
-        [self.brain replacePointAtIndex:selectedPointIndex withPoint:loc];
-        [self.detailView setPoints:self.brain.points];
+    NSLog(@"clicked");
+    const int MOVEMENT = 5;
+    CGPoint loc = self.selectedPoint.center;
+    
+    if (sender == self.upButton){
+        loc.y -= MOVEMENT;
+    }else if (sender == self.dnButton) {
+        loc.y += MOVEMENT;
+    }else if (sender == self.lfButton){
+        loc.x -= MOVEMENT;
+    }else { //rtButton
+        loc.x += MOVEMENT;
     }
+    
+
+    //change it on screen
+    self.selectedPoint.center = loc;
+    
+    //change it in brain
+    [self.brain replacePointAtIndex:selectedPointIndex withPoint:loc];
     
 }
                                               
@@ -360,48 +265,96 @@ int currentOp = 1;
 }
 
 -(UIActionSheet *)modeSheet{
-    if (!_modeSheet) _modeSheet = [[UIActionSheet alloc] initWithTitle:@"Mode select" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete mode" otherButtonTitles:@"Edit mode", @"Add mode",@"Save and Exit", nil];
+    if (!_modeSheet) _modeSheet = [[UIActionSheet alloc] initWithTitle:@"Mode select" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Delete mode" otherButtonTitles:@"Edit mode", @"Normal mode", nil];
     return _modeSheet;
 }
 
 
-- (void)buttonsHidden:(BOOL) vis{
+//this is a double tap
+- (IBAction)tapped:(id)sender {
+    CGPoint loc = [self.tapRecognizer locationInView:self.imageView];
+    
+    if (status == NORMAL){
+        //add points to array
+        //[self.brain addPointatX:loc.x andY:loc.y];
+        
+        //add point to the detail view and coredata.
+        [self.detailView addPointWithXValue:loc.x andYValue:loc.y];
+        //draw them 
+        [self drawAtPoint:loc];
+        
+        NSLog(@"%d\n%d",self.brain.points.count,self.ivArray.count);
+    }
+    else //double tap to go back to NORMAL
+    {
+        //done deleting
+//        deleting = NO;
+        status = NORMAL;
+        
+        //undim
+//        self.middleView.alpha = 0.0;
+      self.imageView.alpha = 1.0;
+        
+        //stop animating
+        for (UIImageView *iv in self.ivArray) {
+            [iv stopAnimating];
+        }
+
+    }
+}
+
+- (void)buttonsVisible:(BOOL) vis{
     self.upButton.hidden = vis;
     self.dnButton.hidden = vis;
     self.lfButton.hidden = vis;
     self.rtButton.hidden = vis;
-    
-}
 
-
-
-//this is a double tap
-- (IBAction)tapped:(id)sender {
-    [self switchModeTo:NORMAL];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionsheet clickedButtonAtIndex:(NSInteger)index{
-    if (self.selectedPoint != nil)
-        [self resetPointImage:self.selectedPoint];
 
     switch (index) {
         case 0:
-            [self switchModeTo:DELETING];
+            status = DELETING;
+            [self buttonsVisible:(YES)];
 
+           //dim background
+            self.imageView.alpha = ALPHAVAL;
+            
+            //animate
+            for (UIImageView *iv in self.ivArray) {
+                [iv startAnimating];
+            }
             break;
             
         case 1:
-            [self switchModeTo:MOVING];
+            status = MOVING;
+             [self buttonsVisible:(NO)];
+            
+            //undim
+            //        self.middleView.alpha = 0.0;
+            self.imageView.alpha = 1.0;
+            
+            //stop animating
+            for (UIImageView *iv in self.ivArray) {
+                [iv stopAnimating];
+            }
 
             break;
             
         case 2:
-            [self switchModeTo:NORMAL];
-
-            break;
+            status = NORMAL;
+             [self buttonsVisible:(YES)];
             
-        case 3:
-            [self.navigationController popViewControllerAnimated:YES];
+            //undim
+            //        self.middleView.alpha = 0.0;
+            self.imageView.alpha = 1.0;
+            
+            //stop animating
+            for (UIImageView *iv in self.ivArray) {
+                [iv stopAnimating];
+            }
+
             break;
             
         default:
@@ -416,9 +369,7 @@ int currentOp = 1;
 }
 
 
--(void) centerAtX:(int)x andY:(int)y withZoomFactor:(double)zoomFactor{
-    [self.scrollView setContentOffset:CGPointMake((zoomFactor * x) - (.5 * self.scrollView.bounds.size.width), (zoomFactor * y) - (.5 * self.scrollView.bounds.size.height)) animated:YES];
-}
+
 
 
 
@@ -492,12 +443,11 @@ int currentOp = 1;
                 self.selectedPoint = [self.ivArray objectAtIndex:closestIndex];
                 [self.selectedPoint setImage:self.brain.editImage];
                 [self.scrollView setZoomScale:zoomFactor];
-                [self centerAtX:self.selectedPoint.center.x andY:self.selectedPoint.center.y withZoomFactor:zoomFactor];
-
+                [self.scrollView setContentOffset:CGPointMake((zoomFactor * self.selectedPoint.center.x) - (.5 * self.scrollView.bounds.size.width), (zoomFactor * self.selectedPoint.center.y) - (.5 * self.scrollView.bounds.size.height)) animated:YES];
                 //[self.scrollView setContentOffset:CGPointMake(self.imageView.center.x - (self.scrollView.center.x - self.selectedPoint.center.x), self.imageView.center.y - (self.scrollView.center.y - self.selectedPoint.center.y)) animated:YES];
                 selectedPointIndex = closestIndex;
 
-                [self buttonsHidden:NO];
+                
             }
             else {
                 if (self.selectedPoint)
@@ -505,19 +455,9 @@ int currentOp = 1;
                 [self.scrollView setZoomScale:1.0];
                 [self.scrollView setContentOffset:CGPointMake(0, 0 )];
                 selectedPointIndex = -1;
-                [self buttonsHidden:YES];
             }
         }
-    }else{
-        CGPoint loc = [self.tapRecognizer locationInView:self.imageView];
-
-        //add point to the detail view and coredata.
-        [self.detailView addPointWithXValue:loc.x andYValue:loc.y];
-        //draw them 
-        [self drawAtPoint:loc];
-
     }
-
         
 }
 

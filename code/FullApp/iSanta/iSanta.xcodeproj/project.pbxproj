@@ -17,10 +17,13 @@
 		696D0E7914BB8770003EFE82 /* Range_Information.m in Sources */ = {isa = PBXBuildFile; fileRef = 696D0E7814BB8770003EFE82 /* Range_Information.m */; };
 		696E3DDB14E8577A00C0A84A /* DetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 696E3DDA14E8577A00C0A84A /* DetailTableViewCell.m */; };
 		696E3DDE14E857CC00C0A84A /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 696E3DDD14E857CC00C0A84A /* DetailTableViewCell.xib */; };
+		699BE3371553165400571400 /* EllipseFitting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 699BE3331553165400571400 /* EllipseFitting.cpp */; };
+		699BE3381553165400571400 /* ImageRecController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 699BE3351553165400571400 /* ImageRecController.cpp */; };
+		699BE33A1553166600571400 /* OpenCV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 699BE3391553166600571400 /* OpenCV.framework */; };
 		69AD7E8214E9B29F001F8A67 /* circle-crosshair.png in Resources */ = {isa = PBXBuildFile; fileRef = 69AD7E7B14E9B29F001F8A67 /* circle-crosshair.png */; };
 		69AD7E8314E9B29F001F8A67 /* circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 69AD7E7C14E9B29F001F8A67 /* circle.png */; };
-		69AD7E8414E9B29F001F8A67 /* ManualPlacementViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 69AD7E7E14E9B29F001F8A67 /* ManualPlacementViewController.mm */; };
-		69AD7E8514E9B29F001F8A67 /* PlacementBrain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 69AD7E8014E9B29F001F8A67 /* PlacementBrain.mm */; };
+		69AD7E8414E9B29F001F8A67 /* ManualPlacementViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AD7E7E14E9B29F001F8A67 /* ManualPlacementViewController.m */; };
+		69AD7E8514E9B29F001F8A67 /* PlacementBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 69AD7E8014E9B29F001F8A67 /* PlacementBrain.m */; };
 		69AD7E8614E9B29F001F8A67 /* redcircle.png in Resources */ = {isa = PBXBuildFile; fileRef = 69AD7E8114E9B29F001F8A67 /* redcircle.png */; };
 		69AD7E8F14E9B562001F8A67 /* ManualPlacement.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69AD7E8E14E9B562001F8A67 /* ManualPlacement.xib */; };
 		69B94D7A1499403400F0C847 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B94D791499403400F0C847 /* UIKit.framework */; };
@@ -33,8 +36,8 @@
 		69B94D8F1499403500F0C847 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B94D8D1499403500F0C847 /* MainStoryboard_iPhone.storyboard */; };
 		69B94D921499403500F0C847 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 69B94D901499403500F0C847 /* MainStoryboard_iPad.storyboard */; };
 		69B94D951499403500F0C847 /* iSanta.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 69B94D931499403500F0C847 /* iSanta.xcdatamodeld */; };
-		69B94D981499403500F0C847 /* MasterViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 69B94D971499403500F0C847 /* MasterViewController.mm */; };
-		69B94D9B1499403500F0C847 /* DetailViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 69B94D9A1499403500F0C847 /* DetailViewController.mm */; };
+		69B94D981499403500F0C847 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B94D971499403500F0C847 /* MasterViewController.m */; };
+		69B94D9B1499403500F0C847 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B94D9A1499403500F0C847 /* DetailViewController.m */; };
 		69B94DA31499403500F0C847 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B94DA21499403500F0C847 /* SenTestingKit.framework */; };
 		69B94DA41499403500F0C847 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B94D791499403400F0C847 /* UIKit.framework */; };
 		69B94DA51499403500F0C847 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69B94D7B1499403400F0C847 /* Foundation.framework */; };
@@ -49,8 +52,6 @@
 		9DABA312154ADB7900912C45 /* PointsDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DABA311154ADB7900912C45 /* PointsDisplayController.m */; };
 		E00FC6B0151CDEAB00FF5EBD /* stats.c in Sources */ = {isa = PBXBuildFile; fileRef = E00FC6AE151CDEAB00FF5EBD /* stats.c */; };
 		E00FC6B4151CE83B00FF5EBD /* stats.c in Sources */ = {isa = PBXBuildFile; fileRef = E00FC6AE151CDEAB00FF5EBD /* stats.c */; };
-		E07FE7F51558726B00BAE122 /* ImageRecController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 699BE3351553165400571400 /* ImageRecController.cpp */; };
-		E07FE7F61558727C00BAE122 /* EllipseFitting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 699BE3331553165400571400 /* EllipseFitting.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,13 +61,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 69B94D741499403400F0C847;
 			remoteInfo = iSanta;
-		};
-		E07FE7F71558728800BAE122 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 69B94D6C1499403400F0C847 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E07FE7F01558725800BAE122;
-			remoteInfo = OpenCv;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -92,12 +86,13 @@
 		699BE3341553165400571400 /* EllipseFitting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EllipseFitting.h; sourceTree = "<group>"; };
 		699BE3351553165400571400 /* ImageRecController.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ImageRecController.cpp; sourceTree = "<group>"; };
 		699BE3361553165400571400 /* ImageRecController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageRecController.h; sourceTree = "<group>"; };
+		699BE3391553166600571400 /* OpenCV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCV.framework; path = iSanta/OpenCV.framework; sourceTree = "<group>"; };
 		69AD7E7B14E9B29F001F8A67 /* circle-crosshair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "circle-crosshair.png"; sourceTree = "<group>"; };
 		69AD7E7C14E9B29F001F8A67 /* circle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = circle.png; sourceTree = "<group>"; };
 		69AD7E7D14E9B29F001F8A67 /* ManualPlacementViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualPlacementViewController.h; sourceTree = "<group>"; };
-		69AD7E7E14E9B29F001F8A67 /* ManualPlacementViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ManualPlacementViewController.mm; sourceTree = "<group>"; };
+		69AD7E7E14E9B29F001F8A67 /* ManualPlacementViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManualPlacementViewController.m; sourceTree = "<group>"; };
 		69AD7E7F14E9B29F001F8A67 /* PlacementBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlacementBrain.h; sourceTree = "<group>"; };
-		69AD7E8014E9B29F001F8A67 /* PlacementBrain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlacementBrain.mm; sourceTree = "<group>"; };
+		69AD7E8014E9B29F001F8A67 /* PlacementBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlacementBrain.m; sourceTree = "<group>"; };
 		69AD7E8114E9B29F001F8A67 /* redcircle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redcircle.png; sourceTree = "<group>"; };
 		69AD7E8E14E9B562001F8A67 /* ManualPlacement.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ManualPlacement.xib; sourceTree = "<group>"; };
 		69B94D751499403400F0C847 /* iSanta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iSanta.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,9 +110,9 @@
 		69B94D911499403500F0C847 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
 		69B94D941499403500F0C847 /* iSanta.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iSanta.xcdatamodel; sourceTree = "<group>"; };
 		69B94D961499403500F0C847 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		69B94D971499403500F0C847 /* MasterViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MasterViewController.mm; sourceTree = "<group>"; };
+		69B94D971499403500F0C847 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		69B94D991499403500F0C847 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		69B94D9A1499403500F0C847 /* DetailViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DetailViewController.mm; sourceTree = "<group>"; };
+		69B94D9A1499403500F0C847 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		69B94DA11499403500F0C847 /* iSantaTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iSantaTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		69B94DA21499403500F0C847 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		69B94DAB1499403500F0C847 /* iSantaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iSantaTests-Info.plist"; sourceTree = "<group>"; };
@@ -137,7 +132,6 @@
 		9DABA311154ADB7900912C45 /* PointsDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointsDisplayController.m; sourceTree = "<group>"; };
 		E00FC6AE151CDEAB00FF5EBD /* stats.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stats.c; path = iSanta/stats.c; sourceTree = "<group>"; };
 		E00FC6AF151CDEAB00FF5EBD /* stats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stats.h; path = iSanta/stats.h; sourceTree = "<group>"; };
-		E07FE7F11558725800BAE122 /* libOpenCv.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libOpenCv.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +144,7 @@
 				69B94D7C1499403400F0C847 /* Foundation.framework in Frameworks */,
 				69B94D7E1499403400F0C847 /* CoreGraphics.framework in Frameworks */,
 				69B94D801499403400F0C847 /* CoreData.framework in Frameworks */,
+				699BE33A1553166600571400 /* OpenCV.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,13 +156,6 @@
 				69B94DA41499403500F0C847 /* UIKit.framework in Frameworks */,
 				69B94DA51499403500F0C847 /* Foundation.framework in Frameworks */,
 				69B94DA61499403500F0C847 /* CoreData.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		E07FE7EE1558725800BAE122 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,9 +196,9 @@
 			isa = PBXGroup;
 			children = (
 				69B94D961499403500F0C847 /* MasterViewController.h */,
-				69B94D971499403500F0C847 /* MasterViewController.mm */,
+				69B94D971499403500F0C847 /* MasterViewController.m */,
 				69B94D991499403500F0C847 /* DetailViewController.h */,
-				69B94D9A1499403500F0C847 /* DetailViewController.mm */,
+				69B94D9A1499403500F0C847 /* DetailViewController.m */,
 				69B94D931499403500F0C847 /* iSanta.xcdatamodeld */,
 				696E3DD914E8577A00C0A84A /* DetailTableViewCell.h */,
 				696E3DDA14E8577A00C0A84A /* DetailTableViewCell.m */,
@@ -224,9 +212,9 @@
 			children = (
 				69AD7E8E14E9B562001F8A67 /* ManualPlacement.xib */,
 				69AD7E7D14E9B29F001F8A67 /* ManualPlacementViewController.h */,
-				69AD7E7E14E9B29F001F8A67 /* ManualPlacementViewController.mm */,
+				69AD7E7E14E9B29F001F8A67 /* ManualPlacementViewController.m */,
 				69AD7E7F14E9B29F001F8A67 /* PlacementBrain.h */,
-				69AD7E8014E9B29F001F8A67 /* PlacementBrain.mm */,
+				69AD7E8014E9B29F001F8A67 /* PlacementBrain.m */,
 			);
 			name = "Manual Placement";
 			sourceTree = "<group>";
@@ -247,7 +235,6 @@
 			children = (
 				69B94D751499403400F0C847 /* iSanta.app */,
 				69B94DA11499403500F0C847 /* iSantaTests.octest */,
-				E07FE7F11558725800BAE122 /* libOpenCv.dylib */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -255,6 +242,7 @@
 		69B94D781499403400F0C847 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				699BE3391553166600571400 /* OpenCV.framework */,
 				69B94D791499403400F0C847 /* UIKit.framework */,
 				69B94D7B1499403400F0C847 /* Foundation.framework */,
 				69B94D7D1499403400F0C847 /* CoreGraphics.framework */,
@@ -346,29 +334,18 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		E07FE7EF1558725800BAE122 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		69B94D741499403400F0C847 /* iSanta */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69B94DB41499403500F0C847 /* Build configuration list for PBXNativeTarget "iSanta" */;
 			buildPhases = (
+				69B94D731499403400F0C847 /* Resources */,
 				69B94D711499403400F0C847 /* Sources */,
 				69B94D721499403400F0C847 /* Frameworks */,
-				69B94D731499403400F0C847 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E07FE7F81558728800BAE122 /* PBXTargetDependency */,
 			);
 			name = iSanta;
 			productName = iSanta;
@@ -394,23 +371,6 @@
 			productReference = 69B94DA11499403500F0C847 /* iSantaTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
-		E07FE7F01558725800BAE122 /* OpenCv */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E07FE7F21558725800BAE122 /* Build configuration list for PBXNativeTarget "OpenCv" */;
-			buildPhases = (
-				E07FE7ED1558725800BAE122 /* Sources */,
-				E07FE7EE1558725800BAE122 /* Frameworks */,
-				E07FE7EF1558725800BAE122 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = OpenCv;
-			productName = OpenCv;
-			productReference = E07FE7F11558725800BAE122 /* libOpenCv.dylib */;
-			productType = "com.apple.product-type.library.dynamic";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -433,7 +393,6 @@
 			targets = (
 				69B94D741499403400F0C847 /* iSanta */,
 				69B94DA01499403500F0C847 /* iSantaTests */,
-				E07FE7F01558725800BAE122 /* OpenCv */,
 			);
 		};
 /* End PBXProject section */
@@ -489,13 +448,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E00FC6B4151CE83B00FF5EBD /* stats.c in Sources */,
-				69AD7E8514E9B29F001F8A67 /* PlacementBrain.mm in Sources */,
-				69B94D981499403500F0C847 /* MasterViewController.mm in Sources */,
-				69B94D9B1499403500F0C847 /* DetailViewController.mm in Sources */,
-				69AD7E8414E9B29F001F8A67 /* ManualPlacementViewController.mm in Sources */,
 				69B94D881499403400F0C847 /* main.m in Sources */,
 				69B94D8C1499403400F0C847 /* AppDelegate.m in Sources */,
 				69B94D951499403500F0C847 /* iSanta.xcdatamodeld in Sources */,
+				69B94D981499403500F0C847 /* MasterViewController.m in Sources */,
+				69B94D9B1499403500F0C847 /* DetailViewController.m in Sources */,
 				696D0E6614BB8732003EFE82 /* Ammunition_Information.m in Sources */,
 				696D0E6A14BB8753003EFE82 /* Test_Report.m in Sources */,
 				696D0E6D14BB876F003EFE82 /* Photo_Information.m in Sources */,
@@ -503,9 +460,13 @@
 				696D0E7314BB8770003EFE82 /* Weapon_Information.m in Sources */,
 				696D0E7914BB8770003EFE82 /* Range_Information.m in Sources */,
 				696E3DDB14E8577A00C0A84A /* DetailTableViewCell.m in Sources */,
+				69AD7E8414E9B29F001F8A67 /* ManualPlacementViewController.m in Sources */,
+				69AD7E8514E9B29F001F8A67 /* PlacementBrain.m in Sources */,
 				69C0D33114E9E96D00F6C131 /* CSVEmailTesterViewController.m in Sources */,
 				9DABA30E154ADB3300912C45 /* StatsDisplayController.m in Sources */,
 				9DABA312154ADB7900912C45 /* PointsDisplayController.m in Sources */,
+				699BE3371553165400571400 /* EllipseFitting.cpp in Sources */,
+				699BE3381553165400571400 /* ImageRecController.cpp in Sources */,
 				9D4A6C1415581E2A00F68E3D /* DefaultStatsProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,15 +480,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E07FE7ED1558725800BAE122 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E07FE7F61558727C00BAE122 /* EllipseFitting.cpp in Sources */,
-				E07FE7F51558726B00BAE122 /* ImageRecController.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -535,11 +487,6 @@
 			isa = PBXTargetDependency;
 			target = 69B94D741499403400F0C847 /* iSanta */;
 			targetProxy = 69B94DA71499403500F0C847 /* PBXContainerItemProxy */;
-		};
-		E07FE7F81558728800BAE122 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E07FE7F01558725800BAE122 /* OpenCv */;
-			targetProxy = E07FE7F71558728800BAE122 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -599,7 +546,6 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "external/opencv/include/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -619,7 +565,6 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "external/opencv/include/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
@@ -637,23 +582,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iSanta/iSanta-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = external/opencv/include;
 				INFOPLIST_FILE = "iSanta/iSanta-Info.plist";
-				OTHER_LDFLAGS = (
-					"-lopencv_contrib",
-					"-lopencv_core",
-					"-lopencv_calib3d",
-					"-lopencv_flann",
-					"-lopencv_features2d",
-					"-lopencv_objdetect",
-					"-lopencv_ml",
-					"-lopencv_legacy",
-					"-lopencv_imgproc",
-					"-lzlib",
-					"-lopencv_video",
-					"-lopencv_lapack",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -668,23 +597,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iSanta/iSanta-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = external/opencv/include;
 				INFOPLIST_FILE = "iSanta/iSanta-Info.plist";
-				OTHER_LDFLAGS = (
-					"-lopencv_contrib",
-					"-lopencv_core",
-					"-lopencv_calib3d",
-					"-lopencv_flann",
-					"-lopencv_features2d",
-					"-lopencv_objdetect",
-					"-lopencv_ml",
-					"-lopencv_legacy",
-					"-lopencv_imgproc",
-					"-lzlib",
-					"-lopencv_video",
-					"-lopencv_lapack",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -724,50 +637,6 @@
 			};
 			name = Release;
 		};
-		E07FE7F31558725800BAE122 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				EXECUTABLE_PREFIX = lib;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				LIBRARY_SEARCH_PATHS = "external/opencv/lib/**";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"-lopencv_core",
-					"-lopencv_flann",
-					"-lopencv_legacy",
-					"-lopencv_contrib",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		E07FE7F41558725800BAE122 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EXECUTABLE_PREFIX = lib;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				LIBRARY_SEARCH_PATHS = "external/opencv/lib/**";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_LDFLAGS = (
-					"-lopencv_core",
-					"-lopencv_flann",
-					"-lopencv_legacy",
-					"-lopencv_contrib",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -797,14 +666,6 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-		};
-		E07FE7F21558725800BAE122 /* Build configuration list for PBXNativeTarget "OpenCv" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E07FE7F31558725800BAE122 /* Debug */,
-				E07FE7F41558725800BAE122 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 
