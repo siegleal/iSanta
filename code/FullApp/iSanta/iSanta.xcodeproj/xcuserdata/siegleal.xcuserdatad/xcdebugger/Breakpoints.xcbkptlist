@@ -13,7 +13,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "181"
          endingLineNumber = "181"
-         landmarkName = "-movePoint"
+         landmarkName = "-dnButton"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -26,7 +26,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "415"
          endingLineNumber = "415"
-         landmarkName = "-singleTap:"
+         landmarkName = "-longPress:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -39,7 +39,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "416"
          endingLineNumber = "416"
-         landmarkName = "-singleTap:"
+         landmarkName = "-longPress:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -52,7 +52,7 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "284"
          endingLineNumber = "284"
-         landmarkName = "-tapped:"
+         landmarkName = "-movePoint:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
