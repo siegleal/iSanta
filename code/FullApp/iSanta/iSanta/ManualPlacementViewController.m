@@ -81,9 +81,9 @@ int currentOp = 1;
 {
     self.imageView.image = self.brain.targetImage;
     self.view.backgroundColor = [UIColor blackColor];
-    [self.view addGestureRecognizer:[self tapRecognizer]];
-    [self.view addGestureRecognizer:[self longPressRec]];
-    [self.view addGestureRecognizer:[self singleTapRec]];
+    [self.masterView addGestureRecognizer:[self tapRecognizer]];
+    [self.masterView addGestureRecognizer:[self longPressRec]];
+    [self.masterView addGestureRecognizer:[self singleTapRec]];
     
     
     self.scrollView.minimumZoomScale=1.0;
@@ -114,10 +114,10 @@ int currentOp = 1;
     self.lfButton.hidden = YES;
     self.rtButton.hidden = YES;
     
-    [self.upButton addTarget:self action:@selector(movePoint) forControlEvents:UIControlEventTouchUpInside];
-    [self.dnButton addTarget:self action:@selector(movePoint) forControlEvents:UIControlEventTouchUpInside];
-    [self.lfButton addTarget:self action:@selector(movePoint) forControlEvents:UIControlEventTouchUpInside];
-    [self.rtButton addTarget:self action:@selector(movePoint) forControlEvents:UIControlEventTouchUpInside];
+    [self.upButton addTarget:self action:@selector(movePoint:) forControlEvents:UIControlEventTouchUpInside];
+    [self.dnButton addTarget:self action:@selector(movePoint:) forControlEvents:UIControlEventTouchUpInside];
+    [self.lfButton addTarget:self action:@selector(movePoint:) forControlEvents:UIControlEventTouchUpInside];
+    [self.rtButton addTarget:self action:@selector(movePoint:) forControlEvents:UIControlEventTouchUpInside];
 
     
     
@@ -178,27 +178,27 @@ int currentOp = 1;
     return _rtButton;
 }
 
-- (void) movePoint{
+- (void) movePoint:(id) sender{
     NSLog(@"clicked");
     const int MOVEMENT = 5;
-//    CGPoint loc = self.selectedPoint.center;
-//    
-//    if (sender == self.upButton){
-//        loc.y -= MOVEMENT;
-//    }else if (sender == self.dnButton) {
-//        loc.y += MOVEMENT;
-//    }else if (sender == self.lfButton){
-//        loc.x -= MOVEMENT;
-//    }else { //rtButton
-//        loc.x += MOVEMENT;
-//    }
-//    
-//
-//    //change it on screen
-//    self.selectedPoint.center = loc;
-//    
-//    //change it in brain
-//    [self.brain replacePointAtIndex:selectedPointIndex withPoint:loc];
+    CGPoint loc = self.selectedPoint.center;
+    
+    if (sender == self.upButton){
+        loc.y -= MOVEMENT;
+    }else if (sender == self.dnButton) {
+        loc.y += MOVEMENT;
+    }else if (sender == self.lfButton){
+        loc.x -= MOVEMENT;
+    }else { //rtButton
+        loc.x += MOVEMENT;
+    }
+    
+
+    //change it on screen
+    self.selectedPoint.center = loc;
+    
+    //change it in brain
+    [self.brain replacePointAtIndex:selectedPointIndex withPoint:loc];
     
 }
                                               
