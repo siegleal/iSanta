@@ -205,7 +205,7 @@
 
 - (void)setPoints:(NSMutableArray *)inPoints
 {
-    self.points = inPoints;
+    points = [NSMutableArray arrayWithArray:inPoints];
     [self.detailItem setValue:[NSKeyedArchiver archivedDataWithRootObject:self.points] forKeyPath:@"test_Photo.points"];
 }
 
