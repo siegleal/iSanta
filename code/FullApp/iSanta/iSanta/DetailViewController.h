@@ -42,6 +42,8 @@
 
 - (void)addPointWithXValue:(int)x andYValue:(int)y;
 
+- (void)setPoints:(NSMutableArray *)inPoints;
+
 - (void)saveExportImage:(NSData *)imageData;
 
 @end
