@@ -1,0 +1,12 @@
+# Package Information for pkg-config
+
+prefix=/Users/macmade/Desktop/OpenCV-iPhone/OpenCV/build/iPhoneOS/../.././lib/iPhoneOS
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include/opencv
+
+Name: OpenCV
+Description: Intel(R) Open Source Computer Vision Library
+Version: 2.0.0
+Libs: -L${libdir} -lcv -lhighgui -lcvaux -lml -lcxcore
+Cflags: -I${includedir}
