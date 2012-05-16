@@ -12,6 +12,10 @@
 @implementation PlacementBrain
 @synthesize targetImage = _targetImage;
 @synthesize circleImage = _circleImage;
+@synthesize normalPinkImage = _normalPinkImage;
+@synthesize normalOrangeImage = _normalOrangeImage;
+@synthesize normalBlackImage = _normalBlackImage;
+
 @synthesize editImage = _editImage;
 @synthesize points = _points;
 @synthesize animationArray = _animationArray;
@@ -38,6 +42,31 @@
     //
     if (!_targetImage) _targetImage = [[UIImage alloc] initWithContentsOfFile:path];
     return _targetImage;
+}
+
+- (UIImage *)normalBlackImage
+{
+    NSBundle *appBundle = [NSBundle mainBundle];
+    NSString *path = [appBundle pathForResource:@"normal-black" 
+                                         ofType:@"png"];
+    if (!_normalBlackImage) _normalBlackImage = [[UIImage alloc] initWithContentsOfFile:path];
+    return _normalBlackImage;
+}
+- (UIImage *)normalOrangeImage
+{
+    NSBundle *appBundle = [NSBundle mainBundle];
+    NSString *path = [appBundle pathForResource:@"normal-orange" 
+                                         ofType:@"png"];
+    if (!_normalOrangeImage) _normalOrangeImage = [[UIImage alloc] initWithContentsOfFile:path];
+    return _normalOrangeImage;
+}
+- (UIImage *)normalPinkImage
+{
+    NSBundle *appBundle = [NSBundle mainBundle];
+    NSString *path = [appBundle pathForResource:@"normal-pink" 
+                                         ofType:@"png"];
+    if (!_normalPinkImage) _normalPinkImage = [[UIImage alloc] initWithContentsOfFile:path];
+    return _normalPinkImage;
 }
 
 - (UIImage *)circleImage

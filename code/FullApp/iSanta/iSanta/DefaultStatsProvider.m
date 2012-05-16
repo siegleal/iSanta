@@ -75,7 +75,7 @@
     double max_x = 0;
     double min_y = INFINITY;
     double max_y = 0;
-    for(int i = 0; i < points.count; i++)
+    for(int i = 3; i < points.count; i++)
     {
         NSValue *v = [points objectAtIndex:i];
         CGPoint p = v.CGPointValue;

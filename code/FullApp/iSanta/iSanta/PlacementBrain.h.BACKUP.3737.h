@@ -6,8 +6,11 @@
 //  Copyright (c) 2012 Rose-Hulman Institute of Technology. All rights reserved.
 //
 
+<<<<<<< HEAD
 
 //#import "ImageRecController.h"
+=======
+>>>>>>> 3a659fb74d835502a25ef427119378683d0a10e8
 #import <Foundation/Foundation.h>
 //#import "ImageRecController.h"
 
@@ -16,9 +19,6 @@
 
 @property (nonatomic, strong) UIImage *targetImage;
 @property (nonatomic, strong) UIImage *circleImage;
-@property (nonatomic, strong) UIImage *normalBlackImage;
-@property (nonatomic, strong) UIImage *normalPinkImage;
-@property (nonatomic, strong) UIImage *normalOrangeImage;
 @property (nonatomic, strong) UIImage *editImage;
 @property (nonatomic, strong) NSMutableArray *points;
 @property (nonatomic, strong) NSArray *animationArray;

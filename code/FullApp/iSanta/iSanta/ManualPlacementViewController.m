@@ -74,6 +74,8 @@ const double BTNALPHA = .5;
 
 int selectedPointIndex = -1;
 
+double XCenterOffset,YCenterOffset;
+
 
 int currentOp = 1;
 
@@ -81,7 +83,7 @@ int currentOp = 1;
     NSString *message;
     switch (status) {
         case NORMAL:
-            message = @"Single tap: Add point\nLong tap: Mode Select (Delete / Move)";
+            message = @"NOTE: The first three points (pink, yellow, black) should mark a right angle on the target of known dimensions.  This is used for image normalization\n\nSingle tap: Add point\nLong tap: Mode Select (Delete / Move)";
             break;
             
         case MOVING:
@@ -162,6 +164,8 @@ int currentOp = 1;
     
     [self loadPointsFromBrain];
     [self switchModeTo:NORMAL];
+    
+    
    
     
 }
@@ -239,7 +243,7 @@ int currentOp = 1;
             }
             
             [self buttonsHidden:YES];
-            self.navigationItem.prompt = @"Tap to add a point";
+            self.navigationItem.prompt = @"Add three points of a right angle on target";
 
             break;
         
@@ -272,6 +276,7 @@ int currentOp = 1;
             
             //stop animating
             for (UIImageView *iv in self.ivArray) {
+                
                 [iv startAnimating];
             }
             
@@ -322,8 +327,30 @@ int currentOp = 1;
 }
 
 -(void) drawAtPoint:(CGPoint) loc{
-    UIImageView *iv = [[UIImageView alloc] initWithImage:self.brain.circleImage];
-    iv.animationImages = self.brain.animationArray;
+    UIImageView *iv;
+    NSLog(@"%d",self.ivArray.count);
+    if (self.ivArray.count == 0){
+        iv = [[UIImageView alloc] initWithImage:self.brain.normalPinkImage];
+        iv.animationImages = nil;
+
+
+    }else if (self.ivArray.count == 1){
+        iv = [[UIImageView alloc] initWithImage:self.brain.normalOrangeImage];
+        iv.animationImages = nil;
+
+
+    }else if (self.ivArray.count == 2){
+        iv = [[UIImageView alloc] initWithImage:self.brain.normalBlackImage];
+        iv.animationImages = nil;
+
+    }
+    else{
+        iv = [[UIImageView alloc] initWithImage:self.brain.circleImage];
+        iv.animationImages = self.brain.animationArray;
+    }
+//        iv = [[UIImageView alloc] initWithImage:self.brain.circleImage];
+
+    
     iv.center = loc;
     iv.animationDuration = ANIMATEDURATION;
     //        [self.imageView addSubview:iv];
@@ -333,8 +360,14 @@ int currentOp = 1;
 }
 
 - (void) loadPointsFromBrain{
+//    for (NSValue *value in self.brain.points){
+//        [self drawAtPoint:[value CGPointValue]];
+//    }
     for (NSValue *value in self.brain.points){
-        [self drawAtPoint:[value CGPointValue]];
+        CGPoint point = [value CGPointValue];
+        point.x += self.imageView.center.x;
+        point.y += self.imageView.center.y;
+        [self drawAtPoint:point];
     }
 }
 
@@ -449,11 +482,17 @@ int currentOp = 1;
         int closestIndex = 0;
         double closestDist = 999;
 
-        if (self.brain.points.count > 0)
+        if (self.brain.points.count > 3)
         {
             //loop thru all of the points
-            NSEnumerator *e = [self.brain.points objectEnumerator];            
-            for (int i = 0; i < self.brain.points.count; i++) 
+            NSEnumerator *e = [self.brain.points objectEnumerator];
+            
+            //skip  the normalization points
+            [e nextObject];
+            [e nextObject];
+            [e nextObject];
+            
+            for (int i = 3; i < self.brain.points.count; i++) 
             {
                 NSValue *obj = [e nextObject];
                 double dist = sqrt(pow(loc.x - obj.CGPointValue.x,2.0) + pow(loc.y - obj.CGPointValue.y,2.0));
@@ -490,11 +529,13 @@ int currentOp = 1;
         {
             //loop thru all of the points
             NSEnumerator *e = [self.brain.points objectEnumerator]; 
-            NSLog(@"%d\n%d",self.brain.points.count,self.ivArray.count);
             for (int i = 0; i < self.brain.points.count; i++) 
             {
                 NSValue *obj = [e nextObject];
-                double dist = sqrt(pow(loc.x - obj.CGPointValue.x,2.0) + pow(loc.y - obj.CGPointValue.y,2.0));
+                CGPoint point = obj.CGPointValue;
+                point.x += self.imageView.center.x;
+                point.y += self.imageView.center.y;
+                double dist = sqrt(pow(loc.x - point.x,2.0) + pow(loc.y - point.y,2.0));
                 if (dist < closestDist) {
                     closestDist = dist;
                     closestIndex = i;
@@ -519,7 +560,14 @@ int currentOp = 1;
             }
             else {
                 if (self.selectedPoint)
-                    [self.selectedPoint setImage:self.brain.circleImage];
+                    if (closestIndex == 0)
+                        [self.selectedPoint setImage:self.brain.normalPinkImage];
+                    else if (closestIndex == 1)
+                        [self.selectedPoint setImage:self.brain.normalOrangeImage];
+                    else if (closestIndex == 2)
+                        [self.selectedPoint setImage:self.brain.normalBlackImage];
+                    else
+                        [self.selectedPoint setImage:self.brain.circleImage];
                 [self.scrollView setZoomScale:1.0];
                 [self.scrollView setContentOffset:CGPointMake(0, 0 )];
                 selectedPointIndex = -1;
@@ -528,9 +576,11 @@ int currentOp = 1;
         }
     }else{
         CGPoint loc = [self.tapRecognizer locationInView:self.imageView];
-
         //add point to the detail view and coredata.
-        [self.detailView addPointWithXValue:loc.x andYValue:loc.y];
+        CGPoint brainPoint = loc;
+        brainPoint.x -= self.imageView.center.x;
+        brainPoint.y -= self.imageView.center.y;
+        [self.detailView addPointWithXValue:brainPoint.x andYValue:brainPoint.y];
         //draw them 
         [self drawAtPoint:loc];
 
