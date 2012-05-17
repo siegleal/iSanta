@@ -148,6 +148,10 @@
         NSString *caliber = [NSString stringWithFormat:@"%.2f",[[self.detailItem valueForKeyPath:@"test_Ammunition.caliber"] doubleValue]];
         NSString *lotNum = [NSString stringWithFormat:@"%d",[self.detailItem valueForKeyPath:@"test_Ammunition.lot_Number"]];
         NSString *mass = [NSString stringWithFormat:@"%.2f",[[self.detailItem valueForKeyPath:@"test_Ammunition.projectile_Mass"] doubleValue]];
+        
+        NSString *height = [NSString stringWithFormat:@"%.2f",[self.detailItem valueForKeyPath:@"test_Photo.target_Height"]];
+        NSString *width = [NSString stringWithFormat:@"%.2f",[self.detailItem valueForKeyPath:@"test_Photo.target_Width"]];
+
         if(name != nil && formattedDate != nil && range != nil && temp != nil && distance != nil && numShots != nil && weaponSerialNumber != nil && nomenclature != nil && caliber != nil && lotNum != nil && mass != nil)
         {
             //Shooter Name (last, first)
@@ -172,6 +176,10 @@
             [reportDictionary setObject:lotNum forKey:@"Lot #"];
             //Projectile Mass
             [reportDictionary setObject:mass forKey:@"Projectile Mass"];
+            //Height
+            [reportDictionary setObject:height forKey:@"Target Height"];
+            //Width
+            [reportDictionary setObject:width forKey:@"Target Width"];
             //send the dictionary to the stats controller.
             [statsDisplayController setReportData:reportDictionary];
         }
@@ -291,11 +299,11 @@
                     [cell.imageView setImage:nil];
                     value = [[self.detailItem valueForKeyPath:@"test_Photo.target_Height"]description];
                     if (metric) {
-                        [cell setTextFieldPlaceholder:@"Target Height (cm)"];
+                        [cell setTextFieldPlaceholder:@"Height (Pink to Orange) (cm)"];
                         value = [NSString stringWithFormat:@"%f",[self convertInchesToCentimeters:[value doubleValue]]];
                     }
                     else {
-                        [cell setTextFieldPlaceholder:@"Target Height (in)"];
+                        [cell setTextFieldPlaceholder:@"Height (Pink to Orange) (in)"];
                     }
                     if ([value doubleValue] != 0.0)
                         [cell setTextFieldText:value];
@@ -307,11 +315,11 @@
                     [cell.imageView setImage:nil];
                     value = [[self.detailItem valueForKeyPath:@"test_Photo.target_Width"]description];
                     if (metric) {
-                        [cell setTextFieldPlaceholder:@"Target Width (cm)"];
+                        [cell setTextFieldPlaceholder:@"Width (Orange to Black) (cm)"];
                         value = [NSString stringWithFormat:@"%f",[self convertInchesToCentimeters:[value doubleValue]]];
                     }
                     else {
-                        [cell setTextFieldPlaceholder:@"Target Width (in)"];
+                        [cell setTextFieldPlaceholder:@"Width (Orange to Black) (in)"];
                     }                    
                     if ([value doubleValue] != 0.0)
                         [cell setTextFieldText:value];

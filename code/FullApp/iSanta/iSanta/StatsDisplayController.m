@@ -38,11 +38,44 @@
         adata = [adata stringByAppendingFormat:@"%@,%@,\n", @"Projectile Mass", [self.reportData objectForKey:@"Projectile Mass"]];
         adata = [adata stringByAppendingString:@",,\nStatistics (in inches),,\n"];
         int count = [self.statsProvider getRowCount:self.points];
+        
+        //convert the points to measurement from pixels
+        //get normalization points
+        double pixelHeight = 1;
+        double pixelWidth = 1;
+
+        if (self.points.count >3){
+            pixelHeight = fabs([[self.points objectAtIndex:0] doubleValue] - [[self.points objectAtIndex:1] doubleValue]);
+            pixelWidth = fabs([[self.points objectAtIndex:1] doubleValue] - [[self.points objectAtIndex:2] doubleValue]);
+            [self.points removeObjectAtIndex:0];
+            [self.points removeObjectAtIndex:1];
+            [self.points removeObjectAtIndex:2];
+        }
+        for(int i = 0; i < self.points.count; i++)
+        {
+            NSValue *v = [self.points objectAtIndex:i];
+            CGPoint p = v.CGPointValue;
+            //convert for pixels to actual length
+            double xRatio = [[self.reportData objectForKey:@"Target Height"] doubleValue] / pixelHeight;
+            double yRatio = [[self.reportData objectForKey:@"Target Width"] doubleValue] / pixelWidth;
+            p.x *= xRatio;
+            p.y *= yRatio;
+            [self.points replaceObjectAtIndex:i withObject:[NSValue valueWithCGPoint:p]];
+        }
+        
+        
+
         for(int i = 0; i < count; i++)
         {
             adata = [adata stringByAppendingFormat:@"%@,%@,\n", [self.statsProvider getTitleForIndex:i withPoints:self.points], [self.statsProvider getValueForIndex:i withPoints:self.points]];
         }
         adata = [adata stringByAppendingString:@",,\n,,\nShot Record (in inches),,\nPoint #,X Value, Y Value\n"];
+                if (self.points.count >3){
+            pixelHeight = fabs([[self.points objectAtIndex:0] doubleValue] - [[self.points objectAtIndex:1] doubleValue]);
+            pixelWidth = fabs([[self.points objectAtIndex:1] doubleValue] - [[self.points objectAtIndex:2] doubleValue]);
+        }
+        
+
         for(int i = 0; i < self.points.count; i++)
         {
             NSValue *v = [self.points objectAtIndex:i];

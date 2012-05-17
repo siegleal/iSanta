@@ -83,7 +83,7 @@ int currentOp = 1;
     NSString *message;
     switch (status) {
         case NORMAL:
-            message = @"NOTE: The first three points (pink, yellow, black) should mark a right angle on the target of known dimensions.  This is used for image normalization\n\nSingle tap: Add point\nLong tap: Mode Select (Delete / Move)";
+            message = @"NOTE: The first three points (pink, yellow, black) should mark a right angle on the target of known dimensions. Pink should be above Orange, and Black to the right of Pink.  This is used for image normalization\n\nSingle tap: Add point\nLong tap: Mode Select (Delete / Move)";
             break;
             
         case MOVING:
@@ -367,6 +367,7 @@ int currentOp = 1;
         CGPoint point = [value CGPointValue];
         point.x += self.imageView.center.x;
         point.y += self.imageView.center.y;
+        point.y *= -1;
         [self drawAtPoint:point];
     }
 }
@@ -535,6 +536,7 @@ int currentOp = 1;
                 CGPoint point = obj.CGPointValue;
                 point.x += self.imageView.center.x;
                 point.y += self.imageView.center.y;
+                point.y *= -1;
                 double dist = sqrt(pow(loc.x - point.x,2.0) + pow(loc.y - point.y,2.0));
                 if (dist < closestDist) {
                     closestDist = dist;
@@ -580,6 +582,7 @@ int currentOp = 1;
         CGPoint brainPoint = loc;
         brainPoint.x -= self.imageView.center.x;
         brainPoint.y -= self.imageView.center.y;
+        brainPoint.y *= -1;
         [self.detailView addPointWithXValue:brainPoint.x andYValue:brainPoint.y];
         //draw them 
         [self drawAtPoint:loc];
