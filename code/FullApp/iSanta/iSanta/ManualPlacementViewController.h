@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PlacementBrain.h"
+#import "ImageModel.h"
 @class DetailViewController;
 
 //@interface mySingleTapRec : UITapGestureRecognizer
@@ -19,6 +20,7 @@
 @interface ManualPlacementViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic, strong) PlacementBrain *brain;
+@property (nonatomic, strong) ImageModel *images;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapRecognizer;
 @property (strong, nonatomic) IBOutlet UILongPressGestureRecognizer *longPressRec;
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *singleTapRec;

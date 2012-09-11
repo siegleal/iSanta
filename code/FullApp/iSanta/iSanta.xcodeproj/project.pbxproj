@@ -53,6 +53,7 @@
 		E020C3FA1559BB3A005431EE /* EllipseFitting.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 699BE3331553165400571400 /* EllipseFitting.cpp */; };
 		E020C3FB1559BB3C005431EE /* ImageRecController.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 699BE3351553165400571400 /* ImageRecController.cpp */; };
 		E020C4051559BE91005431EE /* OpenCV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E020C4041559BE91005431EE /* OpenCV.framework */; };
+		E0F9456415FF89CA00B7D879 /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E0F9456315FF89CA00B7D879 /* ImageModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +135,8 @@
 		E00FC6AE151CDEAB00FF5EBD /* stats.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = stats.c; path = iSanta/stats.c; sourceTree = "<group>"; };
 		E00FC6AF151CDEAB00FF5EBD /* stats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = stats.h; path = iSanta/stats.h; sourceTree = "<group>"; };
 		E020C4041559BE91005431EE /* OpenCV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenCV.framework; path = iSanta/OpenCV.framework; sourceTree = "<group>"; };
+		E0F9456215FF89CA00B7D879 /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageModel.h; sourceTree = "<group>"; };
+		E0F9456315FF89CA00B7D879 /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +221,8 @@
 				69AD7E7E14E9B29F001F8A67 /* ManualPlacementViewController.m */,
 				69AD7E7F14E9B29F001F8A67 /* PlacementBrain.h */,
 				69AD7E8014E9B29F001F8A67 /* PlacementBrain.m */,
+				E0F9456215FF89CA00B7D879 /* ImageModel.h */,
+				E0F9456315FF89CA00B7D879 /* ImageModel.m */,
 			);
 			name = "Manual Placement";
 			sourceTree = "<group>";
@@ -472,6 +477,7 @@
 				9DABA30E154ADB3300912C45 /* StatsDisplayController.m in Sources */,
 				9DABA312154ADB7900912C45 /* PointsDisplayController.m in Sources */,
 				9D4A6C1415581E2A00F68E3D /* DefaultStatsProvider.m in Sources */,
+				E0F9456415FF89CA00B7D879 /* ImageModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,23 +10,9 @@
 
 
 @implementation PlacementBrain
-@synthesize targetImage = _targetImage;
-@synthesize circleImage = _circleImage;
-@synthesize normalPinkImage = _normalPinkImage;
-@synthesize normalOrangeImage = _normalOrangeImage;
-@synthesize normalBlackImage = _normalBlackImage;
 
-@synthesize editImage = _editImage;
 @synthesize points = _points;
-@synthesize animationArray = _animationArray;
-
-
-- (NSArray *)animationArray
-{
-    if (!_animationArray) _animationArray = [[NSArray alloc] initWithObjects:[UIImage imageNamed:@"circle.png"],
-                                             [UIImage imageNamed:@"redcircle.png"], nil];
-    return _animationArray;
-}
+@synthesize targetImage = _targetImage;
 
 - (UIImage *)targetImage
 {
@@ -35,7 +21,7 @@
     //
     
     NSBundle *appBundle = [NSBundle mainBundle];
-    NSString *path = [appBundle pathForResource:@"iSantaIcon" 
+    NSString *path = [appBundle pathForResource:@"iSantaIcon"
                                          ofType:@"png"];
     //
     //
@@ -44,48 +30,8 @@
     return _targetImage;
 }
 
-- (UIImage *)normalBlackImage
-{
-    NSBundle *appBundle = [NSBundle mainBundle];
-    NSString *path = [appBundle pathForResource:@"normal-black" 
-                                         ofType:@"png"];
-    if (!_normalBlackImage) _normalBlackImage = [[UIImage alloc] initWithContentsOfFile:path];
-    return _normalBlackImage;
-}
-- (UIImage *)normalOrangeImage
-{
-    NSBundle *appBundle = [NSBundle mainBundle];
-    NSString *path = [appBundle pathForResource:@"normal-orange" 
-                                         ofType:@"png"];
-    if (!_normalOrangeImage) _normalOrangeImage = [[UIImage alloc] initWithContentsOfFile:path];
-    return _normalOrangeImage;
-}
-- (UIImage *)normalPinkImage
-{
-    NSBundle *appBundle = [NSBundle mainBundle];
-    NSString *path = [appBundle pathForResource:@"normal-pink" 
-                                         ofType:@"png"];
-    if (!_normalPinkImage) _normalPinkImage = [[UIImage alloc] initWithContentsOfFile:path];
-    return _normalPinkImage;
-}
 
-- (UIImage *)circleImage
-{
-    NSBundle *appBundle = [NSBundle mainBundle];
-    NSString *path = [appBundle pathForResource:@"circle-crosshair" 
-                                         ofType:@"png"];
-    if (!_circleImage) _circleImage = [[UIImage alloc] initWithContentsOfFile:path];
-    return _circleImage;
-}
 
-- (UIImage *)editImage
-{
-    NSBundle *appBundle = [NSBundle mainBundle];
-    NSString *path = [appBundle pathForResource:@"edit-circle-crosshair" 
-                                         ofType:@"png"];
-    if (!_editImage) _editImage = [[UIImage alloc] initWithContentsOfFile:path];
-    return _editImage;
-}
 
 - (void)printPoints
 {

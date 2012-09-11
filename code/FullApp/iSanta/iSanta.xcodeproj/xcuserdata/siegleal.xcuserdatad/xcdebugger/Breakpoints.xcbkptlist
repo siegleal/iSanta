@@ -8,12 +8,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iSanta/ManualPlacementViewController.m"
-         timestampString = "358111378.589574"
+         timestampString = "369095981.140852"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "181"
-         endingLineNumber = "181"
-         landmarkName = "-dnButton"
+         startingLineNumber = "407"
+         endingLineNumber = "407"
+         landmarkName = "-modeSheet"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -21,12 +21,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iSanta/ManualPlacementViewController.m"
-         timestampString = "358111378.589574"
+         timestampString = "369095981.140852"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "415"
-         endingLineNumber = "415"
-         landmarkName = "-longPress:"
+         startingLineNumber = "408"
+         endingLineNumber = "408"
+         landmarkName = "-modeSheet"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -34,12 +34,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iSanta/ManualPlacementViewController.m"
-         timestampString = "358111378.589574"
+         timestampString = "369095981.140852"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "416"
-         endingLineNumber = "416"
-         landmarkName = "-longPress:"
+         startingLineNumber = "270"
+         endingLineNumber = "270"
+         landmarkName = "-switchModeTo:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "iSanta/ImageModel.m"
+         timestampString = "369070879.10248"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "53"
+         endingLineNumber = "53"
+         landmarkName = "-normalOrangeImage"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -47,12 +60,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "iSanta/ManualPlacementViewController.m"
-         timestampString = "358111378.589574"
+         timestampString = "369095981.140852"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "284"
-         endingLineNumber = "284"
-         landmarkName = "-movePoint:"
+         startingLineNumber = "397"
+         endingLineNumber = "397"
+         landmarkName = "-images"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

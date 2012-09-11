@@ -21,10 +21,6 @@
 @property (nonatomic, strong) UIButton *dnButton;
 @property (nonatomic, strong) UIButton *lfButton;
 @property (nonatomic, strong) UIButton *rtButton;
-@property (nonatomic, strong) UIImage *upImage;
-@property (nonatomic, strong) UIImage *dnImage;
-@property (nonatomic, strong) UIImage *lfImage;
-@property (nonatomic, strong) UIImage *rtImage;
 
 @property (nonatomic, strong) UIImageView *selectedPoint;
 - (void)buttonsVisible:(BOOL) vis;
@@ -49,11 +45,17 @@
 @synthesize dnButton = _dnButton;
 @synthesize lfButton = _lfButton;
 @synthesize rtButton = _rtButton;
-@synthesize upImage = _upImage;
-@synthesize dnImage = _dnImage;
-@synthesize lfImage = _lfImage;
-@synthesize rtImage = _rtImage;
+
 @synthesize selectedPoint = _selectedPoint;
+@synthesize images = _images;
+
+NSString *const THREEPOINTSPROMPT= @"Add three points of a right angle on target";
+NSString *const MOVEPOINTSPROMPT = @"Tap to select a point to move";
+NSString *const DELETEPOINTSPROMPT = @"Tap a point to delete";
+
+NSString *const NORMALMESSAGE = @"NOTE: The first three points (pink, yellow, black) should mark a right angle on the target of known dimensions. Pink should be above Orange, and Black to the right of Pink.  This is used for image normalization\n\nSingle tap: Add point\nLong tap: Mode Select (Delete / Move)";
+NSString *const MOVINGMESSAGE = @"Single tap: Select point\nDouble tap: Return to normal view\nLong tap: Mode select (Delete / Add)";
+NSString *const DELETEMESSAGE = @"Single tap: Delete point\nDouble tap: Return to normal view\nLong tap: Mode select (Move / Add)";
 
 
 
@@ -83,15 +85,15 @@ int currentOp = 1;
     NSString *message;
     switch (status) {
         case NORMAL:
-            message = @"NOTE: The first three points (pink, yellow, black) should mark a right angle on the target of known dimensions. Pink should be above Orange, and Black to the right of Pink.  This is used for image normalization\n\nSingle tap: Add point\nLong tap: Mode Select (Delete / Move)";
+            message = NORMALMESSAGE;
             break;
             
         case MOVING:
-            message = @"Single tap: Select point\nDouble tap: Return to normal view\nLong tap: Mode select (Delete / Add)";
+            message = MOVINGMESSAGE;
             break;
             
         case DELETING:
-            message = @"Single tap: Delete point\nDouble tap: Return to normal view\nLong tap: Mode select (Move / Add)";
+            message = DELETEMESSAGE;
             
         default:
             break;
@@ -146,10 +148,10 @@ int currentOp = 1;
     [self.view addSubview:self.lfButton];
     [self.view addSubview:self.rtButton];
     
-    [self.upButton setImage:self.upImage forState:UIControlStateNormal];
-    [self.dnButton setImage:self.dnImage forState:UIControlStateNormal];
-    [self.lfButton setImage:self.lfImage forState:UIControlStateNormal];
-    [self.rtButton setImage:self.rtImage forState:UIControlStateNormal];
+    [self.upButton setImage:self.images.upImage forState:UIControlStateNormal];
+    [self.dnButton setImage:self.images.dnImage forState:UIControlStateNormal];
+    [self.lfButton setImage:self.images.lfImage forState:UIControlStateNormal];
+    [self.rtButton setImage:self.images.rtImage forState:UIControlStateNormal];
     
     self.upButton.hidden = YES;
     self.dnButton.hidden = YES;
@@ -170,22 +172,6 @@ int currentOp = 1;
     
 }
 
-- (UIImage *) upImage{
-    if (!_upImage) _upImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"btn_up" ofType:@"png"]];
-    return _upImage;
-}
-- (UIImage *) dnImage{
-    if (!_dnImage) _dnImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"btn_dn" ofType:@"png"]];
-    return _dnImage;
-}
-- (UIImage *) lfImage{
-    if (!_lfImage) _lfImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"btn_lf" ofType:@"png"]];
-    return _lfImage;
-}
-- (UIImage *) rtImage{
-    if (!_rtImage) _rtImage = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"btn_rt" ofType:@"png"]];
-    return _rtImage;
-}
 
 - (UIButton *) upButton{
     if (!_upButton) {
@@ -223,7 +209,7 @@ int currentOp = 1;
 }
 
 -(void) resetPointImage:(UIImageView *) view{
-    [view setImage:self.brain.circleImage];
+    [view setImage:self.images.circleImage];
 }
 
 -(void) switchModeTo:(int)mode{
@@ -243,7 +229,7 @@ int currentOp = 1;
             }
             
             [self buttonsHidden:YES];
-            self.navigationItem.prompt = @"Add three points of a right angle on target";
+            self.navigationItem.prompt = THREEPOINTSPROMPT;
 
             break;
         
@@ -261,7 +247,7 @@ int currentOp = 1;
             }
             
             [self buttonsHidden:YES];
-            self.navigationItem.prompt = @"Tap to select a point to move";
+            self.navigationItem.prompt = MOVEPOINTSPROMPT;
 
 
             break;
@@ -281,7 +267,7 @@ int currentOp = 1;
             }
             
             [self buttonsHidden:YES];
-            self.navigationItem.prompt = @"Tap a point to delete";
+            self.navigationItem.prompt = DELETEPOINTSPROMPT;
 
 
             break;
@@ -330,23 +316,23 @@ int currentOp = 1;
     UIImageView *iv;
     NSLog(@"%d",self.ivArray.count);
     if (self.ivArray.count == 0){
-        iv = [[UIImageView alloc] initWithImage:self.brain.normalPinkImage];
+        iv = [[UIImageView alloc] initWithImage:self.images.normalPinkImage];
         iv.animationImages = nil;
 
 
     }else if (self.ivArray.count == 1){
-        iv = [[UIImageView alloc] initWithImage:self.brain.normalOrangeImage];
+        iv = [[UIImageView alloc] initWithImage:self.images.normalOrangeImage];
         iv.animationImages = nil;
 
 
     }else if (self.ivArray.count == 2){
-        iv = [[UIImageView alloc] initWithImage:self.brain.normalBlackImage];
+        iv = [[UIImageView alloc] initWithImage:self.images.normalBlackImage];
         iv.animationImages = nil;
 
     }
     else{
-        iv = [[UIImageView alloc] initWithImage:self.brain.circleImage];
-        iv.animationImages = self.brain.animationArray;
+        iv = [[UIImageView alloc] initWithImage:self.images.circleImage];
+        iv.animationImages = self.images.animationArray;
     }
 //        iv = [[UIImageView alloc] initWithImage:self.brain.circleImage];
 
@@ -404,6 +390,12 @@ int currentOp = 1;
 {
     if (!_brain) _brain = [[PlacementBrain alloc] init];
     return _brain;
+}
+
+- (ImageModel *)images
+{
+    if (!_images) _images = [[ImageModel alloc] init];
+    return _images;
 }
 
 - (UIView *)masterView{
@@ -549,9 +541,9 @@ int currentOp = 1;
                 double zoomFactor = 2.0;
                 //remove from controller & view
                 if (self.selectedPoint)
-                    [self.selectedPoint setImage:self.brain.circleImage];
+                    [self.selectedPoint setImage:self.images.circleImage];
                 self.selectedPoint = [self.ivArray objectAtIndex:closestIndex];
-                [self.selectedPoint setImage:self.brain.editImage];
+                [self.selectedPoint setImage:self.images.editImage];
                 [self.scrollView setZoomScale:zoomFactor];
                 [self centerAtX:self.selectedPoint.center.x andY:self.selectedPoint.center.y withZoomFactor:zoomFactor];
 
@@ -563,13 +555,13 @@ int currentOp = 1;
             else {
                 if (self.selectedPoint)
                     if (closestIndex == 0)
-                        [self.selectedPoint setImage:self.brain.normalPinkImage];
+                        [self.selectedPoint setImage:self.images.normalPinkImage];
                     else if (closestIndex == 1)
-                        [self.selectedPoint setImage:self.brain.normalOrangeImage];
+                        [self.selectedPoint setImage:self.images.normalOrangeImage];
                     else if (closestIndex == 2)
-                        [self.selectedPoint setImage:self.brain.normalBlackImage];
+                        [self.selectedPoint setImage:self.images.normalBlackImage];
                     else
-                        [self.selectedPoint setImage:self.brain.circleImage];
+                        [self.selectedPoint setImage:self.images.circleImage];
                 [self.scrollView setZoomScale:1.0];
                 [self.scrollView setContentOffset:CGPointMake(0, 0 )];
                 selectedPointIndex = -1;
